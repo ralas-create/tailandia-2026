@@ -102,6 +102,31 @@ nav{position:sticky;top:0;z-index:100;background:rgba(10,15,26,0.92);backdrop-fi
 .route-line{animation:routeDash 4s linear infinite}
 .city-pulse{transform-box:fill-box;transform-origin:center;animation:cityPulse 2.5s ease-in-out infinite}
 
+
+/* ─── SATURATION BADGE ─── */
+.sat-badge{display:inline-flex;align-items:center;gap:5px;font-size:.7rem;font-weight:600;border-radius:100px;padding:3px 10px;margin-bottom:8px}
+.sat-high{background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.35);color:#ef4444}
+.sat-med{background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.3);color:#F5A623}
+.sat-low{background:rgba(86,196,94,.1);border:1px solid rgba(86,196,94,.3);color:#56C45E}
+/* ─── DAY META (budget + tip) ─── */
+.day-meta{display:flex;flex-direction:column;gap:5px;margin:10px 0 8px;padding:10px 12px;background:rgba(255,255,255,.04);border-radius:10px;border:1px solid rgba(255,255,255,.07)}
+.day-meta-row{font-size:.77rem;color:rgba(255,255,255,.7);line-height:1.4}
+.day-meta-row strong{color:#fff}
+/* ─── BULLET LIST ─── */
+.day-bullets{list-style:none;margin:0 0 8px;padding:0;display:flex;flex-direction:column;gap:6px}
+.day-bullets li{font-size:.85rem;color:var(--muted);line-height:1.5;padding-left:4px}
+/* ─── INSIDER TIP ─── */
+.insider-tip{margin-top:10px}
+.insider-tip summary{font-size:.75rem;color:rgba(255,255,255,.45);cursor:pointer;list-style:none;display:flex;align-items:center;gap:5px;padding:4px 0}
+.insider-tip summary::-webkit-details-marker{display:none}
+.insider-tip[open] summary{color:var(--gold)}
+.insider-tip .tip-body{font-size:.78rem;color:var(--muted);line-height:1.6;padding:8px 10px;background:rgba(245,200,66,.06);border-left:2px solid rgba(245,200,66,.3);border-radius:0 8px 8px 0;margin-top:6px}
+/* ─── NAME SELECT (voting) ─── */
+.name-select-wrap{margin-bottom:20px}
+.name-select-wrap label{display:block;font-size:.78rem;font-weight:600;color:var(--muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
+.name-select{width:100%;padding:11px 14px;background:rgba(255,255,255,.06);border:1.5px solid var(--border);border-radius:10px;color:#fff;font-size:.88rem;font-family:'Poppins',sans-serif;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B7FA0' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+.name-select option{background:#1a2744;color:#fff}
+
 /* ─── DAY CARDS ─── */
 .days-grid{display:flex;flex-direction:column;gap:16px}
 .day-card{background:var(--card);border:1px solid var(--border);border-radius:18px;overflow:hidden;transition:all .3s}
@@ -235,15 +260,15 @@ footer span{color:var(--gold)}
 <!-- ═══════════════════════════════════════════════════ NAV -->
 <nav>
   <div class="nav-inner">
-    <button class="nav-btn active" onclick="scrollTo('calendario')">📅 Calendario</button>
-    <button class="nav-btn" onclick="scrollTo('mapa')">🗺️ Ruta</button>
-    <button class="nav-btn" onclick="scrollTo('itinerario')">📖 Itinerario</button>
-    <button class="nav-btn" onclick="scrollTo('presupuesto')">💰 Presupuesto</button>
-    <button class="nav-btn" onclick="scrollTo('votar')">🗳️ Votar</button>
+    <button class="nav-btn active" onclick="goTo('calendario')">📅 Calendario</button>
+    <button class="nav-btn" onclick="goTo('mapa')">🗺️ Ruta</button>
+    <button class="nav-btn" onclick="goTo('itinerario')">📖 Itinerario</button>
+    <button class="nav-btn" onclick="goTo('presupuesto')">💰 Presupuesto</button>
+    <button class="nav-btn" onclick="goTo('votar')">🗳️ Votar</button>
   </div>
 </nav>
 <script>
-function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}
+function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}
 </script>
 
 <!-- ═══════════════════════════════════════════════════ CALENDARIO -->
@@ -280,26 +305,26 @@ function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smoo
       <div class="cal-day pre-trip"><div class="day-num">5</div></div>
       <div class="cal-day pre-trip"><div class="day-num">6</div></div>
       <div class="cal-day pre-trip"><div class="day-num">7</div></div>
-      <div class="cal-day trip bkk" onclick="scrollTo('dia1')"><div class="day-num">8</div><div class="day-emojis">✈️🏙️🏨</div><div class="day-kws"><div class="day-kw">Vuelo</div><div class="day-kw">Bangkok</div><div class="day-kw">Check-in</div></div></div>
-      <div class="cal-day trip bkk" onclick="scrollTo('dia2')"><div class="day-num">9</div><div class="day-emojis">🏯🛕🍺</div><div class="day-kws"><div class="day-kw">Palacios</div><div class="day-kw">Templos</div><div class="day-kw">Khao San</div></div></div>
+      <div class="cal-day trip bkk" onclick="goTo('dia1')"><div class="day-num">8</div><div class="day-emojis">✈️🏙️🏨</div><div class="day-kws"><div class="day-kw">Vuelo</div><div class="day-kw">Bangkok</div><div class="day-kw">Check-in</div></div></div>
+      <div class="cal-day trip bkk" onclick="goTo('dia2')"><div class="day-num">9</div><div class="day-emojis">🏯🛕🍺</div><div class="day-kws"><div class="day-kw">Palacios</div><div class="day-kw">Templos</div><div class="day-kw">Khao San</div></div></div>
       <!-- Week 3: Mon Aug 10 – Sun Aug 16 (all trip) -->
-      <div class="cal-day trip bkk" onclick="scrollTo('dia3')"><div class="day-num">10</div><div class="day-emojis">🛶🛍️🌆</div><div class="day-kws"><div class="day-kw">Mercado</div><div class="day-kw">Shopping</div><div class="day-kw">Rooftop</div></div></div>
-      <div class="cal-day trip bkk" onclick="scrollTo('dia4')"><div class="day-num">11</div><div class="day-emojis">💆🏛️🌙</div><div class="day-kws"><div class="day-kw">Masaje</div><div class="day-kw">Cultura</div><div class="day-kw">Nightlife</div></div></div>
-      <div class="cal-day trip bkk" onclick="scrollTo('dia5')"><div class="day-num">12</div><div class="day-emojis">✈️🍜🛍️</div><div class="day-kws"><div class="day-kw">Vuelo</div><div class="day-kw">Khao Soi</div><div class="day-kw">Bazaar</div></div></div>
-      <div class="cal-day trip cmj" onclick="scrollTo('dia6')"><div class="day-num">13</div><div class="day-emojis">🐘🛁📸</div><div class="day-kws"><div class="day-kw">Elefantes</div><div class="day-kw">Baño</div><div class="day-kw">Fotos</div></div></div>
-      <div class="cal-day trip cmj" onclick="scrollTo('dia7')"><div class="day-num">14</div><div class="day-emojis">🛕🚶🍢</div><div class="day-kws"><div class="day-kw">Templos</div><div class="day-kw">Old City</div><div class="day-kw">Mercado</div></div></div>
-      <div class="cal-day trip cmj" onclick="scrollTo('dia8')"><div class="day-num">15</div><div class="day-emojis">🏍️💦🗻</div><div class="day-kws"><div class="day-kw">Motos</div><div class="day-kw">Cascadas</div><div class="day-kw">Montaña</div></div></div>
-      <div class="cal-day trip cmj" onclick="scrollTo('dia9')"><div class="day-num">16</div><div class="day-emojis">✈️⛵🐚</div><div class="day-kws"><div class="day-kw">Viaje</div><div class="day-kw">Ferry</div><div class="day-kw">Isla</div></div></div>
+      <div class="cal-day trip bkk" onclick="goTo('dia3')"><div class="day-num">10</div><div class="day-emojis">🛶🛍️🌆</div><div class="day-kws"><div class="day-kw">Mercado</div><div class="day-kw">Shopping</div><div class="day-kw">Rooftop</div></div></div>
+      <div class="cal-day trip bkk" onclick="goTo('dia4')"><div class="day-num">11</div><div class="day-emojis">💆🏛️🌙</div><div class="day-kws"><div class="day-kw">Masaje</div><div class="day-kw">Cultura</div><div class="day-kw">Nightlife</div></div></div>
+      <div class="cal-day trip bkk" onclick="goTo('dia5')"><div class="day-num">12</div><div class="day-emojis">✈️🍜🛍️</div><div class="day-kws"><div class="day-kw">Vuelo</div><div class="day-kw">Khao Soi</div><div class="day-kw">Bazaar</div></div></div>
+      <div class="cal-day trip cmj" onclick="goTo('dia6')"><div class="day-num">13</div><div class="day-emojis">🐘🛁📸</div><div class="day-kws"><div class="day-kw">Elefantes</div><div class="day-kw">Baño</div><div class="day-kw">Fotos</div></div></div>
+      <div class="cal-day trip cmj" onclick="goTo('dia7')"><div class="day-num">14</div><div class="day-emojis">🛕🚶🍢</div><div class="day-kws"><div class="day-kw">Templos</div><div class="day-kw">Old City</div><div class="day-kw">Mercado</div></div></div>
+      <div class="cal-day trip cmj" onclick="goTo('dia8')"><div class="day-num">15</div><div class="day-emojis">🏍️💦🗻</div><div class="day-kws"><div class="day-kw">Motos</div><div class="day-kw">Cascadas</div><div class="day-kw">Montaña</div></div></div>
+      <div class="cal-day trip cmj" onclick="goTo('dia9')"><div class="day-num">16</div><div class="day-emojis">✈️⛵🐚</div><div class="day-kws"><div class="day-kw">Viaje</div><div class="day-kw">Ferry</div><div class="day-kw">Isla</div></div></div>
       <!-- Week 4: Mon Aug 17 – Sun Aug 23 (all trip) -->
-      <div class="cal-day trip tao" onclick="scrollTo('dia10')"><div class="day-num">17</div><div class="day-emojis">🤿🐢🌊</div><div class="day-kws"><div class="day-kw">Buceo</div><div class="day-kw">Tortugas</div><div class="day-kw">Coral</div></div></div>
-      <div class="cal-day trip tao" onclick="scrollTo('dia11')"><div class="day-num">18</div><div class="day-emojis">🎓🏄🌅</div><div class="day-kws"><div class="day-kw">PADI</div><div class="day-kw">SUP</div><div class="day-kw">Sunset</div></div></div>
-      <div class="cal-day trip pha" onclick="scrollTo('dia12')"><div class="day-num">19</div><div class="day-emojis">⛵🛵🌴</div><div class="day-kws"><div class="day-kw">Ferry</div><div class="day-kw">Scooter</div><div class="day-kw">Phangan</div></div></div>
-      <div class="cal-day trip pha" onclick="scrollTo('dia13')"><div class="day-num">20</div><div class="day-emojis">🌙🎉🎶</div><div class="day-kws"><div class="day-kw">Half Moon</div><div class="day-kw">Party</div><div class="day-kw">Música</div></div></div>
-      <div class="cal-day trip pha" onclick="scrollTo('dia14')"><div class="day-num">21</div><div class="day-emojis">🏖️🍹🌴</div><div class="day-kws"><div class="day-kw">Playa</div><div class="day-kw">Cócteles</div><div class="day-kw">Relax</div></div></div>
-      <div class="cal-day trip sam" onclick="scrollTo('dia15')"><div class="day-num">22</div><div class="day-emojis">⛵🏝️🏨</div><div class="day-kws"><div class="day-kw">Ferry</div><div class="day-kw">Samui</div><div class="day-kw">Hotel</div></div></div>
-      <div class="cal-day trip sam" onclick="scrollTo('dia16')"><div class="day-num">23</div><div class="day-emojis">🏖️🌅🍹</div><div class="day-kws"><div class="day-kw">Playa</div><div class="day-kw">Atardecer</div><div class="day-kw">Fiesta</div></div></div>
+      <div class="cal-day trip tao" onclick="goTo('dia10')"><div class="day-num">17</div><div class="day-emojis">🤿🐢🌊</div><div class="day-kws"><div class="day-kw">Buceo</div><div class="day-kw">Tortugas</div><div class="day-kw">Coral</div></div></div>
+      <div class="cal-day trip tao" onclick="goTo('dia11')"><div class="day-num">18</div><div class="day-emojis">🎓🏄🌅</div><div class="day-kws"><div class="day-kw">PADI</div><div class="day-kw">SUP</div><div class="day-kw">Sunset</div></div></div>
+      <div class="cal-day trip pha" onclick="goTo('dia12')"><div class="day-num">19</div><div class="day-emojis">⛵🛵🌴</div><div class="day-kws"><div class="day-kw">Ferry</div><div class="day-kw">Scooter</div><div class="day-kw">Phangan</div></div></div>
+      <div class="cal-day trip pha" onclick="goTo('dia13')"><div class="day-num">20</div><div class="day-emojis">🌙🎉🎶</div><div class="day-kws"><div class="day-kw">Half Moon</div><div class="day-kw">Party</div><div class="day-kw">Música</div></div></div>
+      <div class="cal-day trip pha" onclick="goTo('dia14')"><div class="day-num">21</div><div class="day-emojis">🏖️🍹🌴</div><div class="day-kws"><div class="day-kw">Playa</div><div class="day-kw">Cócteles</div><div class="day-kw">Relax</div></div></div>
+      <div class="cal-day trip sam" onclick="goTo('dia15')"><div class="day-num">22</div><div class="day-emojis">⛵🏝️🏨</div><div class="day-kws"><div class="day-kw">Ferry</div><div class="day-kw">Samui</div><div class="day-kw">Hotel</div></div></div>
+      <div class="cal-day trip sam" onclick="goTo('dia16')"><div class="day-num">23</div><div class="day-emojis">🏖️🌅🍹</div><div class="day-kws"><div class="day-kw">Playa</div><div class="day-kw">Atardecer</div><div class="day-kw">Fiesta</div></div></div>
       <!-- Week 5: Mon Aug 24 – Sun Aug 30 (trip day 17, then post-trip) -->
-      <div class="cal-day trip sam" onclick="scrollTo('dia17')"><div class="day-num">24</div><div class="day-emojis">✈️😢🏠</div><div class="day-kws"><div class="day-kw">Vuelta</div><div class="day-kw">Adiós</div><div class="day-kw">Madrid</div></div></div>
+      <div class="cal-day trip sam" onclick="goTo('dia17')"><div class="day-num">24</div><div class="day-emojis">✈️😢🏠</div><div class="day-kws"><div class="day-kw">Vuelta</div><div class="day-kw">Adiós</div><div class="day-kw">Madrid</div></div></div>
       <div class="cal-day post-trip"><div class="day-num">25</div></div>
       <div class="cal-day post-trip"><div class="day-num">26</div></div>
       <div class="cal-day post-trip"><div class="day-num">27</div></div>
@@ -337,7 +362,7 @@ function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smoo
         <path d="M151,347 C150,354 149,359 148,365" stroke="rgba(168,85,247,0.8)" stroke-width="2" fill="none" stroke-dasharray="5,4" class="route-line" style="animation-delay:2.2s"/>
 
         <!-- ── Bangkok ── -->
-        <g onclick="scrollTo('dia1')" style="cursor:pointer">
+        <g onclick="goTo('dia1')" style="cursor:pointer">
           <circle cx="126" cy="202" r="16" fill="var(--bkk)" class="city-pulse"/>
           <circle cx="126" cy="202" r="8" fill="var(--bkk)" opacity="0.95"/>
           <circle cx="126" cy="202" r="4" fill="#fff" opacity="0.6"/>
@@ -346,7 +371,7 @@ function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smoo
         </g>
 
         <!-- ── Chiang Mai ── -->
-        <g onclick="scrollTo('dia6')" style="cursor:pointer">
+        <g onclick="goTo('dia6')" style="cursor:pointer">
           <circle cx="104" cy="100" r="13" fill="var(--cmj)" class="city-pulse" style="animation-delay:.5s"/>
           <circle cx="104" cy="100" r="7" fill="var(--cmj)" opacity="0.95"/>
           <circle cx="104" cy="100" r="3" fill="#fff" opacity="0.6"/>
@@ -355,7 +380,7 @@ function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smoo
         </g>
 
         <!-- ── Koh Tao ── -->
-        <g onclick="scrollTo('dia10')" style="cursor:pointer">
+        <g onclick="goTo('dia10')" style="cursor:pointer">
           <circle cx="150" cy="313" r="12" fill="var(--tao)" class="city-pulse" style="animation-delay:1s"/>
           <circle cx="150" cy="313" r="6" fill="var(--tao)" opacity="0.95"/>
           <circle cx="150" cy="313" r="2.5" fill="#fff" opacity="0.6"/>
@@ -364,7 +389,7 @@ function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smoo
         </g>
 
         <!-- ── Koh Phangan ── -->
-        <g onclick="scrollTo('dia12')" style="cursor:pointer">
+        <g onclick="goTo('dia12')" style="cursor:pointer">
           <circle cx="151" cy="340" r="11" fill="var(--pha)" class="city-pulse" style="animation-delay:1.5s"/>
           <circle cx="151" cy="340" r="6" fill="var(--pha)" opacity="0.95"/>
           <circle cx="151" cy="340" r="2.5" fill="#fff" opacity="0.6"/>
@@ -373,7 +398,7 @@ function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smoo
         </g>
 
         <!-- ── Koh Samui ── -->
-        <g onclick="scrollTo('dia15')" style="cursor:pointer">
+        <g onclick="goTo('dia15')" style="cursor:pointer">
           <circle cx="149" cy="367" r="11" fill="var(--sam)" class="city-pulse" style="animation-delay:2s"/>
           <circle cx="149" cy="367" r="6" fill="var(--sam)" opacity="0.95"/>
           <circle cx="149" cy="367" r="2.5" fill="#fff" opacity="0.6"/>
@@ -389,7 +414,7 @@ function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smoo
 
     <!-- Destination cards (right column) -->
     <div class="route-cards-col">
-      <div class="dest-card" onclick="scrollTo('dia1')" style="border-color:rgba(245,166,35,.35)">
+      <div class="dest-card" onclick="goTo('dia1')" style="border-color:rgba(245,166,35,.35)">
         <div class="dest-dot-wrap" style="background:rgba(245,166,35,.15)">🏙️</div>
         <div>
           <div class="dest-name" style="color:var(--bkk)">Bangkok</div>
@@ -402,7 +427,7 @@ function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smoo
         </div>
       </div>
 
-      <div class="dest-card" onclick="scrollTo('dia6')" style="border-color:rgba(86,196,94,.35)">
+      <div class="dest-card" onclick="goTo('dia6')" style="border-color:rgba(86,196,94,.35)">
         <div class="dest-dot-wrap" style="background:rgba(86,196,94,.15)">🐘</div>
         <div>
           <div class="dest-name" style="color:var(--cmj)">Chiang Mai</div>
@@ -415,7 +440,7 @@ function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smoo
         </div>
       </div>
 
-      <div class="dest-card" onclick="scrollTo('dia10')" style="border-color:rgba(0,200,224,.35)">
+      <div class="dest-card" onclick="goTo('dia10')" style="border-color:rgba(0,200,224,.35)">
         <div class="dest-dot-wrap" style="background:rgba(0,200,224,.15)">🤿</div>
         <div>
           <div class="dest-name" style="color:var(--tao)">Koh Tao</div>
@@ -428,7 +453,7 @@ function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smoo
         </div>
       </div>
 
-      <div class="dest-card" onclick="scrollTo('dia12')" style="border-color:rgba(168,85,247,.35)">
+      <div class="dest-card" onclick="goTo('dia12')" style="border-color:rgba(168,85,247,.35)">
         <div class="dest-dot-wrap" style="background:rgba(168,85,247,.15)">🌙</div>
         <div>
           <div class="dest-name" style="color:var(--pha)">Koh Phangan</div>
@@ -440,7 +465,7 @@ function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smoo
         </div>
       </div>
 
-      <div class="dest-card" onclick="scrollTo('dia15')" style="border-color:rgba(240,84,84,.35)">
+      <div class="dest-card" onclick="goTo('dia15')" style="border-color:rgba(240,84,84,.35)">
         <div class="dest-dot-wrap" style="background:rgba(240,84,84,.15)">🏖️</div>
         <div>
           <div class="dest-name" style="color:var(--sam)">Koh Samui</div>
@@ -475,12 +500,25 @@ function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smoo
           <span class="day-location-badge bg-bkk">✈️ Madrid → Bangkok</span>
         </div>
       </div>
-      <div class="day-card-body">
-        <p>El viaje empieza en Barajas. Vuelo largo (aprox. 13–15h con escala), llegaréis de noche a Suvarnabhumi. Check-in en el hotel, primera Chang helada y a dormir — mañana os espera Bangkok. <em>Si todo va bien, la primera tuk-tuk ride es esta misma noche.</em></p>
+            <div class="day-card-body">
+        <ul class="day-bullets">
+          <li>✈️ Vuelo largo desde Barajas — ~13-15h con escala (Dubái, Doha o Abu Dhabi)</li>
+          <li>🌍 Cruzas 7 husos horarios de golpe — el cuerpo va a notar el cambio</li>
+          <li>🏙️ Aterrizaje en Suvarnabhumi, taxi al hotel, primera Chang bien fría</li>
+          <li>🛺 Si llegáis antes de medianoche: tuk-tuk al hotel como primera experiencia tailandesa</li>
+        </ul>
+        <div class="day-meta">
+          <div class="day-meta-row">💰 <strong>~€0 extras</strong> (viaje incluido) · solo algo en el aeropuerto</div>
+          <div class="day-meta-row">💡 <strong>Tip:</strong> Toma melatonina en el avión y ajusta el reloj al llegar. El jet lag de +7h es serio.</div>
+        </div>
+        <details class="insider-tip">
+          <summary>🐣 Insider: Dónde dormir en Bangkok</summary>
+          <p class="tip-body">En Bangkok merece la pena pagar un poco más por un hotel en planta alta en zona Silom/Riverside — el ruido y el olor en zonas de mochilero hacen inviable dormir. Un buen punto medio: <strong>Lub.d Bangkok Silom</strong> (hostal boutique con piscina en azotea, ~€14pp). Mucho mejor que cualquier cosa en Khao San.</p>
+        </details>
         <div class="day-highlights">
           <span class="highlight-tag">🍺 Primera cerveza tailandesa</span>
           <span class="highlight-tag">🛺 Tuk-tuk al hotel</span>
-          <span class="highlight-tag">🏨 Hotel piso alto recomendado</span>
+          <span class="highlight-tag">🏨 Check-in nocturno</span>
         </div>
       </div>
     </div>
@@ -496,8 +534,18 @@ function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smoo
           <span class="day-location-badge bg-bkk">🏯 Bangkok</span>
         </div>
       </div>
-      <div class="day-card-body">
-        <p>Mañana al Grand Palace y Wat Phra Kaew (el Buda de Esmeralda). Tarde: Wat Arun cruzando el Chao Phraya en barco. Noche en Khao San Road — el caos más divertido de Asia. Primer pad thai de la vida, garantizado que cambia perspectivas.</p>
+            <div class="day-card-body">
+        <div class="sat-badge sat-high">⚠️ Muy masificado — ir antes de las 9h</div>
+        <ul class="day-bullets">
+          <li>🏯 Grand Palace + Wat Phra Kaew (Buda de Esmeralda) — abre a las 8:30h, llegad los primeros</li>
+          <li>🛕 Wat Arun al atardecer: cruzad el Chao Phraya en barca pública (3 baht — literalmente nada)</li>
+          <li>🌃 Noche en Khao San Road — primer pad thai de mercado nocturno de la vida</li>
+          <li>👗 Dress code en Grand Palace: hombros y rodillas cubiertos (prestan ropa en la entrada)</li>
+        </ul>
+        <div class="day-meta">
+          <div class="day-meta-row">💰 <strong>~€25-35 pp</strong> (entrada Grand Palace 500 THB + comida + barca)</div>
+          <div class="day-meta-row">💡 <strong>Tip:</strong> La cola bajo el sol de agosto es infernal. Tour local ~€8pp con guía por toda la zona de templos si queréis contexto histórico.</div>
+        </div>
         <div class="day-highlights">
           <span class="highlight-tag">🏯 Grand Palace</span>
           <span class="highlight-tag">🛕 Wat Arun</span>
@@ -518,11 +566,21 @@ function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smoo
           <span class="day-location-badge bg-bkk">🛺 Bangkok</span>
         </div>
       </div>
-      <div class="day-card-body">
-        <p>Mercado flotante de Damnoen Saduak por la mañana (opcional pero épico). Tarde en Chatuchak o el MBK Center. Al caer el sol: rooftop bar obligatorio — Sky Bar (Lebua, el de Hangover 2 💀) o Vertigo en el Banyan Tree. La noche tiene luz propia desde las alturas.</p>
+            <div class="day-card-body">
+        <div class="sat-badge sat-high">⚠️ Damnoen Saduak — trampa turística clásica</div>
+        <ul class="day-bullets">
+          <li>🛶 <strong>Alternativa recomendada al flotante:</strong> Amphawa o Taling Chan — menos turístico y más auténtico</li>
+          <li>🛍️ MBK Center (los lunes Chatuchak está cerrado) o Or Tor Kor Market de comida fresca</li>
+          <li>🌆 Rooftop bar al atardecer: Vertigo (Banyan Tree) tiene mejores vistas que el Sky Bar y menos postureo</li>
+          <li>🍹 Cocktail de €15 con toda Bangkok a los pies — uno de los momentos del viaje</li>
+        </ul>
+        <div class="day-meta">
+          <div class="day-meta-row">💰 <strong>~€35-50 pp</strong> (tour + taxis + cóctel de rooftop)</div>
+          <div class="day-meta-row">💡 <strong>Tip:</strong> El Sky Bar del Hangover 2 es muy turístico. Vertigo en Banyan Tree tiene mejores vistas, mismo precio y menos Instagram. Ambos requieren reserva y vestimenta smart-casual.</div>
+        </div>
         <div class="day-highlights">
-          <span class="highlight-tag">🛶 Mercado flotante</span>
-          <span class="highlight-tag">🛍️ Chatuchak</span>
+          <span class="highlight-tag">🛶 Amphawa (no Damnoen)</span>
+          <span class="highlight-tag">🛍️ Shopping Bangkok</span>
           <span class="highlight-tag">🌆 Rooftop bar</span>
           <span class="highlight-tag">🍹 Cócteles con vistas</span>
         </div>
@@ -540,8 +598,18 @@ function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smoo
           <span class="day-location-badge bg-bkk">🌃 Bangkok</span>
         </div>
       </div>
-      <div class="day-card-body">
-        <p>Día libre para lo que pida el cuerpo. Opciones: Jim Thompson House, el Erawan Shrine, masaje tailandés clásico (imprescindible), o simplemente perderse por Sukhumvit. Última noche en Bangkok — algunos duermen temprano, otros "investigan" Silom y Patpong. Cada uno sabrá. 🙈</p>
+            <div class="day-card-body">
+        <div class="sat-badge sat-low">✅ Día libre — definid vosotros el nivel de masificación</div>
+        <ul class="day-bullets">
+          <li>💆 Masaje tailandés clásico en Wat Pho — el santuario original, los mejores terapeutas del país</li>
+          <li>🏛️ Jim Thompson House: museo de arte siamés en casa de seda del siglo XX — tranquilo y fascinante</li>
+          <li>🌙 Última noche en Bangkok — los que quieran explorar Silom/Patpong: cada uno sabrá 🙈</li>
+          <li>🧖 O simplemente perderse por Sukhumvit con una lista de restaurantes y sin agenda</li>
+        </ul>
+        <div class="day-meta">
+          <div class="day-meta-row">💰 <strong>~€15-25 pp</strong> (masaje ~€7 + museos ~€5 + cena)</div>
+          <div class="day-meta-row">💡 <strong>Tip:</strong> Wat Pho Thai Traditional Medical School es la fuente oficial — 1h por 260 THB (~€7). Evita los puestos de calle sin cualificación.</div>
+        </div>
         <div class="day-highlights">
           <span class="highlight-tag">💆 Masaje tailandés</span>
           <span class="highlight-tag">🏛️ Jim Thompson House</span>
@@ -561,8 +629,18 @@ function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smoo
           <span class="day-location-badge bg-cmj">✈️ Bangkok → Chiang Mai</span>
         </div>
       </div>
-      <div class="day-card-body">
-        <p>Vuelo doméstico Thai Airways o AirAsia (1h). Llegada al norte, el ambiente cambia radicalmente — más fresco, más verde, más tranquilo. Tarde para instalarse, explorar el Night Bazaar y cenar khao soi, el plato estrella del norte. Una sopa de curry que te va a poner las pilas.</p>
+            <div class="day-card-body">
+        <div class="sat-badge sat-low">✅ Día de traslado — Chiang Mai es un alivio tras Bangkok</div>
+        <ul class="day-bullets">
+          <li>✈️ Vuelo doméstico Bangkok → Chiang Mai (1h, AirAsia o Thai Lion Air, ~€25-40)</li>
+          <li>⚠️ <strong>Importante:</strong> AirAsia sale de Don Mueang (DMK), no de Suvarnabhumi — son aeropuertos distintos</li>
+          <li>🍜 Tarde en el Night Bazaar y primera ración de Khao Soi — la sopa de curry del norte que cambia la vida</li>
+          <li>🌿 El cambio es inmediato: más fresco, más verde, más tranquilo que Bangkok</li>
+        </ul>
+        <div class="day-meta">
+          <div class="day-meta-row">💰 <strong>~€40-60 pp</strong> (vuelo + traslados + cena)</div>
+          <div class="day-meta-row">💡 <strong>Tip:</strong> Khao Soi Islam cerca del Night Bazaar: el mejor khao soi de la ciudad según locales. Sin mesas de turistas. 70 THB el plato.</div>
+        </div>
         <div class="day-highlights">
           <span class="highlight-tag">✈️ Vuelo 1h</span>
           <span class="highlight-tag">🍜 Khao Soi debut</span>
@@ -582,11 +660,21 @@ function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smoo
           <span class="day-location-badge bg-cmj">🐘 Chiang Mai</span>
         </div>
       </div>
-      <div class="day-card-body">
-        <p>El día más especial del viaje. Santuario ético de elefantes (Elephant Nature Park o similar) — nada de montar, sólo observar, bañar y alimentar a los elefantes en libertad. Hay quien llora. No hay vergüenza. <em>Fra ya avisó que este día es el más importante para ella — no lo jodáis llegando tarde.</em></p>
+            <div class="day-card-body">
+        <div class="sat-badge sat-med">🟡 Santuario con cupo limitado — reservar semanas antes</div>
+        <ul class="day-bullets">
+          <li>🐘 Día completo en santuario ético (8am-5pm) — sin montar, sin espectáculos, observación y baño</li>
+          <li>🌿 Volvéis bañados de barro y con fotos que miraréis toda la vida</li>
+          <li>❤️ Fra avisó que es su día favorito — llevar pañuelos (hay quien llora, sin vergüenza)</li>
+          <li>⚠️ <strong>Alerta:</strong> Elephant Nature Park está bajo investigación legal (dic 2025) — ver alternativas</li>
+        </ul>
+        <div class="day-meta">
+          <div class="day-meta-row">💰 <strong>~€60-90 pp</strong> (incluye transporte y almuerzo)</div>
+          <div class="day-meta-row">💡 <strong>Tip:</strong> Alternativas éticas verificadas: <strong>Changchill Elephant Sanctuary</strong> o <strong>Living Green Elephant Sanctuary</strong>. Ambos modelo de solo observación, sin contacto forzado, ~€65pp.</div>
+        </div>
         <div class="day-highlights">
           <span class="highlight-tag">🐘 Elefantes éticos</span>
-          <span class="highlight-tag">🛁 Baño con elefantes</span>
+          <span class="highlight-tag">🛁 Baño en el río</span>
           <span class="highlight-tag">📸 Fotos de vida</span>
         </div>
       </div>
@@ -603,8 +691,22 @@ function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smoo
           <span class="day-location-badge bg-cmj">🛕 Chiang Mai</span>
         </div>
       </div>
-      <div class="day-card-body">
-        <p>La Old City rodeada por el foso. Wat Chedi Luang y Wat Phra Singh a pie. Tarde en el Sunday Walking Street (aunque sea viernes, hay mercadillo). Cena en el Tha Phae Gate Night Market. Si Iñaki no pierde el pasaporte antes de llegar aquí, el viaje va bien.</p>
+            <div class="day-card-body">
+        <div class="sat-badge sat-med">🟡 Turístico pero manejable si vais antes de las 10am</div>
+        <ul class="day-bullets">
+          <li>🛕 Wat Chedi Luang (siglo XIV) y Wat Phra Singh — ambos a pie dentro del foso amurallado</li>
+          <li>🚶 La Old City entera es caminable — 1.5km de lado, con templos en cada esquina</li>
+          <li>🌅 Mejor hora para fotos: 6:30-8am con la niebla matutina y sin turistas</li>
+          <li>🍢 Noche en Tha Phae Gate Night Market — cena de calle, artesanía local y música en vivo</li>
+        </ul>
+        <div class="day-meta">
+          <div class="day-meta-row">💰 <strong>~€12-20 pp</strong> (entradas voluntarias + cena de calle)</div>
+          <div class="day-meta-row">💡 <strong>Tip:</strong> Los monjes hacen la ronda de limosnas al amanecer (6-7am) — presenciarla en silencio es una de las experiencias más auténticas del norte.</div>
+        </div>
+        <details class="insider-tip">
+          <summary>🐣 Insider: Dónde dormir en Chiang Mai</summary>
+          <p class="tip-body">Dentro del foso hay hostales excelentes por €8-15pp: <strong>De-Residence</strong> o <strong>Stamp House</strong> son joyas baratas en pleno centro histórico. Si queréis darse un capricho una noche: <strong>Rachamankha</strong> (~€80pp, jardín zen, la mejor relación lujo-autenticidad de la ciudad).</p>
+        </details>
         <div class="day-highlights">
           <span class="highlight-tag">🛕 Wat Chedi Luang</span>
           <span class="highlight-tag">🚶 Old City a pie</span>
@@ -624,8 +726,18 @@ function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smoo
           <span class="day-location-badge bg-cmj">🏍️ Chiang Mai</span>
         </div>
       </div>
-      <div class="day-card-body">
-        <p>Alquilar motos y hacer la Mae Klong Loop o subir a Doi Suthep. Paisaje de montaña, cascadas, aldeas. Propuesta alternativa: Doi Inthanon, el pico más alto de Tailandia (2565m). <em>Kike dice que él conduce, Roberto dice que él también. Alguien va a terminar en la cuneta — con amor.</em></p>
+            <div class="day-card-body">
+        <div class="sat-badge sat-low">✅ Poco masificado — rutas de montaña auténticas</div>
+        <ul class="day-bullets">
+          <li>🏍️ Alquiler de motos (~€10-15/día) — el Samoeng Loop son 100km de montaña pura</li>
+          <li>💦 Parada en cascadas: Mok Fa o Huay Kaew — refrescarse en el calor de agosto</li>
+          <li>🗻 Vistas desde los 1500m: nubes por debajo, selva por arriba, carretera para vosotros solos</li>
+          <li>🍜 Almuerzo en aldea local: khao man gai (pollo sobre arroz) ~30 THB el plato</li>
+        </ul>
+        <div class="day-meta">
+          <div class="day-meta-row">💰 <strong>~€20-30 pp</strong> (moto + gasolina + comida de camino)</div>
+          <div class="day-meta-row">💡 <strong>Tip:</strong> Salir antes de las 7am para aprovechar la niebla de montaña. Técnicamente se necesita licencia internacional — llevad el carnet de coche por si acaso.</div>
+        </div>
         <div class="day-highlights">
           <span class="highlight-tag">🏍️ Ruta en moto</span>
           <span class="highlight-tag">💦 Cascadas</span>
@@ -645,8 +757,18 @@ function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smoo
           <span class="day-location-badge bg-tao">✈️ Chiang Mai → Koh Tao</span>
         </div>
       </div>
-      <div class="day-card-body">
-        <p>Vuelo Chiang Mai → Bangkok o Surat Thani + ferry a Koh Tao (día largo de viaje, ~8-10h en total). Llegar, encontrar el bungalow frente al mar, primera inmersión en el Golfo de Tailandia con los pies. El agua está a 28°C. El color es irreal. <em>Modet ya está mirando cursos de buceo PADI en su móvil desde que salimos de Madrid.</em></p>
+            <div class="day-card-body">
+        <div class="sat-badge sat-med">🟡 Ferries de agosto bastante llenos — reservar con antelación</div>
+        <ul class="day-bullets">
+          <li>✈️ Vuelo Chiang Mai → Bangkok o Surat Thani (mañana temprano) + ferry Lomprayah a Koh Tao</li>
+          <li>⏱️ Día largo de viaje (~8-10h en total) — pero al final te espera el bungalow frente al mar</li>
+          <li>🌅 Primera tarde en la isla: caminar hasta Sairee Beach y ver cómo el Golfo de Tailandia te recibe</li>
+          <li>🐚 El agua está a 28°C y el color es irreal — Modet ya lleva el kit de buceo en la mochila desde Madrid</li>
+        </ul>
+        <div class="day-meta">
+          <div class="day-meta-row">💰 <strong>~€40-70 pp</strong> (vuelo + ferry Lomprayah + traslados)</div>
+          <div class="day-meta-row">💡 <strong>Tip:</strong> Reservar el combo vuelo+ferry con antelación en agosto — se llenan. Lomprayah tiene app propia. El trayecto Chumphon→Koh Tao dura ~2h.</div>
+        </div>
         <div class="day-highlights">
           <span class="highlight-tag">⛵ Ferry a la isla</span>
           <span class="highlight-tag">🌅 Primer atardecer insular</span>
@@ -666,8 +788,22 @@ function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smoo
           <span class="day-location-badge bg-tao">🤿 Koh Tao</span>
         </div>
       </div>
-      <div class="day-card-body">
-        <p>Koh Tao es una de las mejores islas del mundo para aprender a bucear. Día de snorkeling o curso intro de buceo. Los arrecifes de coral están a 5 minutos en barca. Tortugas, barracudas, peces tropicales. Comer en alguna chiringuita de madera sobre el agua y no moverse hasta el ocaso.</p>
+            <div class="day-card-body">
+        <div class="sat-badge sat-med">🟡 Los buenos puntos de buceo están dispersos — ir con guía</div>
+        <ul class="day-bullets">
+          <li>🤿 Tour de snorkeling o primer intro-dive (~2-4h en barco desde el puerto)</li>
+          <li>🐢 Tortugas en Hin Wong Bay, peces tropicales en Green Rock — los mejores arrecifes a 5min en barca</li>
+          <li>🌊 Visibilidad hasta 30m en agosto — es temporada ideal para el agua</li>
+          <li>🍱 Chiringuita de madera sobre el agua: comer aquí y no moverse hasta el atardecer</li>
+        </ul>
+        <div class="day-meta">
+          <div class="day-meta-row">💰 <strong>~€35-55 pp</strong> (snorkel tour ~€20-30 / intro dive ~€55-70 + comida)</div>
+          <div class="day-meta-row">💡 <strong>Tip:</strong> Hin Wong Bay y Shark Island tienen el mejor coral. Evita las manchas cerca de Sairee Beach — más masificadas y el coral está más dañado. Alquiler de equipo ~€5.</div>
+        </div>
+        <details class="insider-tip">
+          <summary>🐣 Insider: Dónde dormir en Koh Tao</summary>
+          <p class="tip-body">Bungalows de madera en la playa de Sairee: €12-20pp — básicos pero correctos. Tip de oro: si hacéis el PADI, muchas escuelas <strong>incluyen el alojamiento gratis</strong> en el precio del curso. Preguntad antes de reservar por separado.</p>
+        </details>
         <div class="day-highlights">
           <span class="highlight-tag">🤿 Snorkeling / buceo</span>
           <span class="highlight-tag">🐢 Tortugas marinas</span>
@@ -687,8 +823,18 @@ function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smoo
           <span class="day-location-badge bg-tao">🐠 Koh Tao</span>
         </div>
       </div>
-      <div class="day-card-body">
-        <p>Segundo día en Koh Tao. Los que quieran continuar con el PADI Open Water (3 días en total). El resto: kayak, SUP, explorar Sairee Beach o simplemente existir en una hamaca con un coco. Imprescindible: atardecer en Tanote Bay o en John-Suwan Rock. No lo explico, hay que verlo.</p>
+            <div class="day-card-body">
+        <div class="sat-badge sat-low">✅ Norte y este de la isla — casi sin turistas</div>
+        <ul class="day-bullets">
+          <li>🎓 Día 2 del PADI Open Water si empezaste ayer — clases en piscina + primera inmersión guiada</li>
+          <li>🏄 SUP o kayak de alquiler desde Sairee (~€10/h) para los que prefieren superficie</li>
+          <li>🌅 Atardecer en Tanote Bay o en John-Suwan Rock — uno de los mejores del sur de Asia</li>
+          <li>🛶 Tarde de no hacer absolutamente nada en una hamaca con un coco — también completamente válido</li>
+        </ul>
+        <div class="day-meta">
+          <div class="day-meta-row">💰 <strong>~€280-350 pp si PADI</strong> · ~€15-25 pp si playa/snorkel libre</div>
+          <div class="day-meta-row">💡 <strong>Tip:</strong> Para el PADI: New Heaven Dive School y Crystal Dive tienen la mejor reputación de la isla. Vale la diferencia de ~€30 sobre los más baratos del puerto.</div>
+        </div>
         <div class="day-highlights">
           <span class="highlight-tag">🎓 PADI Open Water</span>
           <span class="highlight-tag">🏄 SUP / Kayak</span>
@@ -708,8 +854,18 @@ function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smoo
           <span class="day-location-badge bg-pha">⛵ Koh Tao → Koh Phangan</span>
         </div>
       </div>
-      <div class="day-card-body">
-        <p>Ferry de 1.5h entre islas. Koh Phangan tiene otra energía — más grande, más variada, playas del norte más salvajes. Instalarse en Haad Rin o Haad Thong Nai Pan. Tarde explorando la isla en scooter. Noche tranquila antes de la tormenta. 🌙</p>
+            <div class="day-card-body">
+        <div class="sat-badge sat-low">✅ Koh Phangan fuera de Full Moon es muy tranquila</div>
+        <ul class="day-bullets">
+          <li>⛵ Ferry Koh Tao → Koh Phangan con Lomprayah (1.5h) — vistas increíbles en el trayecto</li>
+          <li>🛵 Tarde: alquilar scooter y explorar la isla norte-sur en unas horas</li>
+          <li>🌴 Haad Rin al sur (playa de la Full Moon Party), Thong Nai Pan al norte — dos vibes radicalmente distintas</li>
+          <li>🌙 Noche tranquila: mañana es la Half Moon — descansar estratégicamente</li>
+        </ul>
+        <div class="day-meta">
+          <div class="day-meta-row">💰 <strong>~€25-35 pp</strong> (ferry + scooter + cena)</div>
+          <div class="day-meta-row">💡 <strong>Tip:</strong> Para la Half Moon de mañana: quedaos en el norte de Phangan (Haad Salad/Thong Nai Pan) y coged taxi-songthaew (~€5). Los precios en Haad Rin se doblan esa noche — ahorráis €20-30pp.</div>
+        </div>
         <div class="day-highlights">
           <span class="highlight-tag">⛵ Ferry entre islas</span>
           <span class="highlight-tag">🛵 Scooter por la isla</span>
@@ -729,13 +885,22 @@ function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smoo
           <span class="day-location-badge bg-pha">🌙 Koh Phangan</span>
         </div>
       </div>
-      <div class="day-card-body">
-        <p>LA NOCHE. La Half Moon Party es en el jungle de Koh Phangan — escenarios en el bosque, psytrance, techno, reggaeton, varias pistas. Pintura fosforescente. Empieza a las 9pm y termina cuando el sol ya no tiene vergüenza. <em>Lo que pase en la Half Moon Party, se queda en la Half Moon Party. Pero se cuenta todo en el avión de vuelta.</em></p>
+            <div class="day-card-body">
+        <div class="sat-badge sat-med">🟡 Fiesta masiva pero más auténtica que la Full Moon</div>
+        <ul class="day-bullets">
+          <li>🌙 Half Moon Party en el bosque cerca de Baan Tai — electrónica, jungle, vibe más íntima que la full moon</li>
+          <li>🎉 La fiesta empieza a las 21h pero está vacía hasta las 23h — llegar tarde es la norma aquí</li>
+          <li>🎶 Varios escenarios: techno, psytrance, bass, house — y la zona de reggaeton para los que sois lo que sois 🇪🇸</li>
+          <li>☀️ La fiesta termina al amanecer — desayuno en la playa al sol después es ritual obligatorio</li>
+        </ul>
+        <div class="day-meta">
+          <div class="day-meta-row">💰 <strong>~€20-35 pp</strong> (entrada ~500-600 THB + bebidas + taxi)</div>
+          <div class="day-meta-row">💡 <strong>Tip:</strong> Llevar: cargador portátil, calzado que no importa ensuciar, agua abundante y pastillas antimareo si el día siguiente hay ferry. Pasa lista antes de salir.</div>
+        </div>
         <div class="day-highlights">
-          <span class="highlight-tag">🎉 Half Moon Party</span>
-          <span class="highlight-tag">🌙 Jungle rave</span>
-          <span class="highlight-tag">💫 Pintura fluorescente</span>
-          <span class="highlight-tag">🎵 Múltiples escenarios</span>
+          <span class="highlight-tag">🌙 Half Moon Party</span>
+          <span class="highlight-tag">🎉 Vibe jungle</span>
+          <span class="highlight-tag">🎶 Múltiples escenarios</span>
         </div>
       </div>
     </div>
@@ -751,12 +916,22 @@ function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smoo
           <span class="day-location-badge bg-pha">🎉 Koh Phangan</span>
         </div>
       </div>
-      <div class="day-card-body">
-        <p>Día de recuperación. Agenda oficial: ninguna. Agenda real: hamaca, agua de coco, mar turquesa, silencio. Los más valientes: masaje en la playa. Los más supervivientes: smoothie de mango y vuelta a dormir. El mar está ahí para curar todo lo que la noche rompió.</p>
+            <div class="day-card-body">
+        <div class="sat-badge sat-low">✅ Bottle Beach — virgen, sin carretera, solo accesible en barca</div>
+        <ul class="day-bullets">
+          <li>😴 Día de recuperación oficial — el cuerpo manda después de la Half Moon</li>
+          <li>🏖️ Bottle Beach (Haad Khuad) al norte: solo accesible en speedboat (10min, ~€5pp), playa prácticamente virgen</li>
+          <li>🍹 Happy hour en cualquier chiringuita de Haad Yao — cócteles mirando al Golfo</li>
+          <li>🌊 Snorkel tranquilo desde la playa o kayak de alquiler (~€8/h) para los que tengan energía</li>
+        </ul>
+        <div class="day-meta">
+          <div class="day-meta-row">💰 <strong>~€15-25 pp</strong> (bote a Bottle Beach + cócteles + cena)</div>
+          <div class="day-meta-row">💡 <strong>Tip:</strong> Bottle Beach es una de las playas más bonitas del Golfo y apenas tiene turistas porque no hay carretera. Vale el extra del barco.</div>
+        </div>
         <div class="day-highlights">
-          <span class="highlight-tag">🥥 Agua de coco IV</span>
-          <span class="highlight-tag">💆 Masaje de playa</span>
-          <span class="highlight-tag">😎 Hamaca científica</span>
+          <span class="highlight-tag">🏖️ Bottle Beach virgen</span>
+          <span class="highlight-tag">🍹 Cócteles al sol</span>
+          <span class="highlight-tag">🌴 Relax activo</span>
         </div>
       </div>
     </div>
@@ -772,13 +947,26 @@ function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smoo
           <span class="day-location-badge bg-sam">⛵ Koh Phangan → Koh Samui</span>
         </div>
       </div>
-      <div class="day-card-body">
-        <p>Ferry de 30 minutos a Koh Samui, la isla grande. Más infraestructura, mejores hoteles, spas decentes. Check-in en un resort con piscina (os lo merecéis en los últimos días). Tarde en Chaweng Beach — la más animada. Big Buddha al atardecer desde la colina.</p>
+            <div class="day-card-body">
+        <div class="sat-badge sat-high">⚠️ Koh Samui: crisis de sobreturismo en 2025-2026 (efecto White Lotus S3)</div>
+        <ul class="day-bullets">
+          <li>⛵ Ferry Koh Phangan → Koh Samui (Raja Ferry o Lomprayah, 30-45min)</li>
+          <li>🏝️ Instalarse en zona <strong>Maenam (norte)</strong> o Lamai (sureste) — precios 30-40% más baratos que Chaweng</li>
+          <li>🛵 Tarde: primer recorrido en scooter + cena en Fisherman's Village de Bophut</li>
+          <li>⚠️ Zona Chaweng: precios subidos un 40% por el efecto White Lotus — evitar si queréis valor real</li>
+        </ul>
+        <div class="day-meta">
+          <div class="day-meta-row">💰 <strong>~€25-35 pp</strong> (ferry + scooter + cena)</div>
+          <div class="day-meta-row">💡 <strong>Tip:</strong> Maenam tiene playas tranquilas e igualmente bonitas que Chaweng, a un tercio del precio. Los hoteles más caros de la historia los encontráis justo ahora por el boom turístico.</div>
+        </div>
+        <details class="insider-tip">
+          <summary>🐣 Insider: Dónde dormir en Koh Samui</summary>
+          <p class="tip-body">Bungalow familiar en Maenam: ~€20-25pp. Si queréis darse un lujo la última noche del viaje: <strong>Anantara Bophut Resort</strong> (~€120pp) o <strong>Sala Samui Chaweng Beach</strong> (~€90pp). El "White Lotus effect" lo ha encarecido todo, pero los resorts del norte siguen teniendo mejor relación calidad-precio.</p>
+        </details>
         <div class="day-highlights">
-          <span class="highlight-tag">⛵ Ferry 30min</span>
-          <span class="highlight-tag">🏨 Resort con piscina</span>
-          <span class="highlight-tag">🏖️ Chaweng Beach</span>
-          <span class="highlight-tag">🙏 Big Buddha</span>
+          <span class="highlight-tag">⛵ Ferry a Samui</span>
+          <span class="highlight-tag">🏝️ Zona Maenam/Lamai</span>
+          <span class="highlight-tag">🍢 Fisherman's Village</span>
         </div>
       </div>
     </div>
@@ -794,13 +982,22 @@ function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smoo
           <span class="day-location-badge bg-sam">🏖️ Koh Samui</span>
         </div>
       </div>
-      <div class="day-card-body">
-        <p>Último día entero. Nataad Beach o Silver Beach para el baño final. Cena de despedida en un restaurante de mariscos al borde del mar — langosta, gambas, calamar a la brasa. Brindis obligatorio. Alguien llorará. Todos lo negarán. <em>Jordi preparará un discurso de 40 minutos. Le cortarán en el minuto 3.</em></p>
+            <div class="day-card-body">
+        <div class="sat-badge sat-high">⚠️ Chaweng Beach — evitar. Silver Beach o Maenam son la alternativa</div>
+        <ul class="day-bullets">
+          <li>🏖️ Silver Beach (Lamai) o Maenam Beach: tranquilas, agua cristalina, sin la muchedumbre de Chaweng</li>
+          <li>🌊 Excursión a Koh Tan (~€20pp, 30min en barca): arrecifes bien conservados, sin turistas masificados</li>
+          <li>🌅 Último atardecer en el Golfo de Tailandia — tomároslo con calma, que mañana se acaba</li>
+          <li>🎭 Noche en Fisherman's Village (Bophut): mercado nocturno con ambiente local auténtico</li>
+        </ul>
+        <div class="day-meta">
+          <div class="day-meta-row">💰 <strong>~€25-40 pp</strong> (playa + excursión Koh Tan + cena)</div>
+          <div class="day-meta-row">💡 <strong>Tip:</strong> Koh Tan tiene coral muy bien conservado y apenas visitantes. Vale el extra del barco. Ang Thong Marine Park es más famoso pero también más masificado.</div>
+        </div>
         <div class="day-highlights">
-          <span class="highlight-tag">🏖️ Playa final</span>
-          <span class="highlight-tag">🦞 Cena mariscos</span>
-          <span class="highlight-tag">🥂 Brindis despedida</span>
-          <span class="highlight-tag">📸 Foto de grupo</span>
+          <span class="highlight-tag">🏖️ Playa</span>
+          <span class="highlight-tag">🌅 Último atardecer</span>
+          <span class="highlight-tag">🍹 Fiesta de despedida</span>
         </div>
       </div>
     </div>
@@ -816,12 +1013,22 @@ function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smoo
           <span class="day-location-badge bg-sam">✈️ Koh Samui → Madrid</span>
         </div>
       </div>
-      <div class="day-card-body">
-        <p>Vuelo desde Samui Airport (el aeropuerto de bambú más bonito del mundo) a Bangkok, y conexión a Madrid. 17 días, 5 ciudades, 6 amigos, cero quejas. En el avión: revisión de fotos, debate de qué ha sido lo mejor, promesa de volver en 2028. No os olvidéis de declarar el Duty Free en España. 🙃</p>
+            <div class="day-card-body">
+        <div class="sat-badge sat-low">✅ Último día — el aeropuerto de Samui está a 10min de cualquier hotel</div>
+        <ul class="day-bullets">
+          <li>🌅 Último desayuno tropical obligatorio — papaya, mango, tostada con mantequilla de cacahuete tailandesa</li>
+          <li>✈️ Aeropuerto Koh Samui (USM): pequeño y tranquilo, 10min desde cualquier zona de la isla</li>
+          <li>😢 El vuelo de vuelta siempre parece demasiado pronto — reservad ventanilla para ver el Golfo desde el aire</li>
+          <li>🏠 Madrid os recibirá con 7°C menos, jet lag al revés y fotos para aburrir a todos los amigos</li>
+        </ul>
+        <div class="day-meta">
+          <div class="day-meta-row">💰 <strong>~€0 extras</strong> (vuelo incluido)</div>
+          <div class="day-meta-row">💡 <strong>Tip:</strong> Llegar al aeropuerto 2h antes. En el duty free de Samui: salsa de ostras, curry en pasta y té de lemongrass son los mejores souvenirs comestibles que os podéis traer.</div>
+        </div>
         <div class="day-highlights">
-          <span class="highlight-tag">✈️ Samui Airport único</span>
-          <span class="highlight-tag">📱 Álbum compartido</span>
-          <span class="highlight-tag">🏠 De vuelta a casa</span>
+          <span class="highlight-tag">🌅 Desayuno tropical</span>
+          <span class="highlight-tag">✈️ Vuelo de vuelta</span>
+          <span class="highlight-tag">🏠 Madrid espera</span>
         </div>
       </div>
     </div>
@@ -908,9 +1115,22 @@ function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smoo
 
       <!-- ── FASE 1: GENÉRICA ── -->
       <div class="vote-panel active" id="phase0">
-        <p style="font-size:.82rem;color:var(--muted);margin-bottom:24px;padding:12px 16px;background:rgba(255,255,255,.04);border-radius:10px">
+        <p style="font-size:.82rem;color:var(--muted);margin-bottom:20px;padding:12px 16px;background:rgba(255,255,255,.04);border-radius:10px">
           📊 Fase 1 — Antes de afinar el planning, necesitamos saber qué quiere cada uno. Mueve los sliders según tu preferencia del 1 al 10.
         </p>
+        <div class="name-select-wrap">
+          <label>👤 ¿Quién eres?</label>
+          <select class="name-select" id="name0">
+            <option value="">-- Selecciona tu nombre --</option>
+            <option value="Liza">Liza</option>
+            <option value="Fra">Fra</option>
+            <option value="Iñaki">Iñaki</option>
+            <option value="Kike">Kike</option>
+            <option value="Roberto">Roberto</option>
+            <option value="Modet">Modet</option>
+          </select>
+        </div>
+
 
         <div class="name-input-wrap">
           <input class="name-input" id="name0" placeholder="Tu nombre (Kike, Roberto, Iñaki…)" maxlength="30">
@@ -969,9 +1189,19 @@ function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smoo
           🏝️ Fase 2 — Con las preferencias claras, aquí votamos sobre decisiones concretas de destino. Una vez respondidas estas, pasamos a la Fase 3 con detalles.
         </p>
 
-        <div class="name-input-wrap">
-          <input class="name-input" id="name1" placeholder="Tu nombre" maxlength="30">
+        <div class="name-select-wrap">
+          <label>👤 ¿Quién eres?</label>
+          <select class="name-select" id="name1">
+            <option value="">-- Selecciona tu nombre --</option>
+            <option value="Liza">Liza</option>
+            <option value="Fra">Fra</option>
+            <option value="Iñaki">Iñaki</option>
+            <option value="Kike">Kike</option>
+            <option value="Roberto">Roberto</option>
+            <option value="Modet">Modet</option>
+          </select>
         </div>
+
 
         <div class="vote-q">
           <h4>🌊 ¿Añadimos un tercer día en Koh Tao?</h4>
@@ -1019,19 +1249,19 @@ function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smoo
 
         <div class="vote-q">
           <h4>🐘 ¿Qué santuario de elefantes?</h4>
-          <p>Hay varios niveles de ética y precio.</p>
+          <p>Hay varios niveles de ética y precio. <strong style="color:#ef4444">⚠️ Elephant Nature Park está bajo investigación legal (dic 2025)</strong> — las alternativas éticas verificadas son mejores opción.</p>
           <div class="vote-options">
             <label class="vote-option" onclick="toggleOpt(this,'q4a')">
               <input type="radio" name="q4" value="enp">
               <span class="opt-emoji">🐘</span>
               <span class="opt-label">Elephant Nature Park</span>
-              <span class="opt-desc">El más famoso, ~€80pp</span>
+              <span class="opt-desc">⚠️ Bajo investigación, ~€80pp</span>
             </label>
             <label class="vote-option" onclick="toggleOpt(this,'q4b')">
               <input type="radio" name="q4" value="ethical">
               <span class="opt-emoji">🌿</span>
-              <span class="opt-label">Elephant Jungle Sanctuary</span>
-              <span class="opt-desc">Más íntimo, ~€65pp</span>
+              <span class="opt-label">Changchill / Living Green</span>
+              <span class="opt-desc">✅ Verificados éticos, ~€65pp</span>
             </label>
           </div>
         </div>
@@ -1051,9 +1281,19 @@ function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smoo
           🏨 Fase 3 — Decisiones de logística y alojamiento. Las más aburridas pero las más importantes para el bolsillo.
         </p>
 
-        <div class="name-input-wrap">
-          <input class="name-input" id="name2" placeholder="Tu nombre" maxlength="30">
+        <div class="name-select-wrap">
+          <label>👤 ¿Quién eres?</label>
+          <select class="name-select" id="name2">
+            <option value="">-- Selecciona tu nombre --</option>
+            <option value="Liza">Liza</option>
+            <option value="Fra">Fra</option>
+            <option value="Iñaki">Iñaki</option>
+            <option value="Kike">Kike</option>
+            <option value="Roberto">Roberto</option>
+            <option value="Modet">Modet</option>
+          </select>
         </div>
+
 
         <div class="vote-q">
           <h4>🏨 Alojamiento en Bangkok: ¿qué nivel?</h4>
