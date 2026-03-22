@@ -225,14 +225,20 @@ footer span{color:var(--gold)}
 @media(min-width:640px){.days-grid{display:grid;grid-template-columns:1fr 1fr}}
 @media(min-width:1000px){.days-grid{grid-template-columns:1fr 1fr 1fr}}
 @media(min-width:1280px){.days-grid{grid-template-columns:repeat(4,1fr)}}
+
+.auth-bar{display:inline-flex;gap:1px;margin-left:6px;vertical-align:middle}
+.auth-bar span{display:inline-block;width:8px;height:8px;border-radius:2px;background:var(--border)}
+.auth-bar span.t{background:#ef4444}
+.auth-bar span.a{background:#22c55e}
+.auth-bar .auth-label{font-size:.55rem;color:var(--muted);margin-left:4px;white-space:nowrap}
 /* ─── LEAFLET MAP ─── */
 #travel-map{height:480px;border-radius:16px;overflow:hidden;z-index:0}
 .city-dot{width:14px;height:14px;border-radius:50%;border:2.5px solid #fff;
   box-shadow:0 0 12px currentColor;animation:cityPulseL 2.5s ease-in-out infinite}
 @keyframes cityPulseL{0%,100%{transform:scale(1);opacity:.9}50%{transform:scale(1.35);opacity:1}}
 .lf-tt{background:rgba(10,15,26,.93)!important;border:1px solid rgba(255,255,255,.15)!important;
-  color:#fff!important;font-family:'Poppins',sans-serif!important;font-size:12px!important;
-  padding:7px 12px!important;border-radius:10px!important;
+  color:#fff!important;font-family:'Poppins',sans-serif!important;font-size:9px!important;
+  padding:4px 8px!important;border-radius:7px!important;line-height:1.2!important;
   box-shadow:0 4px 20px rgba(0,0,0,.6)!important;white-space:nowrap!important}
 .lf-tt::before{display:none!important}
 </style>
@@ -579,8 +585,8 @@ function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'}
           <p class="tip-body">En Bangkok merece la pena pagar un poco más por un hotel en planta alta en zona Silom/Riverside — el ruido y el olor en zonas de mochilero hacen inviable dormir. Un buen punto medio: <strong>Lub.d Bangkok Silom</strong> (hostal boutique con piscina en azotea, ~€14pp). Mucho mejor que cualquier cosa en Khao San.</p>
         </details>
         <div class="day-highlights">
-          <span class="highlight-tag">🍺 Primera cerveza tailandesa</span>
-          <span class="highlight-tag">🛺 Tuk-tuk al hotel</span>
+          <span class="highlight-tag">🍺 Primera cerveza tailandesa <span class="auth-bar"><span class="t"></span><span class="a"></span><span class="a"></span><span class="a"></span><span class="auth-label">Aut�ntico</span></span></span>
+          <span class="highlight-tag">🛺 Tuk-tuk al hotel <span class="auth-bar"><span class="t"></span><span class="t"></span><span class="a"></span><span class="a"></span><span class="auth-label">Cl�sico</span></span></span>
           <span class="highlight-tag">🏨 Check-in nocturno</span>
         </div>
       </div>
@@ -611,10 +617,10 @@ function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'}
         
           <div class="day-meta-row">🗺️ <strong>Tour:</strong> Free tour de templos sale de <strong>Khao San Road cada mañana a las 9h</strong> (propina). Tour privado con guía ~€8pp — vale la pena para el Grand Palace, el contexto histórico lo cambia todo.</div></div>
         <div class="day-highlights">
-          <span class="highlight-tag">🏯 Grand Palace</span>
-          <span class="highlight-tag">🛕 Wat Arun</span>
-          <span class="highlight-tag">🍜 Pad Thai nocturno</span>
-          <span class="highlight-tag">🍺 Khao San Road</span>
+          <span class="highlight-tag">🏯 Grand Palace <span class="auth-bar"><span class="t"></span><span class="t"></span><span class="t"></span><span class="t"></span><span class="auth-label">Top tur�stico</span></span></span>
+          <span class="highlight-tag">🛕 Wat Arun <span class="auth-bar"><span class="t"></span><span class="t"></span><span class="t"></span><span class="a"></span><span class="auth-label">Cl�sico</span></span></span>
+          <span class="highlight-tag">🍜 Pad Thai nocturno <span class="auth-bar"><span class="t"></span><span class="t"></span><span class="a"></span><span class="a"></span><span class="auth-label">Popular</span></span></span>
+          <span class="highlight-tag">🍺 Khao San Road <span class="auth-bar"><span class="t"></span><span class="t"></span><span class="t"></span><span class="t"></span><span class="auth-label">Muy tur�stico</span></span></span>
         </div>
       </div>
     </div>
@@ -644,10 +650,10 @@ function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'}
         
           <div class="day-meta-row">🗺️ <strong>Tour:</strong> <strong>Free Tour Bangkok</strong> (varios operadores, buscar en GetYourGuide) — buena intro con guía local en las zonas menos turísticas. También hay tours nocturnos de street food ~€20pp que son una pasada.</div></div>
         <div class="day-highlights">
-          <span class="highlight-tag">🛶 Amphawa (no Damnoen)</span>
-          <span class="highlight-tag">🛍️ Shopping Bangkok</span>
-          <span class="highlight-tag">🌆 Rooftop bar</span>
-          <span class="highlight-tag">🍹 Cócteles con vistas</span>
+          <span class="highlight-tag">🛶 Amphawa (no Damnoen) <span class="auth-bar"><span class="t"></span><span class="a"></span><span class="a"></span><span class="a"></span><span class="auth-label">Aut�ntico</span></span></span>
+          <span class="highlight-tag">🛍️ Shopping Bangkok <span class="auth-bar"><span class="t"></span><span class="t"></span><span class="t"></span><span class="a"></span><span class="auth-label">Tur�stico</span></span></span>
+          <span class="highlight-tag">🌆 Rooftop bar <span class="auth-bar"><span class="t"></span><span class="t"></span><span class="a"></span><span class="a"></span><span class="auth-label">Popular</span></span></span>
+          <span class="highlight-tag">🍹 Cócteles con vistas <span class="auth-bar"><span class="t"></span><span class="t"></span><span class="a"></span><span class="a"></span><span class="auth-label">Popular</span></span></span>
         </div>
       </div>
     </div>
@@ -676,9 +682,9 @@ function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'}
           <div class="day-meta-row">💡 <strong>Tip:</strong> Wat Pho Thai Traditional Medical School es la fuente oficial — 1h por 260 THB (~€7). Evita los puestos de calle sin cualificación.</div>
         </div>
         <div class="day-highlights">
-          <span class="highlight-tag">💆 Masaje tailandés</span>
-          <span class="highlight-tag">🏛️ Jim Thompson House</span>
-          <span class="highlight-tag">🌙 Sukhumvit nightlife</span>
+          <span class="highlight-tag">💆 Masaje tailandés <span class="auth-bar"><span class="t"></span><span class="t"></span><span class="a"></span><span class="a"></span><span class="auth-label">Popular</span></span></span>
+          <span class="highlight-tag">🏛️ Jim Thompson House <span class="auth-bar"><span class="t"></span><span class="t"></span><span class="a"></span><span class="a"></span><span class="auth-label">Cultural</span></span></span>
+          <span class="highlight-tag">🌙 Sukhumvit nightlife <span class="auth-bar"><span class="t"></span><span class="t"></span><span class="a"></span><span class="a"></span><span class="auth-label">Popular</span></span></span>
         </div>
       </div>
     </div>
@@ -709,8 +715,8 @@ function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'}
           <div class="day-meta-row">🗺️ <strong>Tour:</strong> <strong>Free Walking Tour Chiang Mai</strong> — sale del Tha Phae Gate cada mañana. Perfecto para orientarse el primer día y que un local te cuente la historia del norte.</div></div>
         <div class="day-highlights">
           <span class="highlight-tag">✈️ Vuelo 1h</span>
-          <span class="highlight-tag">🍜 Khao Soi debut</span>
-          <span class="highlight-tag">🛍️ Night Bazaar</span>
+          <span class="highlight-tag">🍜 Khao Soi debut <span class="auth-bar"><span class="t"></span><span class="a"></span><span class="a"></span><span class="a"></span><span class="a"></span><span class="auth-label">Muy local</span></span></span>
+          <span class="highlight-tag">🛍️ Night Bazaar <span class="auth-bar"><span class="t"></span><span class="t"></span><span class="t"></span><span class="a"></span><span class="auth-label">Tur�stico</span></span></span>
         </div>
       </div>
     </div>
@@ -739,9 +745,9 @@ function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'}
           <div class="day-meta-row">💡 <strong>Tip:</strong> Alternativas éticas verificadas: <strong>Changchill Elephant Sanctuary</strong> o <strong>Living Green Elephant Sanctuary</strong>. Ambos modelo de solo observación, sin contacto forzado, ~€65pp.</div>
         </div>
         <div class="day-highlights">
-          <span class="highlight-tag">🐘 Elefantes éticos</span>
-          <span class="highlight-tag">🛁 Baño en el río</span>
-          <span class="highlight-tag">📸 Fotos de vida</span>
+          <span class="highlight-tag">🐘 Elefantes éticos <span class="auth-bar"><span class="t"></span><span class="a"></span><span class="a"></span><span class="a"></span><span class="auth-label">�tico</span></span></span>
+          <span class="highlight-tag">🛁 Baño en el río <span class="auth-bar"><span class="a"></span><span class="a"></span><span class="a"></span><span class="a"></span><span class="auth-label">Hidden gem</span></span></span>
+          <span class="highlight-tag">📸 Fotos de vida <span class="auth-bar"><span class="a"></span><span class="a"></span><span class="a"></span><span class="a"></span><span class="auth-label">Aut�ntico</span></span></span>
         </div>
       </div>
     </div>
@@ -775,9 +781,9 @@ function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'}
           <p class="tip-body">Dentro del foso hay hostales excelentes por €8-15pp: <strong>De-Residence</strong> o <strong>Stamp House</strong> son joyas baratas en pleno centro histórico. Si queréis darse un capricho una noche: <strong>Rachamankha</strong> (~€80pp, jardín zen, la mejor relación lujo-autenticidad de la ciudad).</p>
         </details>
         <div class="day-highlights">
-          <span class="highlight-tag">🛕 Wat Chedi Luang</span>
-          <span class="highlight-tag">🚶 Old City a pie</span>
-          <span class="highlight-tag">🍢 Night Market</span>
+          <span class="highlight-tag">🛕 Wat Chedi Luang <span class="auth-bar"><span class="t"></span><span class="t"></span><span class="a"></span><span class="a"></span><span class="auth-label">Cl�sico</span></span></span>
+          <span class="highlight-tag">🚶 Old City a pie <span class="auth-bar"><span class="t"></span><span class="a"></span><span class="a"></span><span class="a"></span><span class="auth-label">Aut�ntico</span></span></span>
+          <span class="highlight-tag">🍢 Night Market <span class="auth-bar"><span class="t"></span><span class="t"></span><span class="a"></span><span class="a"></span><span class="auth-label">Popular</span></span></span>
         </div>
       </div>
     </div>
@@ -807,9 +813,9 @@ function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'}
         
           <div class="day-meta-row">🗺️ <strong>Tour:</strong> Para quien no se fíe al volante: <strong>guided moto tour</strong> con guía local (~€40pp, almuerzo en aldea incluido). Opción más segura y con paradas en sitios que no encontraríais solos.</div></div>
         <div class="day-highlights">
-          <span class="highlight-tag">🏍️ Ruta en moto</span>
-          <span class="highlight-tag">💦 Cascadas</span>
-          <span class="highlight-tag">🗻 Vistas de montaña</span>
+          <span class="highlight-tag">🏍️ Ruta en moto <span class="auth-bar"><span class="t"></span><span class="a"></span><span class="a"></span><span class="a"></span><span class="a"></span><span class="auth-label">Aventura</span></span></span>
+          <span class="highlight-tag">💦 Cascadas <span class="auth-bar"><span class="t"></span><span class="a"></span><span class="a"></span><span class="a"></span><span class="auth-label">Naturaleza</span></span></span>
+          <span class="highlight-tag">🗻 Vistas de montaña <span class="auth-bar"><span class="t"></span><span class="a"></span><span class="a"></span><span class="a"></span><span class="auth-label">Naturaleza</span></span></span>
         </div>
       </div>
     </div>
@@ -838,9 +844,9 @@ function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'}
           <div class="day-meta-row">💡 <strong>Tip:</strong> Reservar el combo vuelo+ferry con antelación en agosto. Lomprayah tiene app propia. Al llegar: registraros en la dive school que hayáis elegido para reservar las salidas del día siguiente.</div>
         </div>
         <div class="day-highlights">
-          <span class="highlight-tag">⛵ Ferry a la isla</span>
-          <span class="highlight-tag">🌅 Primer atardecer insular</span>
-          <span class="highlight-tag">🤿 Open Water en el bolsillo</span>
+          <span class="highlight-tag">⛵ Ferry a la isla <span class="auth-bar"><span class="t"></span><span class="t"></span><span class="a"></span><span class="a"></span></span></span>
+          <span class="highlight-tag">🌅 Primer atardecer insular <span class="auth-bar"><span class="t"></span><span class="a"></span><span class="a"></span><span class="a"></span><span class="auth-label">Chill</span></span></span>
+          <span class="highlight-tag">🤿 Open Water en el bolsillo <span class="auth-bar"><span class="t"></span><span class="t"></span><span class="a"></span><span class="a"></span><span class="auth-label">Popular</span></span></span>
         </div>
       </div>
     </div>
@@ -874,9 +880,9 @@ function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'}
           <p class="tip-body">Bungalows de madera en la playa de Sairee: €12-20pp. Muchas dive schools ofrecen descuentos en alojamiento si hacéis varias inmersiones con ellos — preguntad al registraros.</p>
         </details>
         <div class="day-highlights">
-          <span class="highlight-tag">🤿 Fun dives certificados</span>
-          <span class="highlight-tag">🐋 Posible tiburón ballena</span>
-          <span class="highlight-tag">🐢 Tortugas y manta rays</span>
+          <span class="highlight-tag">🤿 Fun dives certificados <span class="auth-bar"><span class="t"></span><span class="a"></span><span class="a"></span><span class="a"></span><span class="auth-label">Experiencia</span></span></span>
+          <span class="highlight-tag">🐋 Posible tiburón ballena <span class="auth-bar"><span class="a"></span><span class="a"></span><span class="a"></span><span class="a"></span><span class="auth-label">�nico</span></span></span>
+          <span class="highlight-tag">🐢 Tortugas y manta rays <span class="auth-bar"><span class="t"></span><span class="a"></span><span class="a"></span><span class="a"></span><span class="auth-label">Naturaleza</span></span></span>
         </div>
       </div>
     </div>
@@ -906,9 +912,9 @@ function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'}
           <div class="day-meta-row">🗺️ <strong>Tour recomendado:</strong> Day trip a <strong>Sail Rock</strong> con dive school (~€70pp, 3 inmersiones incluidas) — el pinnacle más espectacular del Golfo y con buenas posibilidades de ver tiburón ballena.</div>
         </div>
         <div class="day-highlights">
-          <span class="highlight-tag">🤿 Sail Rock</span>
-          <span class="highlight-tag">🎓 Advanced OW opcional</span>
-          <span class="highlight-tag">🌅 Tanote Bay sunset</span>
+          <span class="highlight-tag">🤿 Sail Rock <span class="auth-bar"><span class="t"></span><span class="a"></span><span class="a"></span><span class="a"></span><span class="a"></span><span class="auth-label">Especial</span></span></span>
+          <span class="highlight-tag">🎓 Advanced OW opcional <span class="auth-bar"><span class="t"></span><span class="a"></span><span class="a"></span><span class="a"></span><span class="auth-label">Experiencia</span></span></span>
+          <span class="highlight-tag">🌅 Tanote Bay sunset <span class="auth-bar"><span class="a"></span><span class="a"></span><span class="a"></span><span class="a"></span><span class="auth-label">Hidden gem</span></span></span>
         </div>
       </div>
     </div>
@@ -937,9 +943,9 @@ function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'}
           <div class="day-meta-row">💡 <strong>Tip:</strong> Para la Half Moon de mañana: quedaos en el norte de Phangan (Haad Salad/Thong Nai Pan) y coged taxi-songthaew (~€5). Los precios en Haad Rin se doblan esa noche — ahorráis €20-30pp.</div>
         </div>
         <div class="day-highlights">
-          <span class="highlight-tag">⛵ Ferry entre islas</span>
-          <span class="highlight-tag">🛵 Scooter por la isla</span>
-          <span class="highlight-tag">🌴 Haad Rin Beach</span>
+          <span class="highlight-tag">⛵ Ferry entre islas <span class="auth-bar"><span class="t"></span><span class="t"></span><span class="a"></span><span class="a"></span></span></span>
+          <span class="highlight-tag">🛵 Scooter por la isla <span class="auth-bar"><span class="t"></span><span class="a"></span><span class="a"></span><span class="a"></span><span class="auth-label">Aut�ntico</span></span></span>
+          <span class="highlight-tag">🌴 Haad Rin Beach <span class="auth-bar"><span class="t"></span><span class="t"></span><span class="t"></span><span class="a"></span><span class="auth-label">Tur�stico</span></span></span>
         </div>
       </div>
     </div>
@@ -969,8 +975,8 @@ function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'}
         
           <div class="day-meta-row">🗺️ <strong>Tour:</strong> No hace falta tour — la fiesta se explica sola. Pero si queréis info local sobre afterparties y playas secretas del día siguiente, preguntad en el hostal.</div></div>
         <div class="day-highlights">
-          <span class="highlight-tag">🌙 Half Moon Party</span>
-          <span class="highlight-tag">🎉 Vibe jungle</span>
+          <span class="highlight-tag">🌙 Half Moon Party <span class="auth-bar"><span class="t"></span><span class="t"></span><span class="a"></span><span class="a"></span><span class="auth-label">Alternativo</span></span></span>
+          <span class="highlight-tag">🎉 Vibe jungle <span class="auth-bar"><span class="t"></span><span class="a"></span><span class="a"></span><span class="a"></span><span class="auth-label">Alternativo</span></span></span>
           <span class="highlight-tag">🎶 Múltiples escenarios</span>
         </div>
       </div>
@@ -1038,8 +1044,8 @@ function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'}
         </details>
         <div class="day-highlights">
           <span class="highlight-tag">⛵ Ferry a Samui</span>
-          <span class="highlight-tag">🏝️ Zona Maenam/Lamai</span>
-          <span class="highlight-tag">🍢 Fisherman's Village</span>
+          <span class="highlight-tag">🏝️ Zona Maenam/Lamai <span class="auth-bar"><span class="t"></span><span class="t"></span><span class="a"></span><span class="a"></span><span class="auth-label">Popular</span></span></span>
+          <span class="highlight-tag">🍢 Fisherman's Village <span class="auth-bar"><span class="a"></span><span class="a"></span><span class="a"></span><span class="a"></span><span class="auth-label">Aut�ntico</span></span></span>
         </div>
       </div>
     </div>
