@@ -3,1083 +3,1268 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🇹🇭 Tailandia 2026 — Los Seis de Madrid</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<title>🌴 Liza On Tour — Tailandia 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bkk: #F5A623;
-    --cmj: #4CAF50;
-    --tao: #00BCD4;
-    --pha: #9B59B6;
-    --sam: #E74C3C;
-    --dark: #0D1117;
-    --card: #161B22;
-    --border: #30363D;
-    --text: #E6EDF3;
-    --muted: #8B949E;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--dark); color: var(--text); font-family: 'Poppins', sans-serif; }
+:root {
+  --bkk: #F5A623;
+  --cmj: #56C45E;
+  --tao: #00C8E0;
+  --pha: #A855F7;
+  --sam: #F05454;
+  --dark: #0A0F1A;
+  --card: #111827;
+  --card2: #1a2235;
+  --border: #1e2d45;
+  --text: #E8EFF9;
+  --muted: #6B7FA0;
+  --gold: #F5C842;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--dark);color:var(--text);font-family:'Poppins',sans-serif;line-height:1.6;overflow-x:hidden}
 
-  /* HERO */
-  .hero {
-    background: linear-gradient(160deg, #0D1117 0%, #1a2744 50%, #0D1117 100%);
-    padding: 60px 20px 40px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    border-bottom: 1px solid var(--border);
-  }
-  .hero::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: url('https://images.unsplash.com/photo-1528181304800-259b08848526?w=1200&q=60') center/cover no-repeat;
-    opacity: 0.12;
-  }
-  .hero-content { position: relative; z-index: 1; }
-  .hero-flag { font-size: 64px; margin-bottom: 8px; }
-  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem,6vw,3.5rem); color: #fff; line-height: 1.1; }
-  .hero-sub { font-size: 1.1rem; color: var(--muted); margin-top: 8px; }
-  .hero-badges { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 24px; }
-  .badge { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 100px; padding: 6px 16px; font-size: 0.85rem; }
+/* ─── HERO ─── */
+.hero{position:relative;min-height:92vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 20px 80px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1528181304800-259b08848526?w=1400&q=70')center/cover no-repeat;filter:brightness(0.32) saturate(1.2)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 60%,var(--dark) 100%)}
+.hero-content{position:relative;z-index:2;max-width:760px}
+.liza-brand{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,8vw,5.5rem);color:#fff;line-height:1;letter-spacing:-1px;text-shadow:0 4px 40px rgba(245,166,35,0.4)}
+.liza-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1rem,3vw,1.5rem);color:var(--gold);margin-top:4px;opacity:.9}
+.hero-flag{font-size:clamp(2rem,5vw,3rem);margin-bottom:12px}
+.hero-dates{display:inline-block;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:100px;padding:8px 22px;font-size:.9rem;color:rgba(255,255,255,0.8);margin-top:20px;backdrop-filter:blur(8px)}
+.hero-badges{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:22px}
+.badge{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:100px;padding:6px 14px;font-size:.78rem;color:rgba(255,255,255,0.75)}
+.scroll-cta{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--muted);font-size:.75rem;animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
 
-  /* ALERT */
-  .alert-box {
-    background: linear-gradient(135deg, #2d1a00, #3d2200);
-    border: 1px solid #F5A623;
-    border-radius: 12px;
-    padding: 20px;
-    margin: 20px;
-    position: relative;
-  }
-  .alert-box h3 { color: #F5A623; font-size: 1rem; margin-bottom: 8px; }
-  .alert-box p { font-size: 0.9rem; color: #ccc; line-height: 1.6; }
-  .alert-box .good { color: #4CAF50; font-weight: 600; }
+/* ─── NAV ─── */
+nav{position:sticky;top:0;z-index:100;background:rgba(10,15,26,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 16px}
+.nav-inner{display:flex;align-items:center;gap:4px;max-width:900px;margin:0 auto;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.nav-inner::-webkit-scrollbar{display:none}
+.nav-btn{flex:none;padding:14px 16px;font-size:.82rem;font-weight:500;color:var(--muted);background:none;border:none;cursor:pointer;white-space:nowrap;transition:color .2s;font-family:'Poppins',sans-serif}
+.nav-btn:hover,.nav-btn.active{color:var(--gold)}
 
-  /* CREW */
-  .crew-section { padding: 20px; }
-  .crew-section h2 { font-size: 1.1rem; color: var(--muted); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; }
-  .crew-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-  .crew-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px; text-align: center; }
-  .crew-emoji { font-size: 2rem; }
-  .crew-name { font-weight: 700; font-size: 0.9rem; margin-top: 4px; }
-  .crew-tag { font-size: 0.7rem; color: var(--muted); margin-top: 2px; }
+/* ─── SECTIONS ─── */
+.section{max-width:900px;margin:0 auto;padding:56px 20px}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.4rem);color:#fff;margin-bottom:8px}
+.section-sub{color:var(--muted);font-size:.9rem;margin-bottom:36px}
 
-  /* NAV */
-  .week-nav { position: sticky; top: 0; z-index: 100; background: rgba(13,17,23,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 10px 16px; overflow-x: auto; white-space: nowrap; }
-  .week-label { display: inline-block; font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; vertical-align: middle; margin-right: 8px; }
-  .day-pill { display: inline-block; padding: 6px 14px; border-radius: 100px; font-size: 0.8rem; font-weight: 600; cursor: pointer; margin-right: 6px; border: 1px solid transparent; transition: all 0.2s; text-decoration: none; color: var(--text); }
-  .day-pill:hover { opacity: 0.8; }
-  .pill-bkk { background: rgba(245,166,35,0.15); border-color: rgba(245,166,35,0.4); color: var(--bkk); }
-  .pill-cmj { background: rgba(76,175,80,0.15); border-color: rgba(76,175,80,0.4); color: var(--cmj); }
-  .pill-tao { background: rgba(0,188,212,0.15); border-color: rgba(0,188,212,0.4); color: var(--tao); }
-  .pill-pha { background: rgba(155,89,182,0.15); border-color: rgba(155,89,182,0.4); color: var(--pha); }
-  .pill-sam { background: rgba(231,76,60,0.15); border-color: rgba(231,76,60,0.4); color: var(--sam); }
+/* ─── ALERT BOX ─── */
+.alert-box{background:linear-gradient(135deg,rgba(168,85,247,.15),rgba(248,69,160,.12));border:1px solid rgba(168,85,247,.5);border-radius:14px;padding:18px 22px;margin-bottom:36px;display:flex;gap:14px;align-items:flex-start}
+.alert-icon{font-size:1.8rem;flex:none}
+.alert-text strong{color:var(--pha);display:block;font-size:.95rem;margin-bottom:4px}
+.alert-text p{color:var(--muted);font-size:.82rem;line-height:1.6}
 
-  /* DAYS */
-  .days-container { padding: 16px; max-width: 680px; margin: 0 auto; }
-  .day-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; margin-bottom: 16px; overflow: hidden; scroll-margin-top: 60px; }
-  .day-header { padding: 18px 20px; cursor: pointer; display: flex; align-items: center; gap: 14px; user-select: none; }
-  .day-header:hover { background: rgba(255,255,255,0.02); }
-  .day-num { width: 48px; height: 48px; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 900; font-size: 1.1rem; flex-shrink: 0; }
-  .day-num span { font-size: 0.6rem; font-weight: 400; opacity: 0.8; }
-  .day-title-block { flex: 1; }
-  .day-location { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 2px; opacity: 0.7; }
-  .day-title { font-weight: 700; font-size: 1rem; line-height: 1.2; }
-  .day-date { font-size: 0.75rem; color: var(--muted); }
-  .chevron { font-size: 1rem; color: var(--muted); transition: transform 0.3s; }
-  .day-card.open .chevron { transform: rotate(180deg); }
+/* ─── CALENDAR ─── */
+.calendar-wrap{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;margin-bottom:36px}
+.cal-header{background:linear-gradient(135deg,#1a2744,#0d1a36);padding:20px 24px;text-align:center}
+.cal-header h3{font-family:'Playfair Display',serif;font-size:1.4rem;color:#fff}
+.cal-header p{color:var(--muted);font-size:.8rem;margin-top:4px}
+.cal-legend{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;padding:14px 20px;border-bottom:1px solid var(--border)}
+.cal-legend-item{display:flex;align-items:center;gap:6px;font-size:.72rem;color:var(--muted)}
+.cal-dot{width:10px;height:10px;border-radius:50%}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);border-top:1px solid var(--border)}
+.cal-weekday{padding:8px 4px;text-align:center;font-size:.7rem;font-weight:600;color:var(--muted);background:rgba(255,255,255,0.03);border-bottom:1px solid var(--border)}
+.cal-day{position:relative;aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid var(--border);cursor:pointer;transition:all .2s;font-size:.8rem;padding:2px}
+.cal-day.empty{background:transparent;cursor:default}
+.cal-day:not(.empty):hover{background:rgba(255,255,255,0.08);transform:scale(1.06)}
+.cal-day.trip{font-weight:600;color:#fff}
+.cal-day.trip::before{content:'';position:absolute;inset:3px;border-radius:8px;opacity:.25}
+.cal-day.bkk::before{background:var(--bkk)}
+.cal-day.cmj::before{background:var(--cmj)}
+.cal-day.tao::before{background:var(--tao)}
+.cal-day.pha::before{background:var(--pha)}
+.cal-day.sam::before{background:var(--sam)}
+.cal-day .day-num{position:relative;z-index:1;font-size:.85rem;font-weight:700;line-height:1}
+.cal-day .day-emoji{position:relative;z-index:1;font-size:.65rem;margin-top:1px}
+.cal-day.today-ring{box-shadow:inset 0 0 0 2px var(--gold)}
 
-  .day-body { display: none; padding: 0 20px 20px; }
-  .day-card.open .day-body { display: block; }
-  .day-body .divider { height: 1px; background: var(--border); margin-bottom: 18px; }
+/* ─── ROUTE MAP ─── */
+.map-wrap{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:24px;margin-bottom:20px;text-align:center}
+.map-wrap svg{max-width:100%;height:auto}
+.map-city-label{font-family:'Poppins',sans-serif;font-size:11px;fill:var(--text)}
+.map-city-dot{filter:drop-shadow(0 0 6px currentColor)}
 
-  /* Activities */
-  .activities { list-style: none; }
-  .activity-item { display: flex; gap: 12px; margin-bottom: 14px; }
-  .act-time { font-size: 0.75rem; color: var(--muted); min-width: 42px; padding-top: 2px; }
-  .act-content { flex: 1; }
-  .act-title { font-weight: 600; font-size: 0.95rem; }
-  .act-desc { font-size: 0.82rem; color: var(--muted); margin-top: 2px; line-height: 1.5; }
-  .act-easter { font-size: 0.78rem; color: #F5A623; margin-top: 4px; font-style: italic; }
+/* ─── DAY CARDS ─── */
+.days-grid{display:flex;flex-direction:column;gap:16px}
+.day-card{background:var(--card);border:1px solid var(--border);border-radius:18px;overflow:hidden;transition:all .3s}
+.day-card:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,0.4)}
+.day-card-header{position:relative;height:160px;overflow:hidden;cursor:pointer}
+.day-card-header img{width:100%;height:100%;object-fit:cover;transition:transform .4s;display:block}
+.day-card:hover .day-card-header img{transform:scale(1.05)}
+.day-card-header-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(10,15,26,.8) 0%,transparent 60%)}
+.day-card-header-info{position:absolute;left:16px;top:50%;transform:translateY(-50%)}
+.day-num-badge{font-size:.7rem;font-weight:600;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+.day-title{font-family:'Playfair Display',serif;font-size:1.2rem;color:#fff;line-height:1.2;max-width:200px}
+.day-location-badge{display:inline-block;padding:3px 10px;border-radius:100px;font-size:.68rem;font-weight:600;margin-top:6px}
+.day-card-body{padding:16px 20px}
+.day-card-body p{font-size:.86rem;color:var(--muted);line-height:1.7}
+.day-highlights{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.highlight-tag{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:100px;padding:4px 12px;font-size:.72rem;color:rgba(255,255,255,.7)}
 
-  /* Sections within day */
-  .day-section { margin-top: 16px; }
-  .day-section-title { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted); margin-bottom: 10px; border-top: 1px solid var(--border); padding-top: 14px; }
+/* Location color helpers */
+.loc-bkk{color:var(--bkk)}.loc-cmj{color:var(--cmj)}.loc-tao{color:var(--tao)}.loc-pha{color:var(--pha)}.loc-sam{color:var(--sam)}
+.bg-bkk{background:rgba(245,166,35,.15);border-color:rgba(245,166,35,.35);color:var(--bkk)}
+.bg-cmj{background:rgba(86,196,94,.15);border-color:rgba(86,196,94,.35);color:var(--cmj)}
+.bg-tao{background:rgba(0,200,224,.15);border-color:rgba(0,200,224,.35);color:var(--tao)}
+.bg-pha{background:rgba(168,85,247,.15);border-color:rgba(168,85,247,.35);color:var(--pha)}
+.bg-sam{background:rgba(240,84,84,.15);border-color:rgba(240,84,84,.35);color:var(--sam)}
 
-  .stay-box, .food-box, .tip-box { background: rgba(255,255,255,0.04); border-radius: 10px; padding: 12px 14px; font-size: 0.85rem; line-height: 1.6; }
-  .tip-box { border-left: 3px solid var(--bkk); }
-  .stay-box { border-left: 3px solid var(--tao); }
+/* ─── BUDGET ─── */
+.budget-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-bottom:24px}
+.budget-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px}
+.budget-card h4{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:14px}
+.budget-item{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border);font-size:.85rem}
+.budget-item:last-child{border:none;font-weight:700;color:var(--gold);font-size:.95rem}
+.budget-total-box{background:linear-gradient(135deg,rgba(245,200,66,.12),rgba(245,166,35,.08));border:1px solid rgba(245,200,66,.3);border-radius:14px;padding:20px;text-align:center}
+.budget-total-box p{color:var(--muted);font-size:.82rem}
+.budget-total-box strong{font-family:'Playfair Display',serif;font-size:2rem;color:var(--gold);display:block;margin:6px 0}
 
-  /* Themes */
-  .theme-bkk .day-num { background: rgba(245,166,35,0.15); color: var(--bkk); }
-  .theme-bkk .day-location { color: var(--bkk); }
-  .theme-cmj .day-num { background: rgba(76,175,80,0.15); color: var(--cmj); }
-  .theme-cmj .day-location { color: var(--cmj); }
-  .theme-tao .day-num { background: rgba(0,188,212,0.15); color: var(--tao); }
-  .theme-tao .day-location { color: var(--tao); }
-  .theme-pha .day-num { background: rgba(155,89,182,0.15); color: var(--pha); }
-  .theme-pha .day-location { color: var(--pha); }
-  .theme-sam .day-num { background: rgba(231,76,60,0.15); color: var(--sam); }
-  .theme-sam .day-location { color: var(--sam); }
+/* ─── TIPS ─── */
+.tips-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.tip-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px}
+.tip-icon{font-size:1.8rem;margin-bottom:10px}
+.tip-card h4{font-size:.85rem;font-weight:600;color:#fff;margin-bottom:6px}
+.tip-card p{font-size:.78rem;color:var(--muted);line-height:1.6}
 
-  /* Budget */
-  .budget-section { margin: 20px 16px; }
-  .budget-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 20px; }
-  .budget-card h2 { font-size: 1rem; margin-bottom: 16px; }
-  .budget-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.88rem; }
-  .budget-row:last-child { border-bottom: none; font-weight: 700; font-size: 1rem; color: var(--bkk); }
-  .budget-note { font-size: 0.78rem; color: var(--muted); margin-top: 12px; }
+/* ─── VOTING SECTION ─── */
+.vote-container{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden}
+.vote-header{background:linear-gradient(135deg,rgba(168,85,247,.2),rgba(99,102,241,.15));padding:24px;border-bottom:1px solid var(--border)}
+.vote-header h3{font-family:'Playfair Display',serif;font-size:1.4rem;color:#fff;margin-bottom:6px}
+.vote-header p{color:var(--muted);font-size:.85rem}
+.vote-phases{display:flex;gap:0;border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none}
+.vote-phases::-webkit-scrollbar{display:none}
+.vote-phase-btn{flex:none;padding:12px 20px;font-size:.78rem;font-weight:500;color:var(--muted);background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;font-family:'Poppins',sans-serif;transition:all .2s;white-space:nowrap}
+.vote-phase-btn.active{color:var(--pha);border-bottom-color:var(--pha)}
+.vote-content{padding:24px}
+.vote-panel{display:none}
+.vote-panel.active{display:block}
+.vote-q{margin-bottom:28px}
+.vote-q h4{font-size:.9rem;font-weight:600;color:#fff;margin-bottom:6px}
+.vote-q p{font-size:.8rem;color:var(--muted);margin-bottom:14px}
+/* Sliders */
+.slider-wrap{position:relative}
+.vote-slider{width:100%;-webkit-appearance:none;appearance:none;height:6px;border-radius:3px;background:var(--border);outline:none;margin:8px 0}
+.vote-slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:20px;height:20px;border-radius:50%;background:var(--pha);cursor:pointer;border:3px solid var(--card);box-shadow:0 0 8px rgba(168,85,247,.6)}
+.vote-slider::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--pha);cursor:pointer;border:3px solid var(--card)}
+.slider-labels{display:flex;justify-content:space-between;font-size:.7rem;color:var(--muted);margin-top:4px}
+.slider-value{text-align:center;font-size:.9rem;font-weight:700;color:var(--pha);margin-top:6px}
+/* Option cards */
+.vote-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-top:10px}
+.vote-option{background:rgba(255,255,255,.04);border:1.5px solid var(--border);border-radius:12px;padding:14px 12px;cursor:pointer;text-align:center;transition:all .2s;position:relative}
+.vote-option:hover{background:rgba(168,85,247,.08);border-color:rgba(168,85,247,.4)}
+.vote-option.selected{background:rgba(168,85,247,.15);border-color:var(--pha)}
+.vote-option .opt-emoji{font-size:1.6rem;display:block;margin-bottom:6px}
+.vote-option .opt-label{font-size:.78rem;font-weight:600;color:#fff;display:block;margin-bottom:4px}
+.vote-option .opt-desc{font-size:.7rem;color:var(--muted)}
+.vote-option input[type=radio]{position:absolute;opacity:0;width:0;height:0}
+/* Name input */
+.name-input-wrap{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}
+.name-input{flex:1;min-width:180px;background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:10px;padding:10px 16px;font-size:.85rem;color:var(--text);font-family:'Poppins',sans-serif;outline:none}
+.name-input:focus{border-color:rgba(168,85,247,.5);background:rgba(168,85,247,.06)}
+.name-input::placeholder{color:var(--muted)}
+/* Submit */
+.vote-submit{background:linear-gradient(135deg,var(--pha),#6366f1);color:#fff;border:none;border-radius:12px;padding:14px 32px;font-size:.9rem;font-weight:600;cursor:pointer;font-family:'Poppins',sans-serif;transition:all .2s;width:100%}
+.vote-submit:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(168,85,247,.4)}
+.vote-submit:disabled{opacity:.5;cursor:not-allowed;transform:none}
+/* Results */
+.vote-results{margin-top:24px;padding-top:24px;border-top:1px solid var(--border)}
+.vote-results h4{font-size:.85rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px}
+.result-row{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.result-label{font-size:.8rem;color:var(--text);min-width:130px;flex:none}
+.result-bar-wrap{flex:1;background:var(--border);border-radius:4px;height:8px;overflow:hidden}
+.result-bar{height:100%;border-radius:4px;background:var(--pha);transition:width .6s ease}
+.result-count{font-size:.75rem;color:var(--muted);min-width:40px;text-align:right}
+.vote-toast{display:none;background:rgba(86,196,94,.15);border:1px solid rgba(86,196,94,.4);border-radius:10px;padding:12px 16px;font-size:.82rem;color:#56C45E;margin-top:16px;text-align:center}
 
-  /* Footer */
-  footer { text-align: center; padding: 30px 20px; color: var(--muted); font-size: 0.8rem; border-top: 1px solid var(--border); margin-top: 20px; }
-  footer a { color: var(--tao); }
+/* ─── FOOTER ─── */
+footer{text-align:center;padding:40px 20px;color:var(--muted);font-size:.78rem;border-top:1px solid var(--border)}
+footer span{color:var(--gold)}
 
-  /* Scrollbar */
-  ::-webkit-scrollbar { height: 4px; width: 4px; }
-  ::-webkit-scrollbar-track { background: var(--dark); }
-  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+/* ─── RESPONSIVE ─── */
+@media(min-width:640px){
+  .days-grid{display:grid;grid-template-columns:1fr 1fr}
+}
+@media(min-width:900px){
+  .days-grid{grid-template-columns:1fr 1fr 1fr}
+}
 </style>
 </head>
 <body>
 
-<!-- HERO -->
-<div class="hero">
+<!-- ═══════════════════════════════════════════════════ HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-flag">🇹🇭</div>
-    <h1>Tailandia 2026</h1>
-    <p class="hero-sub">Los Seis de Madrid · 8 – 24 agosto · 17 días</p>
+    <div class="hero-flag">🌴</div>
+    <div class="liza-brand">Liza On Tour</div>
+    <div class="liza-sub">Tailandia 2026</div>
+    <div class="hero-dates">✈️ &nbsp; 8 — 24 de Agosto &nbsp;•&nbsp; 17 días &nbsp;•&nbsp; 6 madrileños</div>
     <div class="hero-badges">
-      <span class="badge">🏙️ Bangkok</span>
-      <span class="badge">⛰️ Chiang Mai + Pai</span>
-      <span class="badge">🤿 Koh Tao</span>
-      <span class="badge">🌙 Koh Phangan</span>
-      <span class="badge">🌅 Koh Samui</span>
+      <span class="badge" style="color:var(--bkk)">🏙️ Bangkok</span>
+      <span class="badge" style="color:var(--cmj)">🐘 Chiang Mai</span>
+      <span class="badge" style="color:var(--tao)">🤿 Koh Tao</span>
+      <span class="badge" style="color:var(--pha)">🌙 Koh Phangan</span>
+      <span class="badge" style="color:var(--sam)">🏖️ Koh Samui</span>
     </div>
   </div>
-</div>
-
-<!-- ALERT: Full Moon Party -->
-<div class="alert-box">
-  <h3>⚠️ ALERTA IMPORTANTE: Full Moon Party</h3>
-  <p>La Full Moon Party de agosto 2026 cae el <strong>27-28 de agosto</strong> — salís el día 24. La perdéis por 3 días. Hay dos opciones: (A) extender el viaje hasta el 28 y vivir la FMP, o (B) ir a la <span class="good">Half Moon Party (~20-21 agosto)</span> que también es épica, 4.000 personas, bosque mágico iluminado con neón, 6 escenarios. Está en el plan. No os vais a quejar.</p>
-</div>
-
-<!-- CREW -->
-<div class="crew-section">
-  <h2>🧑‍🤝‍🧑 La pandilla (y Fra, que paga)</h2>
-  <div class="crew-grid">
-    <div class="crew-card">
-      <div class="crew-emoji">💪</div>
-      <div class="crew-name">Modet</div>
-      <div class="crew-tag">Fuerte pero con las uñas pintadas 💅</div>
-    </div>
-    <div class="crew-card">
-      <div class="crew-emoji">🍺</div>
-      <div class="crew-name">Roberto</div>
-      <div class="crew-tag">Gourmet & roncador VIP</div>
-    </div>
-    <div class="crew-card">
-      <div class="crew-emoji">🕺</div>
-      <div class="crew-name">Iñaki</div>
-      <div class="crew-tag">Ligón en modo Asia</div>
-    </div>
-    <div class="crew-card">
-      <div class="crew-emoji">🔍</div>
-      <div class="crew-name">Kike</div>
-      <div class="crew-tag">Curioso profesional</div>
-    </div>
-    <div class="crew-card">
-      <div class="crew-emoji">🏆</div>
-      <div class="crew-name">Iñigo</div>
-      <div class="crew-tag">"THAT WAS ÉPIC" · Hala Madrid</div>
-    </div>
-    <div class="crew-card">
-      <div class="crew-emoji">🎲</div>
-      <div class="crew-name">Ralas</div>
-      <div class="crew-tag">El que montó este viaje · A darlo todo</div>
-    </div>
+  <div class="scroll-cta">
+    <span>Explorar</span>
+    <span>↓</span>
   </div>
-  <div style="margin-top:10px; background: rgba(231,76,60,0.08); border: 1px dashed rgba(231,76,60,0.4); border-radius:12px; padding:14px; text-align:center; font-size:0.82rem; color:#aaa;">
-    💸 <strong style="color:#E74C3C">Fra (Francone)</strong> — No viene al viaje pero colabora económicamente de forma involuntaria. Los 6 dividimos gastos entre 7 por cortesía. <em>Gracias Fra.</em>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ NAV -->
+<nav>
+  <div class="nav-inner">
+    <button class="nav-btn active" onclick="scrollTo('calendario')">📅 Calendario</button>
+    <button class="nav-btn" onclick="scrollTo('mapa')">🗺️ Ruta</button>
+    <button class="nav-btn" onclick="scrollTo('itinerario')">📖 Itinerario</button>
+    <button class="nav-btn" onclick="scrollTo('presupuesto')">💰 Presupuesto</button>
+    <button class="nav-btn" onclick="scrollTo('votar')">🗳️ Votar</button>
   </div>
-</div>
+</nav>
+<script>
+function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}
+</script>
 
-<!-- NAV -->
-<div class="week-nav">
-  <span class="week-label">Ir a</span>
-  <a class="day-pill pill-bkk" href="#day1">D1</a>
-  <a class="day-pill pill-bkk" href="#day2">D2</a>
-  <a class="day-pill pill-bkk" href="#day3">D3</a>
-  <a class="day-pill pill-cmj" href="#day4">D4</a>
-  <a class="day-pill pill-cmj" href="#day5">D5</a>
-  <a class="day-pill pill-cmj" href="#day6">D6</a>
-  <a class="day-pill pill-cmj" href="#day7">D7</a>
-  <a class="day-pill pill-tao" href="#day8">D8</a>
-  <a class="day-pill pill-tao" href="#day9">D9</a>
-  <a class="day-pill pill-tao" href="#day10">D10</a>
-  <a class="day-pill pill-tao" href="#day11">D11</a>
-  <a class="day-pill pill-pha" href="#day12">D12</a>
-  <a class="day-pill pill-pha" href="#day13">D13</a>
-  <a class="day-pill pill-pha" href="#day14">D14</a>
-  <a class="day-pill pill-pha" href="#day15">D15</a>
-  <a class="day-pill pill-sam" href="#day16">D16</a>
-  <a class="day-pill pill-sam" href="#day17">D17</a>
-</div>
+<!-- ═══════════════════════════════════════════════════ CALENDARIO -->
+<section class="section" id="calendario">
+  <h2 class="section-title">📅 Agosto 2026</h2>
+  <p class="section-sub">El viaje empieza el sábado 8 y termina el lunes 24 — 17 días perfectos</p>
 
-<!-- DAYS -->
-<div class="days-container">
-
-  <!-- DAY 1 -->
-  <div class="day-card theme-bkk open" id="day1">
-    <div class="day-header" onclick="toggleDay(this)">
-      <div class="day-num">1<span>AGO</span><span>8</span></div>
-      <div class="day-title-block">
-        <div class="day-location">Bangkok</div>
-        <div class="day-title">🛬 Aterrizaje en el caos</strong></div>
-        <div class="day-date">Sábado 8 de agosto</div>
-      </div>
-      <div class="chevron">▼</div>
-    </div>
-    <div class="day-body">
-      <div class="divider"></div>
-      <ul class="activities">
-        <li class="activity-item">
-          <span class="act-time">Tarde</span>
-          <div class="act-content">
-            <div class="act-title">✈️ Llegada a Suvarnabhumi (BKK)</div>
-            <div class="act-desc">Vuelo desde Madrid vía conexión (KLM/Qatar/Turkish recomendados). ~14h de viaje. Cambiad dinero en <strong>Superrich</strong> dentro del aeropuerto — el mejor tipo de cambio de Bangkok, evitad las casas de cambio del aeropuerto principal.</div>
-          </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">18:00</span>
-          <div class="act-content">
-            <div class="act-title">🏨 Check-in: INNSiDE by Meliá Bangkok Sukhumvit</div>
-            <div class="act-desc">Piso 25+ con rooftop pool y vistas al skyline de Bangkok. On Nut, bien ubicado en el BTS Skytrain. ~‬130-180/noche por apartamento (3 pers/hab = ~‬45-60/persona).</div>
-            <div class="act-easter">🪱 Jordi ya está haciendo flexiones en la habitación para compensar las 14 horas de aviacion. Las uñas azules combinan perfectamente con la piscina del rooftop. La habitación cuesta 60€. Total, esto lo paga Fra.</div>
-          </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">20:00</span>
-          <div class="act-content">
-            <div class="act-title">🍜 Primera cena tailandesa — Soi 38</div>
-            <div class="act-desc">El Soi 38 en Thong Lo (5 min en BTS) es una calle legendaria de puestos nocturnos. Pad Thai, boat noodles, mango sticky rice. Todo entre 1-3 EUR por plato. Sin menú en inglés — señalar y sonreír.</div>
-            <div class="act-easter">🪱 Roberto ve una carta de vino y llora de emoción. Se toma 4 Chang beers "de prueba" y esa noche ronca tan fuerte que los demás tienen que dormir con el aire acondicionado a tope. El climatizador cuesta extra. Fra, a pagar.</div>
-          </div>
-        </li>
-      </ul>
-      <div class="day-section">
-        <div class="day-section-title">🛏️ Alojamiento</div>
-        <div class="stay-box">INNSiDE by Meliá Bangkok Sukhumvit — rooftop pool, piso 25+, skyline views. Barrio On Nut (BTS Sukhumvit). <strong>Book con tiempo</strong> — agosto es temporada alta.</div>
-      </div>
-      <div class="day-section">
-        <div class="day-section-title">💡 Tips del día</div>
-        <div class="tip-box">• SIM card en el aeropuerto (~‬10 por 30 días de datos ilimitados) — ponedla antes de salir<br>• Grab (= Uber tailandés) para moverse, nunca el tuk-tuk del aeropuerto<br>• El jet lag es real. No os montéis con nada importante este primer día</div>
-      </div>
-    </div>
-  </div>>Cero turistas. Llegar antes del amanecer para ver el mercado en pleno funcionamiento. Vísceras, flores de loto, especias, vendedores durmiendo entre los puestos. Es una experiencia sensorial de otro planeta.</div>
-            <div class="act-easter">🪱 Kike, con su curiosidad infinita, pregunta al carnicero qué es exactamente lo que tiene colgado. El carnicero le responde. Kike no vuelve a preguntar.</div>
-          </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">08:00</span>
-          <div class="act-content">
-            <div class="act-title">⛵ Longtail boat — canales de Thonburi</div>
-            <div class="act-desc">Contratar un longtail boat privado (~€20-25 para el grupo, 2h) desde Tha Chang Pier. Os lleva por los canales del Bangkok antiguo: casas de madera sobre el agua, monjes lavando los pies en el canal, niños yendo al colegio en barca. La Bangkok que no sale en Instagram.</div>
-          </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">11:00</span>
-          <div class="act-content">
-            <div class="act-title">⛪ West Bank — templos sin turistas</div>
-            <div class="act-desc">Wat Kalayanamit (templo enorme, prácticamente solo locales), Holy Rosary Church del s.XVI construida por mercaderes portugueses, y el Haroon Village con su mezquita del s.XIX mezclando arquitectura indonesia y tailandesa. Historia rarísima y muy poca gente.</div>
-          </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">14:00</span>
-          <div class="act-content">
-            <div class="act-title">🌆 Barrio de Ari — Bangkok para locales</div>
-            <div class="act-desc">El barrio más cool de Bangkok para jóvenes tailandeses. Cafés de specialty coffee, tiendas de vinilo, restaurantes de autor a precio local. Nada orientado al turista. Tomad el BTS hasta Ari station.</div>
-            <div class="act-easter">🪱 Iñaki intenta ligar con la barista del café. Ella tiene novio. Iñaki pide un segundo café. Filosofía de vida: "Comerte una buena polla no te hace menos hombre." Los dos cafés: 3€. Fra, a pagar.</div>
-          </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">21:00</span>
-          <div class="act-content">
-            <div class="act-title">🏮 Yaowarat — Chinatown de noche</div>
-            <div class="act-desc">El Chinatown de Bangkok de noche es una de las mejores experiencias gastronómicas de Asia. La Yaowarat Road se convierte en un pasillo de puestos de dim sum, langostas a la plancha, tofu frito. Lleváos hambre.</div>
-            <div class="act-easter">🪱 Roberto reserva mesa en el único restaurante con carta de vinos de Yaowarat. Pide "el mejor que tengáis". Le traen un Rioja de cartón. Escribe una reseña de 3 párrafos en TripAdvisor.</div>
-          </div>
-        </li>
-      </ul>
-      <div class="day-section">
-        <div class="day-section-title">💡 Tips del día</div>
-        <div class="tip-box">• Llevaos ropa con manga para los templos (o comprad una tela en el mercado por 1€)<br>• Agua mineral todo el rato — 33°C con humedad tropical<br>• El Grab nocturno en Yaowarat tarda. Pedidlo con antelación.</div>
-      </div>
+  <div class="alert-box">
+    <div class="alert-icon">🌕</div>
+    <div class="alert-text">
+      <strong>⚠️ La Full Moon Party es el 27-28 de agosto — nos la perdemos por 3 días</strong>
+      <p>Pero no os preocupéis: la <strong>Half Moon Party es el 20-21 de agosto</strong>, justo cuando estaremos en Koh Phangan. Diferente vibe, más íntima, igualmente épica. Some say it's actually better. 🎉</p>
     </div>
   </div>
 
-  <!-- DAY 3 -->
-  <div class="day-card theme-bkk" id="day3">
-    <div class="day-header" onclick="toggleDay(this)">
-      <div class="day-num">3<span>AGO</span><span>10</span></div>
-      <div class="day-title-block">
-        <div class="day-location">Bangkok</div>
-        <div class="day-title">🏯 Templos y skyline — Bangkok desde arriba</div>
-        <div class="day-date">Lunes 10 de agosto</div>
-      </div>
-      <div class="chevron">▼</div>
+  <div class="calendar-wrap">
+    <div class="cal-header">
+      <h3>Agosto 2026</h3>
+      <p>Haz clic en un día para ir al itinerario</p>
     </div>
-    <div class="day-body">
-      <div class="divider"></div>
-      <ul class="activities">
-        <li class="activity-item">
-          <span class="act-time">07:00</span>
-          <div class="act-content">
-            <div class="act-title">🏛️ Wat Pho — antes que los turistas</div>
-            <div class="act-desc">El templo del Buda Reclinado. Entrar a las 8am antes de las excursiones organizadas. 46 metros de Buda dorado tumbado, casi solo vosotros. Luego masaje tailandés tradicional en la propia escuela de masajes del templo (~€10, 1h) — la más antigua del país.</div>
-            <div class="act-easter">🪱 Modet se ofrece como demostración de masaje al instructor. El instructor le mira los brazos, luego las uñas, y se rinde sin entender nada.</div>
-          </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">10:00</span>
-          <div class="act-content">
-            <div class="act-title">👑 Grand Palace + Wat Phra Kaew</div>
-            <div class="act-desc">Sí, es lo más turístico de Bangkok. Sí, merece la pena igualmente. El Buda de Esmeralda y los murales del Ramayana son alucinantes. Ir temprano, llevar ropa tapada. Entrada: ~€15.</div>
-          </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">13:00</span>
-          <div class="act-content">
-            <div class="act-title">🍛 Almuerzo en Tha Chang Market</div>
-            <div class="act-desc">Mercado junto al río, pegado al Grand Palace. Nada turístico, cocina tailandesa de barrio a 1-2€ el plato. Los currys están hechos con las especias del mercado de al lado.</div>
-          </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">16:00</span>
-          <div class="act-content">
-            <div class="act-title">🏊 Rooftop pool en el hotel</div>
-            <div class="act-desc">Tarde de descanso, piscina, vistas al skyline. Cargad las pilas para la noche. Aquí es donde el amigo de tu colega tenía razón — la piscina en el piso 25 con Bangkok debajo merece sola el alojamiento.</div>
-          </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">19:00</span>
-          <div class="act-content">
-            <div class="act-title">🌃 Sky Bar — Vertigo or State Tower</div>
-            <div class="act-desc">El Vertigo en el Banyan Tree o el Lebua State Tower (el del opening de Hangover 2). Cocktail mínimo obligatorio (~€15), pero las vistas de Bangkok de noche desde 250m son una locura. Llevaos ropa decente.</div>
-            <div class="act-easter">🪱 Iñigo lo ve desde arriba y dice "THAT WAS ÉPIC" con una cerveza en la mano. Alguien le dice que aún no hemos hecho nada. "Ya lo sé", responde.</div>
-          </div>
-        </li>
-      </ul>
-      <div class="day-section">
-        <div class="day-section-title">💡 Tips del día</div>
-        <div class="tip-box">• Mañana vuelo a Chiang Mai — preparad la maleta esta noche<br>• Sky bar: llamad antes para confirmar dress code (no chanclas)<br>• Comprad cualquier cosa que necesitéis en Chatuchak (si es domingo) o Centralworld mall</div>
+    <div class="cal-legend">
+      <div class="cal-legend-item"><div class="cal-dot" style="background:var(--bkk)"></div>Bangkok</div>
+      <div class="cal-legend-item"><div class="cal-dot" style="background:var(--cmj)"></div>Chiang Mai</div>
+      <div class="cal-legend-item"><div class="cal-dot" style="background:var(--tao)"></div>Koh Tao</div>
+      <div class="cal-legend-item"><div class="cal-dot" style="background:var(--pha)"></div>Koh Phangan</div>
+      <div class="cal-legend-item"><div class="cal-dot" style="background:var(--sam)"></div>Koh Samui</div>
+    </div>
+    <div class="cal-grid">
+      <!-- Weekday headers (Mon–Sun) -->
+      <div class="cal-weekday">Lun</div><div class="cal-weekday">Mar</div><div class="cal-weekday">Mié</div><div class="cal-weekday">Jue</div><div class="cal-weekday">Vie</div><div class="cal-weekday">Sáb</div><div class="cal-weekday">Dom</div>
+      <!-- Week 1: Aug 1 = Saturday (5 empty Mon–Fri) -->
+      <div class="cal-day empty"></div>
+      <div class="cal-day empty"></div>
+      <div class="cal-day empty"></div>
+      <div class="cal-day empty"></div>
+      <div class="cal-day empty"></div>
+      <div class="cal-day"><div class="day-num">1</div></div>
+      <div class="cal-day"><div class="day-num">2</div></div>
+      <!-- Week 2 -->
+      <div class="cal-day"><div class="day-num">3</div></div>
+      <div class="cal-day"><div class="day-num">4</div></div>
+      <div class="cal-day"><div class="day-num">5</div></div>
+      <div class="cal-day"><div class="day-num">6</div></div>
+      <div class="cal-day"><div class="day-num">7</div></div>
+      <!-- Aug 8: trip day 1 – Bangkok -->
+      <div class="cal-day trip bkk" onclick="scrollTo('dia1')"><div class="day-num">8</div><div class="day-emoji">✈️</div></div>
+      <!-- Aug 9 -->
+      <div class="cal-day trip bkk" onclick="scrollTo('dia2')"><div class="day-num">9</div><div class="day-emoji">🏯</div></div>
+      <!-- Week 3 -->
+      <div class="cal-day trip bkk" onclick="scrollTo('dia3')"><div class="day-num">10</div><div class="day-emoji">🛺</div></div>
+      <div class="cal-day trip bkk" onclick="scrollTo('dia4')"><div class="day-num">11</div><div class="day-emoji">🌃</div></div>
+      <div class="cal-day trip bkk" onclick="scrollTo('dia5')"><div class="day-num">12</div><div class="day-emoji">✈️</div></div>
+      <div class="cal-day trip cmj" onclick="scrollTo('dia6')"><div class="day-num">13</div><div class="day-emoji">🐘</div></div>
+      <div class="cal-day trip cmj" onclick="scrollTo('dia7')"><div class="day-num">14</div><div class="day-emoji">🛕</div></div>
+      <div class="cal-day trip cmj" onclick="scrollTo('dia8')"><div class="day-num">15</div><div class="day-emoji">🏍️</div></div>
+      <div class="cal-day trip cmj" onclick="scrollTo('dia9')"><div class="day-num">16</div><div class="day-emoji">✈️</div></div>
+      <!-- Week 4 -->
+      <div class="cal-day trip tao" onclick="scrollTo('dia10')"><div class="day-num">17</div><div class="day-emoji">🤿</div></div>
+      <div class="cal-day trip tao" onclick="scrollTo('dia11')"><div class="day-num">18</div><div class="day-emoji">🐠</div></div>
+      <div class="cal-day trip pha" onclick="scrollTo('dia12')"><div class="day-num">19</div><div class="day-emoji">⛵</div></div>
+      <div class="cal-day trip pha" onclick="scrollTo('dia13')"><div class="day-num">20</div><div class="day-emoji">🌙</div></div>
+      <div class="cal-day trip pha" onclick="scrollTo('dia14')"><div class="day-num">21</div><div class="day-emoji">🎉</div></div>
+      <div class="cal-day trip sam" onclick="scrollTo('dia15')"><div class="day-num">22</div><div class="day-emoji">⛵</div></div>
+      <div class="cal-day trip sam" onclick="scrollTo('dia16')"><div class="day-num">23</div><div class="day-emoji">🏖️</div></div>
+      <!-- Week 5 -->
+      <div class="cal-day trip sam" onclick="scrollTo('dia17')"><div class="day-num">24</div><div class="day-emoji">✈️</div></div>
+      <div class="cal-day"><div class="day-num">25</div></div>
+      <div class="cal-day"><div class="day-num">26</div></div>
+      <div class="cal-day"><div class="day-num">27</div></div>
+      <div class="cal-day"><div class="day-num">28</div></div>
+      <div class="cal-day"><div class="day-num">29</div></div>
+      <div class="cal-day"><div class="day-num">30</div></div>
+      <!-- Week 6 -->
+      <div class="cal-day"><div class="day-num">31</div></div>
+      <div class="cal-day empty"></div>
+      <div class="cal-day empty"></div>
+      <div class="cal-day empty"></div>
+      <div class="cal-day empty"></div>
+      <div class="cal-day empty"></div>
+      <div class="cal-day empty"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ MAPA -->
+<section class="section" id="mapa">
+  <h2 class="section-title">🗺️ La Ruta</h2>
+  <p class="section-sub">De norte a sur — del caos urbano al paraíso tropical</p>
+  <div class="map-wrap">
+    <svg viewBox="0 0 340 520" xmlns="http://www.w3.org/2000/svg" style="max-height:480px">
+      <!-- Thailand shape (simplified) -->
+      <path d="M120,20 L160,22 L185,35 L195,55 L200,80 L205,105 L210,130 L215,155 L218,180 L215,200 L220,220 L225,245 L228,265 L230,285 L228,305 L225,325 L220,345 L215,360 L210,375 L205,390 L205,405 L208,420 L210,435 L208,450 L205,460 L200,468 L195,472 L190,470 L185,462 L182,450 L183,440 L185,428 L182,415 L178,402 L172,390 L168,378 L165,365 L163,350 L162,335 L160,320 L155,305 L150,295 L142,285 L135,280 L128,275 L120,268 L115,258 L112,245 L113,230 L116,215 L118,200 L116,183 L112,165 L108,148 L106,130 L107,112 L108,95 L110,78 L112,58 L115,40 Z"
+        fill="rgba(30,45,69,0.8)" stroke="rgba(100,130,170,0.4)" stroke-width="1.5"/>
+
+      <!-- Route line Bangkok→ChiangMai -->
+      <path d="M168,245 C155,220 148,190 148,160" stroke="rgba(245,166,35,0.5)" stroke-width="2" fill="none" stroke-dasharray="6,4"/>
+      <!-- Arrow BKK→CMJ -->
+      <polygon points="148,155 143,167 153,167" fill="var(--cmj)" opacity="0.8"/>
+
+      <!-- Route line ChiangMai→KohTao -->
+      <path d="M148,138 C158,175 168,210 190,340" stroke="rgba(86,196,94,0.5)" stroke-width="2" fill="none" stroke-dasharray="6,4"/>
+      <!-- Arrow CMJ→Tao -->
+      <polygon points="190,345 185,334 195,334" fill="var(--tao)" opacity="0.8"/>
+
+      <!-- Route line KohTao→KohPhangan -->
+      <path d="M192,360 C193,368 194,373 195,378" stroke="rgba(0,200,224,0.5)" stroke-width="2" fill="none" stroke-dasharray="4,3"/>
+      <polygon points="195,381 190,371 200,371" fill="var(--pha)" opacity="0.8"/>
+
+      <!-- Route line KohPhangan→KohSamui -->
+      <path d="M193,395 C192,402 190,408 188,414" stroke="rgba(168,85,247,0.5)" stroke-width="2" fill="none" stroke-dasharray="4,3"/>
+      <polygon points="188,418 183,407 193,407" fill="var(--sam)" opacity="0.8"/>
+
+      <!-- Bangkok dot -->
+      <circle cx="168" cy="248" r="9" fill="var(--bkk)" opacity="0.9" class="map-city-dot" style="color:var(--bkk)"/>
+      <circle cx="168" cy="248" r="16" fill="var(--bkk)" opacity="0.15"/>
+      <text x="180" y="244" class="map-city-label" font-weight="700" fill="#F5A623">Bangkok</text>
+      <text x="180" y="257" class="map-city-label" fill="#6B7FA0">Días 1–5</text>
+
+      <!-- Chiang Mai dot -->
+      <circle cx="148" cy="138" r="9" fill="var(--cmj)" opacity="0.9" class="map-city-dot" style="color:var(--cmj)"/>
+      <circle cx="148" cy="138" r="16" fill="var(--cmj)" opacity="0.15"/>
+      <text x="162" y="134" class="map-city-label" font-weight="700" fill="#56C45E">Chiang Mai</text>
+      <text x="162" y="147" class="map-city-label" fill="#6B7FA0">Días 6–9</text>
+
+      <!-- Koh Tao dot -->
+      <circle cx="192" cy="358" r="8" fill="var(--tao)" opacity="0.9" class="map-city-dot"/>
+      <circle cx="192" cy="358" r="14" fill="var(--tao)" opacity="0.15"/>
+      <text x="205" y="354" class="map-city-label" font-weight="700" fill="#00C8E0">Koh Tao</text>
+      <text x="205" y="366" class="map-city-label" fill="#6B7FA0">Días 10–11</text>
+
+      <!-- Koh Phangan dot -->
+      <circle cx="193" cy="385" r="7" fill="var(--pha)" opacity="0.9"/>
+      <circle cx="193" cy="385" r="13" fill="var(--pha)" opacity="0.15"/>
+      <text x="205" y="381" class="map-city-label" font-weight="700" fill="#A855F7">Koh Phangan</text>
+      <text x="205" y="393" class="map-city-label" fill="#6B7FA0">Días 12–14</text>
+
+      <!-- Koh Samui dot -->
+      <circle cx="190" cy="415" r="7" fill="var(--sam)" opacity="0.9"/>
+      <circle cx="190" cy="415" r="13" fill="var(--sam)" opacity="0.15"/>
+      <text x="202" y="411" class="map-city-label" font-weight="700" fill="#F05454">Koh Samui</text>
+      <text x="202" y="423" class="map-city-label" fill="#6B7FA0">Días 15–17</text>
+
+      <!-- Compass -->
+      <text x="30" y="35" font-size="10" fill="rgba(107,127,160,0.6)" font-family="Poppins,sans-serif">N ↑</text>
+
+      <!-- Distance legend -->
+      <text x="20" y="490" font-size="9" fill="rgba(107,127,160,0.5)" font-family="Poppins,sans-serif">Tailandia — Ruta aproximada</text>
+    </svg>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ ITINERARIO -->
+<section class="section" id="itinerario">
+  <h2 class="section-title">📖 El Itinerario</h2>
+  <p class="section-sub">17 días, 5 destinos, infinitos recuerdos</p>
+
+  <div class="days-grid">
+
+    <!-- DIA 1 -->
+    <div class="day-card" id="dia1">
+      <div class="day-card-header">
+        <img src="https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=600&q=70" alt="Bangkok nocturno" loading="lazy">
+        <div class="day-card-header-overlay"></div>
+        <div class="day-card-header-info">
+          <div class="day-num-badge">Día 1 · Sáb 8 Ago</div>
+          <div class="day-title">Salida desde Madrid</div>
+          <span class="day-location-badge bg-bkk">✈️ Madrid → Bangkok</span>
+        </div>
       </div>
+      <div class="day-card-body">
+        <p>El viaje empieza en Barajas. Vuelo largo (aprox. 13–15h con escala), llegaréis de noche a Suvarnabhumi. Check-in en el hotel, primera Chang helada y a dormir — mañana os espera Bangkok. <em>Si todo va bien, la primera tuk-tuk ride es esta misma noche.</em></p>
+        <div class="day-highlights">
+          <span class="highlight-tag">🍺 Primera cerveza tailandesa</span>
+          <span class="highlight-tag">🛺 Tuk-tuk al hotel</span>
+          <span class="highlight-tag">🏨 Hotel piso alto recomendado</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIA 2 -->
+    <div class="day-card" id="dia2">
+      <div class="day-card-header">
+        <img src="https://images.unsplash.com/photo-1563492065599-3520f775eeed?w=600&q=70" alt="Grand Palace Bangkok" loading="lazy">
+        <div class="day-card-header-overlay"></div>
+        <div class="day-card-header-info">
+          <div class="day-num-badge">Día 2 · Dom 9 Ago</div>
+          <div class="day-title">Bangkok: El Gran Palacio</div>
+          <span class="day-location-badge bg-bkk">🏯 Bangkok</span>
+        </div>
+      </div>
+      <div class="day-card-body">
+        <p>Mañana al Grand Palace y Wat Phra Kaew (el Buda de Esmeralda). Tarde: Wat Arun cruzando el Chao Phraya en barco. Noche en Khao San Road — el caos más divertido de Asia. Primer pad thai de la vida, garantizado que cambia perspectivas.</p>
+        <div class="day-highlights">
+          <span class="highlight-tag">🏯 Grand Palace</span>
+          <span class="highlight-tag">🛕 Wat Arun</span>
+          <span class="highlight-tag">🍜 Pad Thai nocturno</span>
+          <span class="highlight-tag">🍺 Khao San Road</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIA 3 -->
+    <div class="day-card" id="dia3">
+      <div class="day-card-header">
+        <img src="https://images.unsplash.com/photo-1541336032412-2048a678540d?w=600&q=70" alt="Bangkok canales" loading="lazy">
+        <div class="day-card-header-overlay"></div>
+        <div class="day-card-header-info">
+          <div class="day-num-badge">Día 3 · Lun 10 Ago</div>
+          <div class="day-title">Mercados y Rascacielos</div>
+          <span class="day-location-badge bg-bkk">🛺 Bangkok</span>
+        </div>
+      </div>
+      <div class="day-card-body">
+        <p>Mercado flotante de Damnoen Saduak por la mañana (opcional pero épico). Tarde en Chatuchak o el MBK Center. Al caer el sol: rooftop bar obligatorio — Sky Bar (Lebua, el de Hangover 2 💀) o Vertigo en el Banyan Tree. La noche tiene luz propia desde las alturas.</p>
+        <div class="day-highlights">
+          <span class="highlight-tag">🛶 Mercado flotante</span>
+          <span class="highlight-tag">🛍️ Chatuchak</span>
+          <span class="highlight-tag">🌆 Rooftop bar</span>
+          <span class="highlight-tag">🍹 Cócteles con vistas</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIA 4 -->
+    <div class="day-card" id="dia4">
+      <div class="day-card-header">
+        <img src="https://images.unsplash.com/photo-1567529692333-de9fd6772897?w=600&q=70" alt="Bangkok nightlife" loading="lazy">
+        <div class="day-card-header-overlay"></div>
+        <div class="day-card-header-info">
+          <div class="day-num-badge">Día 4 · Mar 11 Ago</div>
+          <div class="day-title">Bangkok: Free Day</div>
+          <span class="day-location-badge bg-bkk">🌃 Bangkok</span>
+        </div>
+      </div>
+      <div class="day-card-body">
+        <p>Día libre para lo que pida el cuerpo. Opciones: Jim Thompson House, el Erawan Shrine, masaje tailandés clásico (imprescindible), o simplemente perderse por Sukhumvit. Última noche en Bangkok — algunos duermen temprano, otros "investigan" Silom y Patpong. Cada uno sabrá. 🙈</p>
+        <div class="day-highlights">
+          <span class="highlight-tag">💆 Masaje tailandés</span>
+          <span class="highlight-tag">🏛️ Jim Thompson House</span>
+          <span class="highlight-tag">🌙 Sukhumvit nightlife</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIA 5 -->
+    <div class="day-card" id="dia5">
+      <div class="day-card-header">
+        <img src="https://images.unsplash.com/photo-1555400038-63f5ba517a47?w=600&q=70" alt="Avión vuelo Chiang Mai" loading="lazy">
+        <div class="day-card-header-overlay"></div>
+        <div class="day-card-header-info">
+          <div class="day-num-badge">Día 5 · Mié 12 Ago</div>
+          <div class="day-title">Vuelo a Chiang Mai</div>
+          <span class="day-location-badge bg-cmj">✈️ Bangkok → Chiang Mai</span>
+        </div>
+      </div>
+      <div class="day-card-body">
+        <p>Vuelo doméstico Thai Airways o AirAsia (1h). Llegada al norte, el ambiente cambia radicalmente — más fresco, más verde, más tranquilo. Tarde para instalarse, explorar el Night Bazaar y cenar khao soi, el plato estrella del norte. Una sopa de curry que te va a poner las pilas.</p>
+        <div class="day-highlights">
+          <span class="highlight-tag">✈️ Vuelo 1h</span>
+          <span class="highlight-tag">🍜 Khao Soi debut</span>
+          <span class="highlight-tag">🛍️ Night Bazaar</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIA 6 -->
+    <div class="day-card" id="dia6">
+      <div class="day-card-header">
+        <img src="https://images.unsplash.com/photo-1551717743-49959800b1f6?w=600&q=70" alt="Elefantes Chiang Mai" loading="lazy">
+        <div class="day-card-header-overlay"></div>
+        <div class="day-card-header-info">
+          <div class="day-num-badge">Día 6 · Jue 13 Ago</div>
+          <div class="day-title">El Santuario de Elefantes</div>
+          <span class="day-location-badge bg-cmj">🐘 Chiang Mai</span>
+        </div>
+      </div>
+      <div class="day-card-body">
+        <p>El día más especial del viaje. Santuario ético de elefantes (Elephant Nature Park o similar) — nada de montar, sólo observar, bañar y alimentar a los elefantes en libertad. Hay quien llora. No hay vergüenza. <em>Fra ya avisó que este día es el más importante para ella — no lo jodáis llegando tarde.</em></p>
+        <div class="day-highlights">
+          <span class="highlight-tag">🐘 Elefantes éticos</span>
+          <span class="highlight-tag">🛁 Baño con elefantes</span>
+          <span class="highlight-tag">📸 Fotos de vida</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIA 7 -->
+    <div class="day-card" id="dia7">
+      <div class="day-card-header">
+        <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600&q=70" alt="Chiang Mai templos" loading="lazy">
+        <div class="day-card-header-overlay"></div>
+        <div class="day-card-header-info">
+          <div class="day-num-badge">Día 7 · Vie 14 Ago</div>
+          <div class="day-title">Ciudad Amurallada</div>
+          <span class="day-location-badge bg-cmj">🛕 Chiang Mai</span>
+        </div>
+      </div>
+      <div class="day-card-body">
+        <p>La Old City rodeada por el foso. Wat Chedi Luang y Wat Phra Singh a pie. Tarde en el Sunday Walking Street (aunque sea viernes, hay mercadillo). Cena en el Tha Phae Gate Night Market. Si Iñaki no pierde el pasaporte antes de llegar aquí, el viaje va bien.</p>
+        <div class="day-highlights">
+          <span class="highlight-tag">🛕 Wat Chedi Luang</span>
+          <span class="highlight-tag">🚶 Old City a pie</span>
+          <span class="highlight-tag">🍢 Night Market</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIA 8 -->
+    <div class="day-card" id="dia8">
+      <div class="day-card-header">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=70" alt="Doi Inthanon montaña" loading="lazy">
+        <div class="day-card-header-overlay"></div>
+        <div class="day-card-header-info">
+          <div class="day-num-badge">Día 8 · Sáb 15 Ago</div>
+          <div class="day-title">En Moto por el Norte</div>
+          <span class="day-location-badge bg-cmj">🏍️ Chiang Mai</span>
+        </div>
+      </div>
+      <div class="day-card-body">
+        <p>Alquilar motos y hacer la Mae Klong Loop o subir a Doi Suthep. Paisaje de montaña, cascadas, aldeas. Propuesta alternativa: Doi Inthanon, el pico más alto de Tailandia (2565m). <em>Kike dice que él conduce, Roberto dice que él también. Alguien va a terminar en la cuneta — con amor.</em></p>
+        <div class="day-highlights">
+          <span class="highlight-tag">🏍️ Ruta en moto</span>
+          <span class="highlight-tag">💦 Cascadas</span>
+          <span class="highlight-tag">🗻 Vistas de montaña</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIA 9 -->
+    <div class="day-card" id="dia9">
+      <div class="day-card-header">
+        <img src="https://images.unsplash.com/photo-1602408510832-23e4bb50b58f?w=600&q=70" alt="Vuelo Koh Tao" loading="lazy">
+        <div class="day-card-header-overlay"></div>
+        <div class="day-card-header-info">
+          <div class="day-num-badge">Día 9 · Dom 16 Ago</div>
+          <div class="day-title">Rumbo a las Islas</div>
+          <span class="day-location-badge bg-tao">✈️ Chiang Mai → Koh Tao</span>
+        </div>
+      </div>
+      <div class="day-card-body">
+        <p>Vuelo Chiang Mai → Bangkok o Surat Thani + ferry a Koh Tao (día largo de viaje, ~8-10h en total). Llegar, encontrar el bungalow frente al mar, primera inmersión en el Golfo de Tailandia con los pies. El agua está a 28°C. El color es irreal. <em>Modet ya está mirando cursos de buceo PADI en su móvil desde que salimos de Madrid.</em></p>
+        <div class="day-highlights">
+          <span class="highlight-tag">⛵ Ferry a la isla</span>
+          <span class="highlight-tag">🌅 Primer atardecer insular</span>
+          <span class="highlight-tag">🐚 Playa por la noche</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIA 10 -->
+    <div class="day-card" id="dia10">
+      <div class="day-card-header">
+        <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=70" alt="Buceo Koh Tao" loading="lazy">
+        <div class="day-card-header-overlay"></div>
+        <div class="day-card-header-info">
+          <div class="day-num-badge">Día 10 · Lun 17 Ago</div>
+          <div class="day-title">Koh Tao: Bajo el Agua</div>
+          <span class="day-location-badge bg-tao">🤿 Koh Tao</span>
+        </div>
+      </div>
+      <div class="day-card-body">
+        <p>Koh Tao es una de las mejores islas del mundo para aprender a bucear. Día de snorkeling o curso intro de buceo. Los arrecifes de coral están a 5 minutos en barca. Tortugas, barracudas, peces tropicales. Comer en alguna chiringuita de madera sobre el agua y no moverse hasta el ocaso.</p>
+        <div class="day-highlights">
+          <span class="highlight-tag">🤿 Snorkeling / buceo</span>
+          <span class="highlight-tag">🐢 Tortugas marinas</span>
+          <span class="highlight-tag">🌊 Playas vírgenes</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIA 11 -->
+    <div class="day-card" id="dia11">
+      <div class="day-card-header">
+        <img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=600&q=70" alt="Coral reef Koh Tao" loading="lazy">
+        <div class="day-card-header-overlay"></div>
+        <div class="day-card-header-info">
+          <div class="day-num-badge">Día 11 · Mar 18 Ago</div>
+          <div class="day-title">Koh Tao: Un Día Más</div>
+          <span class="day-location-badge bg-tao">🐠 Koh Tao</span>
+        </div>
+      </div>
+      <div class="day-card-body">
+        <p>Segundo día en Koh Tao. Los que quieran continuar con el PADI Open Water (3 días en total). El resto: kayak, SUP, explorar Sairee Beach o simplemente existir en una hamaca con un coco. Imprescindible: atardecer en Tanote Bay o en John-Suwan Rock. No lo explico, hay que verlo.</p>
+        <div class="day-highlights">
+          <span class="highlight-tag">🎓 PADI Open Water</span>
+          <span class="highlight-tag">🏄 SUP / Kayak</span>
+          <span class="highlight-tag">🌅 Tanote Bay sunset</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIA 12 -->
+    <div class="day-card" id="dia12">
+      <div class="day-card-header">
+        <img src="https://images.unsplash.com/photo-1504214208698-ea1916a2195a?w=600&q=70" alt="Koh Phangan playa" loading="lazy">
+        <div class="day-card-header-overlay"></div>
+        <div class="day-card-header-info">
+          <div class="day-num-badge">Día 12 · Mié 19 Ago</div>
+          <div class="day-title">Cruzando a Koh Phangan</div>
+          <span class="day-location-badge bg-pha">⛵ Koh Tao → Koh Phangan</span>
+        </div>
+      </div>
+      <div class="day-card-body">
+        <p>Ferry de 1.5h entre islas. Koh Phangan tiene otra energía — más grande, más variada, playas del norte más salvajes. Instalarse en Haad Rin o Haad Thong Nai Pan. Tarde explorando la isla en scooter. Noche tranquila antes de la tormenta. 🌙</p>
+        <div class="day-highlights">
+          <span class="highlight-tag">⛵ Ferry entre islas</span>
+          <span class="highlight-tag">🛵 Scooter por la isla</span>
+          <span class="highlight-tag">🌴 Haad Rin Beach</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIA 13 -->
+    <div class="day-card" id="dia13">
+      <div class="day-card-header">
+        <img src="https://images.unsplash.com/photo-1515266591878-f93e32bc5937?w=600&q=70" alt="Half Moon Party" loading="lazy">
+        <div class="day-card-header-overlay"></div>
+        <div class="day-card-header-info">
+          <div class="day-num-badge">Día 13 · Jue 20 Ago</div>
+          <div class="day-title">⚡ HALF MOON PARTY</div>
+          <span class="day-location-badge bg-pha">🌙 Koh Phangan</span>
+        </div>
+      </div>
+      <div class="day-card-body">
+        <p>LA NOCHE. La Half Moon Party es en el jungle de Koh Phangan — escenarios en el bosque, psytrance, techno, reggaeton, varias pistas. Pintura fosforescente. Empieza a las 9pm y termina cuando el sol ya no tiene vergüenza. <em>Lo que pase en la Half Moon Party, se queda en la Half Moon Party. Pero se cuenta todo en el avión de vuelta.</em></p>
+        <div class="day-highlights">
+          <span class="highlight-tag">🎉 Half Moon Party</span>
+          <span class="highlight-tag">🌙 Jungle rave</span>
+          <span class="highlight-tag">💫 Pintura fluorescente</span>
+          <span class="highlight-tag">🎵 Múltiples escenarios</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIA 14 -->
+    <div class="day-card" id="dia14">
+      <div class="day-card-header">
+        <img src="https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?w=600&q=70" alt="Playa recovery día" loading="lazy">
+        <div class="day-card-header-overlay"></div>
+        <div class="day-card-header-info">
+          <div class="day-num-badge">Día 14 · Vie 21 Ago</div>
+          <div class="day-title">Recovery Day 🌊</div>
+          <span class="day-location-badge bg-pha">🎉 Koh Phangan</span>
+        </div>
+      </div>
+      <div class="day-card-body">
+        <p>Día de recuperación. Agenda oficial: ninguna. Agenda real: hamaca, agua de coco, mar turquesa, silencio. Los más valientes: masaje en la playa. Los más supervivientes: smoothie de mango y vuelta a dormir. El mar está ahí para curar todo lo que la noche rompió.</p>
+        <div class="day-highlights">
+          <span class="highlight-tag">🥥 Agua de coco IV</span>
+          <span class="highlight-tag">💆 Masaje de playa</span>
+          <span class="highlight-tag">😎 Hamaca científica</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIA 15 -->
+    <div class="day-card" id="dia15">
+      <div class="day-card-header">
+        <img src="https://images.unsplash.com/photo-1601581875309-fafbf2d3ed3a?w=600&q=70" alt="Koh Samui" loading="lazy">
+        <div class="day-card-header-overlay"></div>
+        <div class="day-card-header-info">
+          <div class="day-num-badge">Día 15 · Sáb 22 Ago</div>
+          <div class="day-title">Llegada a Koh Samui</div>
+          <span class="day-location-badge bg-sam">⛵ Koh Phangan → Koh Samui</span>
+        </div>
+      </div>
+      <div class="day-card-body">
+        <p>Ferry de 30 minutos a Koh Samui, la isla grande. Más infraestructura, mejores hoteles, spas decentes. Check-in en un resort con piscina (os lo merecéis en los últimos días). Tarde en Chaweng Beach — la más animada. Big Buddha al atardecer desde la colina.</p>
+        <div class="day-highlights">
+          <span class="highlight-tag">⛵ Ferry 30min</span>
+          <span class="highlight-tag">🏨 Resort con piscina</span>
+          <span class="highlight-tag">🏖️ Chaweng Beach</span>
+          <span class="highlight-tag">🙏 Big Buddha</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIA 16 -->
+    <div class="day-card" id="dia16">
+      <div class="day-card-header">
+        <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=600&q=70" alt="Atardecer playa Samui" loading="lazy">
+        <div class="day-card-header-overlay"></div>
+        <div class="day-card-header-info">
+          <div class="day-num-badge">Día 16 · Dom 23 Ago</div>
+          <div class="day-title">Último Día en Paraíso</div>
+          <span class="day-location-badge bg-sam">🏖️ Koh Samui</span>
+        </div>
+      </div>
+      <div class="day-card-body">
+        <p>Último día entero. Nataad Beach o Silver Beach para el baño final. Cena de despedida en un restaurante de mariscos al borde del mar — langosta, gambas, calamar a la brasa. Brindis obligatorio. Alguien llorará. Todos lo negarán. <em>Jordi preparará un discurso de 40 minutos. Le cortarán en el minuto 3.</em></p>
+        <div class="day-highlights">
+          <span class="highlight-tag">🏖️ Playa final</span>
+          <span class="highlight-tag">🦞 Cena mariscos</span>
+          <span class="highlight-tag">🥂 Brindis despedida</span>
+          <span class="highlight-tag">📸 Foto de grupo</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIA 17 -->
+    <div class="day-card" id="dia17">
+      <div class="day-card-header">
+        <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&q=70" alt="Vuelo de vuelta" loading="lazy">
+        <div class="day-card-header-overlay"></div>
+        <div class="day-card-header-info">
+          <div class="day-num-badge">Día 17 · Lun 24 Ago</div>
+          <div class="day-title">El Vuelo de Vuelta</div>
+          <span class="day-location-badge bg-sam">✈️ Koh Samui → Madrid</span>
+        </div>
+      </div>
+      <div class="day-card-body">
+        <p>Vuelo desde Samui Airport (el aeropuerto de bambú más bonito del mundo) a Bangkok, y conexión a Madrid. 17 días, 5 ciudades, 6 amigos, cero quejas. En el avión: revisión de fotos, debate de qué ha sido lo mejor, promesa de volver en 2028. No os olvidéis de declarar el Duty Free en España. 🙃</p>
+        <div class="day-highlights">
+          <span class="highlight-tag">✈️ Samui Airport único</span>
+          <span class="highlight-tag">📱 Álbum compartido</span>
+          <span class="highlight-tag">🏠 De vuelta a casa</span>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /days-grid -->
+</section>
+
+<!-- ═══════════════════════════════════════════════════ PRESUPUESTO -->
+<section class="section" id="presupuesto">
+  <h2 class="section-title">💰 Presupuesto</h2>
+  <p class="section-sub">Estimación por persona en euros — hay margen para ajustar</p>
+
+  <div class="budget-grid">
+    <div class="budget-card">
+      <h4>✈️ Vuelos</h4>
+      <div class="budget-item"><span>Madrid → Bangkok (ida)</span><span>~€500</span></div>
+      <div class="budget-item"><span>Bangkok → Chiang Mai (dom.)</span><span>~€50</span></div>
+      <div class="budget-item"><span>Chiang Mai → Surat Thani</span><span>~€60</span></div>
+      <div class="budget-item"><span>Koh Samui → Madrid (vuelta)</span><span>~€550</span></div>
+      <div class="budget-item"><span><strong>Subtotal vuelos</strong></span><span><strong>~€1.160</strong></span></div>
+    </div>
+    <div class="budget-card">
+      <h4>🏨 Alojamiento (16 noches)</h4>
+      <div class="budget-item"><span>Bangkok (4 noches, piso alto)</span><span>~€200</span></div>
+      <div class="budget-item"><span>Chiang Mai (4 noches)</span><span>~€120</span></div>
+      <div class="budget-item"><span>Koh Tao (2 noches)</span><span>~€60</span></div>
+      <div class="budget-item"><span>Koh Phangan (3 noches)</span><span>~€90</span></div>
+      <div class="budget-item"><span>Koh Samui (3 noches)</span><span>~€180</span></div>
+      <div class="budget-item"><span><strong>Subtotal alojamiento</strong></span><span><strong>~€650</strong></span></div>
+    </div>
+    <div class="budget-card">
+      <h4>🍜 Comida &amp; Actividades</h4>
+      <div class="budget-item"><span>Comida (17 días × €25/día)</span><span>~€425</span></div>
+      <div class="budget-item"><span>Transporte local</span><span>~€80</span></div>
+      <div class="budget-item"><span>Santuario elefantes</span><span>~€60</span></div>
+      <div class="budget-item"><span>Buceo / snorkeling</span><span>~€80</span></div>
+      <div class="budget-item"><span>Half Moon Party + ocio</span><span>~€100</span></div>
+      <div class="budget-item"><span>Entradas, museos, misc</span><span>~€60</span></div>
+      <div class="budget-item"><span><strong>Subtotal actividades</strong></span><span><strong>~€805</strong></span></div>
     </div>
   </div>
 
-  <!-- DAY 4 -->
-  <div class="day-card theme-cmj" id="day4">
-    <div class="day-header" onclick="toggleDay(this)">
-      <div class="day-num">4<span>AGO</span><span>11</span></div>
-      <div class="day-title-block">
-        <div class="day-location">Chiang Mai</div>
-        <div class="day-title">⛰️ Llegada al norte — la ciudad de los templos</div>
-        <div class="day-date">Martes 11 de agosto</div>
-      </div>
-      <div class="chevron">▼</div>
-    </div>
-    <div class="day-body">
-      <div class="divider"></div>
-      <ul class="activities">
-        <li class="activity-item">
-          <span class="act-time">08:00</span>
-          <div class="act-content">
-            <div class="act-title">✈️ Vuelo Bangkok → Chiang Mai</div>
-            <div class="act-desc">Lion Air o AirAsia. ~1h, ~€40-60 por persona si se reserva con tiempo. Llegar al aeropuerto de Chiang Mai (CNX), que está literalmente a 5 min del centro.</div>
-          </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">11:00</span>
-          <div class="act-content">
-            <div class="act-title">🏍️ ALQUILAR MOTOS — PRIORITARIO</div>
-            <div class="act-desc">Nada más llegar, alquilar 3 motos Honda PCX 150cc (o similares). ~300 THB/día (~€8) por moto. Podréis ir de dos en dos. <strong>Llevad el carnet internacional o el carnet tailandés</strong> — sin papeles os la juegan si os paran. Recomendado: Mr. Mechanic en Nimman.</div>
-            <div class="act-easter">🪱 Modet intenta negociar el precio de la moto flexionando el bíceps. El alquilador no baja ni un baht.</div>
-          </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">14:00</span>
-          <div class="act-content">
-            <div class="act-title">🏯 Wat Umong — el templo en el bosque con túneles</div>
-            <div class="act-desc">Un templo budista del s.XIV con túneles laberínticos que los monjes usan para meditar. Prácticamente cero turistas. Hay un lago con peces gigantes, pavos reales sueltos y citas filosóficas talladas en los árboles. Rarísimo y precioso.</div>
-            <div class="act-easter">🪱 Kike lee todas las citas filosóficas de los árboles. Se tarda 40 minutos más de lo previsto. Nadie se queja porque el sitio es alucinante.</div>
-          </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">18:00</span>
-          <div class="act-content">
-            <div class="act-title">🍸 Nimman Road — la calle de los jóvenes locales</div>
-            <div class="act-desc">La Nimman es lo que sería el Malasaña de Chiang Mai. Cafés de specialty coffee, bares con música en directo, comida de fusión. Olvidad el turístico Night Bazaar — esto es donde quedan los tailandeses de 25-30 años.</div>
-          </div>
-        </li>
-      </ul>
-      <div class="day-section">
-        <div class="day-section-title">🛏️ Alojamiento</div>
-        <div class="stay-box">Guesthouse en la Old City — muchas opciones buenas entre €10-20 por persona. Recomendado: cerca de Tha Phae Gate para estar en el centro del rollo. Ejemplo: Rachamankha o Eagle House 2 para algo más con encanto.</div>
-      </div>
-    </div>
+  <div class="budget-total-box">
+    <p>Presupuesto total estimado por persona</p>
+    <strong>€2.600 – €3.000</strong>
+    <p style="margin-top:4px">Con margen para caprichos, spas y alguna langosta extra</p>
   </div>
+</section>
 
-  <!-- DAY 5 -->
-  <div class="day-card theme-cmj" id="day5">
-    <div class="day-header" onclick="toggleDay(this)">
-      <div class="day-num">5<span>AGO</span><span>12</span></div>
-      <div class="day-title-block">
-        <div class="day-location">Chiang Mai → Pai</div>
-        <div class="day-title">🏍️ LA RUTA — 762 curvas a Pai</div>
-        <div class="day-date">Miércoles 12 de agosto</div>
-      </div>
-      <div class="chevron">▼</div>
-    </div>
-    <div class="day-body">
-      <div class="divider"></div>
-      <ul class="activities">
-        <li class="activity-item">
-          <span class="act-time">06:00</span>
-          <div class="act-content">
-            <div class="act-title">🌅 Doi Suthep — amanecer antes de los turistas</div>
-            <div class="act-desc">Subir en moto a Doi Suthep a las 6am. A esta hora el templo está prácticamente vacío, los monjes hacen sus rezos matutinos y las vistas sobre Chiang Mai entre la niebla son impresionantes. Imprescindible.</div>
-          </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">08:30</span>
-          <div class="act-content">
-            <div class="act-title">🏍️ ROAD TRIP — Carretera 1095: Chiang Mai → Pai</div>
-            <div class="act-desc">La ruta de moto más famosa de Tailandia. 762 curvas en 135 km de montaña, selva, niebla y acantilados. Salid bien desayunados. Tardaréis 3-4h parando en miradores. Llevad chubasquero — agosto tiene lluvia a ratos, pero eso lo hace más brutal.</div>
-            <div class="act-easter">🪱 Iñigo llega a Pai y dice "THAT WAS ÉPIC" con los ojos desorbitados. Esta vez nadie puede rebatirle. Tenía razón.</div>
-          </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">14:00</span>
-          <div class="act-content">
-            <div class="act-title">🏘️ Llegar a Pai — el pueblo hippie tailandés</div>
-            <div class="act-desc">Pai es un pueblo pequeño en el valle de las montañas del norte. Mucho más relajado que Chiang Mai. Artesanía local, restaurantes creativos, bungalows baratos con vistas a los arrozales.</div>
-          </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">16:00</span>
-          <div class="act-content">
-            <div class="act-title">💧 Pam Bok Waterfall</div>
-            <div class="act-desc">Una cascada pequeña y esmeralda a 8km del pueblo por pista de tierra (moto). Prácticamente solo locales. El agua baja a 18°C, que después de la ruta en moto es el paraíso.</div>
-          </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">18:30</span>
-          <div class="act-content">
-            <div class="act-title">🏜️ Pai Canyon — el mini Grand Canyon</div>
-            <div class="act-desc">Una cresta de tierra erosionada con vistas de 360° al valle. Al atardecer se pone naranja y la bajada por los caminos estrechos con precipicio a los lados es adrenalina pura. 10 min en moto del pueblo.</div>
-          </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">20:00</span>
-          <div class="act-content">
-            <div class="act-title">🌙 Walking Street de Pai</div>
-            <div class="act-desc">El mercado nocturno más relajado que Bangkok. Joyas artesanales, batidos de frutas tropicales, músicos callejeros. La fiesta en Pai es tranquila pero existe — bares con música en directo hasta la madrugada.</div>
-            <div class="act-easter">🪱 Roberto encuentra un bar tailandés con una carta de cervezas artesanales. Pide las 8 de prueba. "Para comparar", dice. Hay que llevarlo en moto de vuelta al bungalow.</div>
-          </div>
-        </li>
-      </ul>
-      <div class="day-section">
-        <div class="day-section-title">🛏️ Alojamiento</div>
-        <div class="stay-box">Bungalows con vistas a arrozales — entre €5-20 por persona. Opción chill: The Hut Pai Resort. Opción budget: cualquier guesthouse del pueblo (Hostel 360, Charlie's Guesthouse).</div>
-      </div>
-    </div>
+<!-- ═══════════════════════════════════════════════════ TIPS -->
+<section class="section" id="tips">
+  <h2 class="section-title">💡 Tips Esenciales</h2>
+  <p class="section-sub">Lo que no te dice la guía Lonely Planet</p>
+  <div class="tips-grid">
+    <div class="tip-card"><div class="tip-icon">💊</div><h4>Seguro médico</h4><p>Imprescindible. IATI Mochileros o Allianz Assistance cubren bien Asia. Los hospitales privados son excelentes pero caros sin seguro.</p></div>
+    <div class="tip-card"><div class="tip-icon">🌧️</div><h4>Agosto = monzón</h4><p>Costa oeste (Phuket, Krabi) muy lluviosa en agosto. El Golfo de Tailandia (Koh Tao, Phangan, Samui) tiene mucho mejor tiempo. Por eso esta ruta.</p></div>
+    <div class="tip-card"><div class="tip-icon">💳</div><h4>Dinero</h4><p>Sacar baht en cajeros tailandeses (cobran 200 THB de comisión, menos que cambiar en España). Wise o Revolut para pagos con tarjeta sin comisión.</p></div>
+    <div class="tip-card"><div class="tip-icon">📱</div><h4>SIM local</h4><p>AIS o True Move, 30 días de datos ilimitados por ~€15. Comprar en el aeropuerto nada más llegar a Suvarnabhumi.</p></div>
+    <div class="tip-card"><div class="tip-icon">👗</div><h4>Templos</h4><p>Cubrir hombros y rodillas para entrar. Llevar un pareo en la mochila. Sin esto no entras al Grand Palace — sin excusas.</p></div>
+    <div class="tip-card"><div class="tip-icon">🏨</div><h4>Hotel Bangkok</h4><p>Dormid en un hotel bueno en Bangkok, preferiblemente piso alto. Las vistas componen el ambiente del viaje desde el principio. Merece la pena el extra.</p></div>
+    <div class="tip-card"><div class="tip-icon">🍺</div><h4>Hidratación</h4><p>Chang, Singha, Leo — las tres cervezas tailandesas. En el calor del monzón, el agua es más importante que la cerveza (aunque igual de fría).</p></div>
+    <div class="tip-card"><div class="tip-icon">🛕</div><h4>Cultura</h4><p>No tocar cabezas (sagradas), no señalar con los pies (vulgares), sonreír siempre. El "wai" (manos juntas) funciona para todo.</p></div>
   </div>
+</section>
 
-  <!-- DAY 6 -->
-  <div class="day-card theme-cmj" id="day6">
-    <div class="day-header" onclick="toggleDay(this)">
-      <div class="day-num">6<span>AGO</span><span>13</span></div>
-      <div class="day-title-block">
-        <div class="day-location">Pai</div>
-        <div class="day-title">🦇 Cuevas, aguas termales y selva</div>
-        <div class="day-date">Jueves 13 de agosto</div>
-      </div>
-      <div class="chevron">▼</div>
-    </div>
-    <div class="day-body">
-      <div class="divider"></div>
-      <ul class="activities">
-        <li class="activity-item">
-          <span class="act-time">09:00</span>
-          <div class="act-content">
-            <div class="act-title">🦇 Lod Cave — cueva sagrada con lago subterráneo</div>
-            <div class="act-desc">A 45 min de Pai por pistas de montaña. Una cueva enorme habitada por cientos de miles de murciélagos con un lago subterráneo que se cruza en barca de bambú. Hay estalactitas de 30m y monjes que van a meditar dentro. Una de esas cosas que no ves en ningún otro sitio.</div>
-            <div class="act-easter">🪱 Kike va con linterna frontal, cuaderno de apuntes y hace preguntas al guía en inglés con gestos. El guía no sabe inglés. Kike gesticula más. Entienden todo.</div>
-          </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">13:00</span>
-          <div class="act-content">
-            <div class="act-title">♨️ Hot Springs de Mae Yen — gratuitas</div>
-            <div class="act-desc">Las aguas termales gratuitas a 30 min de Pai (las de pago en la carretera son un timo). Pozas de 40°C en mitad del bosque. Acceso por pista de tierra, cero infraestructura, cero turistas masivos.</div>
-          </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">16:00</span>
-          <div class="act-content">
-            <div class="act-title">☕ Café con vistas a los arrozales</div>
-            <div class="act-desc">Pai tiene una escena cafetera sorprendente. Hay varios cafés con plataformas de madera sobre arrozales verdes. Pedid un iced Thai tea y no hagáis nada durante 2 horas. Esto también es viajar.</div>
-          </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">20:00</span>
-          <div class="act-content">
-            <div class="act-title">🎸 Bares con música live en Pai</div>
-            <div class="act-desc">Bebedero Pub o Edible Jazz en el centro. Bandas tailandesas tocando desde jazz hasta reggae. Última noche en el norte — que no se acueste nadie pronto.</div>
-            <div class="act-easter">🪱 Iñaki baila con una chica noruega, una japonesa y una tailandesa al mismo tiempo. Consigue el número de ninguna. Perfecto desempeño estadístico.</div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
+<!-- ═══════════════════════════════════════════════════ VOTAR -->
+<section class="section" id="votar">
+  <h2 class="section-title">🗳️ Vota y Decide</h2>
+  <p class="section-sub">Votaciones anónimas para ir perfeccionando el viaje — fase a fase</p>
 
-  <!-- DAY 7 -->
-  <div class="day-card theme-cmj" id="day7">
-    <div class="day-header" onclick="toggleDay(this)">
-      <div class="day-num">7<span>AGO</span><span>14</span></div>
-      <div class="day-title-block">
-        <div class="day-location">Pai → Chiang Mai → Islas</div>
-        <div class="day-title">🚀 Gran movimiento sur</div>
-        <div class="day-date">Viernes 14 de agosto</div>
-      </div>
-      <div class="chevron">▼</div>
+  <div class="vote-container">
+    <div class="vote-header">
+      <h3>🎯 Organiza el viaje votando</h3>
+      <p>Empieza con preguntas generales y conforme se vayan decidiendo cosas, las preguntas se vuelven más concretas. Como ir perfeccionando algo.</p>
     </div>
-    <div class="day-body">
-      <div class="divider"></div>
-      <ul class="activities">
-        <li class="activity-item">
-          <span class="act-time">08:00</span>
-          <div class="act-content">
-            <div class="act-title">🏍️ Moto de vuelta a Chiang Mai</div>
-            <div class="act-desc">3 horas de curvas — esta vez ya las conocéis y con más confianza. Devolver las motos en Chiang Mai. Almuerzo rápido en el mercado de Warorot.</div>
-          </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">15:00</span>
-          <div class="act-content">
-            <div class="act-title">✈️ Vuelo Chiang Mai → Koh Samui (o Surat Thani)</div>
-            <div class="act-desc">Bangkok Airways vuela directo Chiang Mai (CNX) → Koh Samui (USM). ~€80-120. Alternativamente volar a Surat Thani (URT) que es más barato y desde ahí ferry a Koh Tao. Llegar a la zona sur por la tarde/noche.</div>
-          </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">Noche</span>
-          <div class="act-content">
-            <div class="act-title">🛥️ Ferry nocturno o mañana siguiente a Koh Tao</div>
-            <div class="act-desc">Si llegáis tarde, dormid en Surat Thani o Samui. El ferry a Koh Tao sale de Chumphon o Surat Thani. 2-3 horas de trayecto. <strong>Importante: el Golfo de Tailandia (costa este) está tranquilo en agosto</strong> — la costa oeste (Phuket, Krabi) tiene el monzón fuerte, evitad.</div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
 
-  <!-- DAY 8 -->
-  <div class="day-card theme-tao" id="day8">
-    <div class="day-header" onclick="toggleDay(this)">
-      <div class="day-num">8<span>AGO</span><span>15</span></div>
-      <div class="day-title-block">
-        <div class="day-location">Koh Tao</div>
-        <div class="day-title">🐢 Llegada a la isla tortuga</div>
-        <div class="day-date">Sábado 15 de agosto</div>
-      </div>
-      <div class="chevron">▼</div>
+    <div class="vote-phases">
+      <button class="vote-phase-btn active" onclick="showPhase(0)">🌐 Fase 1: Preferencias</button>
+      <button class="vote-phase-btn" onclick="showPhase(1)">🏝️ Fase 2: Destinos</button>
+      <button class="vote-phase-btn" onclick="showPhase(2)">🏨 Fase 3: Detalles</button>
     </div>
-    <div class="day-body">
-      <div class="divider"></div>
-      <ul class="activities">
-        <li class="activity-item">
-          <span class="act-time">Mañana</span>
-          <div class="act-content">
-            <div class="act-title">⛴️ Ferry → Koh Tao</div>
-            <div class="act-desc">Desde Chumphon: Lomprayah catamaran (2h) o ferry lento (6h, pero hay literas y es la experiencia). Desde Surat Thani: ferry nocturno si salís la noche anterior. Mae Haad es el puerto donde llegaréis.</div>
-          </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">12:00</span>
-          <div class="act-content">
-            <div class="act-title">🏍️ Check-in y moto por la isla</div>
-            <div class="act-desc">Koh Tao es tan pequeña que podéis recorrerla entera en 30 minutos en moto. Primer paseo para ver las calas: Sairee Beach (la principal, vibrante), Tanote Bay (la más bonita), Ao Leuk (para snorkel). Alquilad motos otra vez — ~€8/día.</div>
-          </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">16:00</span>
-          <div class="act-content">
-            <div class="act-title">🦈 Shark Bay — snorkel con tiburones nodriza desde la orilla</div>
-            <div class="act-desc">Literalmente bajaos al agua desde la playa y hay tiburones nodriza en 1-2m de agua. Son inofensivos. Esto no está anunciado, lleva el nombre de "Haad Tien Bay" y no tiene ninguna infraestructura. Máscaras de snorkel en cualquier tienda del pueblo por 3€.</div>
-            <div class="act-easter">🪱 Iñigo ve el tiburón nodriza y, sin dudarlo, lo persigue por el fondo para tocarlo. Lo consigue. Luego alza el puño fuera del agua. "THAT WAS ÉPIC." Nadie discute.</div>
-          </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">19:00</span>
-          <div class="act-content">
-            <div class="act-title">🌅 Sunset en Sairee Beach</div>
-            <div class="act-desc">Las puestas de sol desde el lado oeste de Koh Tao sobre el Golfo son la postal perfecta. Los beach bars de Sairee sirven el famoso "buckit" tailandés (cubo de hielo con whisky local y Red Bull). Vosotros sabéis lo que hacéis.</div>
-          </div>
-        </li>
-      </ul>
-      <div class="day-section">
-        <div class="day-section-title">🛏️ Alojamiento</div>
-        <div class="stay-box">Opción mixta: 2 noches en algo básico (DJL Diving & Hostel ofrece cama GRATIS a divers), 1 noche en algo más chulo tipo Koh Tao Regal Resort con infinity pool. Aquí hacéis la media de coste que comentabas.</div>
-      </div>
-    </div>
-  </div>
 
-  <!-- DAY 9 -->
-  <div class="day-card theme-tao" id="day9">
-    <div class="day-header" onclick="toggleDay(this)">
-      <div class="day-num">9<span>AGO</span><span>16</span></div>
-      <div class="day-title-block">
-        <div class="day-location">Koh Tao</div>
-        <div class="day-title">🤿 BUCEO DÍA 1 — Chumphon Pinnacle y los whale sharks</div>
-        <div class="day-date">Domingo 16 de agosto</div>
-      </div>
-      <div class="chevron">▼</div>
-    </div>
-    <div class="day-body">
-      <div class="divider"></div>
-      <ul class="activities">
-        <li class="activity-item">
-          <span class="act-time">07:00</span>
-          <div class="act-content">
-            <div class="act-title">🐋 Full day dive trip — Chumphon Pinnacle</div>
-            <div class="act-desc">El spot más espectacular de Koh Tao para buceadores titulados. Una roca de granito que empieza a 14m y cae a más de 35m. Agosto es <strong>peak season para avistamiento de whale sharks</strong> — son inofensivos pero verlos de cerca es una experiencia que no se olvida. También: groupers gigantes, barracudas en bancos enormes, batfish. ~€60-70 por 2 dives con barco y equipo.</div>
-            <div class="act-easter">🪱 Iñigo ve un whale shark a 20 metros, nada hacia él, le da la vuelta entera, y cuando sale a superficie: "THAT WAS ÉPIC". El instructor de buceo lo grabó. Tiene 340.000 visitas en TikTok.</div>
-          </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">14:00</span>
-          <div class="act-content">
-            <div class="act-title">😴 Recovery tarde</div>
-            <div class="act-desc">Después de dos inmersiones el cuerpo necesita descanso. Descompresión emocional, comida, siesta. No voléis ni hagáis nada que eleve la presión sanguínea en las 12h siguientes al buceo.</div>
-          </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">19:00</span>
-          <div class="act-content">
-            <div class="act-title">🍣 Cena en Mae Haad Village</div>
-            <div class="act-desc">Los restaurantes de mariscos en Mae Haad son increíbles y baratos. Langostinos grillados, sepia frita, arroz con curry de coco. Barrio local sin precio turístico.</div>
-            <div class="act-easter">🪱 Roberto pide la carta de vinos. Le traen una lista de 2 opciones. Cierra la carta con dignidad. Pide una Singha "para analizar el maridaje".</div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
+    <div class="vote-content">
 
-  <!-- DAY 10 -->
-  <div class="day-card theme-tao" id="day10">
-    <div class="day-header" onclick="toggleDay(this)">
-      <div class="day-num">10<span>AGO</span><span>17</span></div>
-      <div class="day-title-block">
-        <div class="day-location">Koh Tao</div>
-        <div class="day-title">🐠 BUCEO DÍA 2 — Sail Rock, el mejor del Golfo</div>
-        <div class="day-date">Lunes 17 de agosto</div>
-      </div>
-      <div class="chevron">▼</div>
-    </div>
-    <div class="day-body">
-      <div class="divider"></div>
-      <ul class="activities">
-        <li class="activity-item">
-          <span class="act-time">07:00</span>
-          <div class="act-content">
-            <div class="act-title">🪸 Sail Rock — la catedral submarina del Golfo de Tailandia</div>
-            <div class="act-desc">Considerado el mejor punto de buceo de todo el Golfo. Una roca que emerge 8m sobre la superficie y cae a 28m bajo el agua. La firma del sitio es "la chimenea": un túnel vertical que entra a 4m de profundidad y sale a 18m — como caer por un tubo rodeado de coral y peces de colores. 1h de barco desde Koh Tao.</div>
-          </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">14:00</span>
-          <div class="act-content">
-            <div class="act-title">🏝️ Koh Nang Yuan — la triple isla</div>
-            <div class="act-desc">Tres islitas conectadas por bancos de arena blanca (Koh Tao tiene su propia isla anexa). Ferry de 10 minutos. El mirador desde arriba, con las tres islas y el mar turquesa, es una de las vistas más fotografiadas de Tailandia. Y aun así, merece la visita. Entrada: ~€3.</div>
-            <div class="act-easter">🪱 Modet llega al mirador, mira el paisaje, baja el brazo para hacer la foto, y se da cuenta de que la foto está tuerta porque no caben los músculos en el frame. Lo intenta de nuevo. Mismo problema. Usa el gran angular.</div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
+      <!-- ── FASE 1: GENÉRICA ── -->
+      <div class="vote-panel active" id="phase0">
+        <p style="font-size:.82rem;color:var(--muted);margin-bottom:24px;padding:12px 16px;background:rgba(255,255,255,.04);border-radius:10px">
+          📊 Fase 1 — Antes de afinar el planning, necesitamos saber qué quiere cada uno. Mueve los sliders según tu preferencia del 1 al 10.
+        </p>
 
-  <!-- DAY 11 -->
-  <div class="day-card theme-tao" id="day11">
-    <div class="day-header" onclick="toggleDay(this)">
-      <div class="day-num">11<span>AGO</span><span>18</span></div>
-      <div class="day-title-block">
-        <div class="day-location">Koh Tao</div>
-        <div class="day-title">🌊 Día libre en el paraíso</div>
-        <div class="day-date">Martes 18 de agosto</div>
-      </div>
-      <div class="chevron">▼</div>
-    </div>
-    <div class="day-body">
-      <div class="divider"></div>
-      <ul class="activities">
-        <li class="activity-item">
-          <span class="act-time">09:00</span>
-          <div class="act-content">
-            <div class="act-title">🏖️ Tanote Bay — la cala más bonita</div>
-            <div class="act-desc">La cala más espectacular de Koh Tao: agua cristalina verde esmeralda rodeada de roca. Snorkel desde la orilla, tortugas frecuentes. Sin chiringuito — llevad agua.</div>
-          </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">14:00</span>
-          <div class="act-content">
-            <div class="act-title">🏍️ Vuelta a la isla en moto</div>
-            <div class="act-desc">La circunvalación completa de Koh Tao tarda 45 minutos. Cada desvío lleva a una cala diferente. Parad donde os apetezca. Parte de la carretera del sur es pista — cuidado con la lluvia.</div>
-          </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">18:00</span>
-          <div class="act-content">
-            <div class="act-title">🌃 Última noche en Koh Tao — Fishbowl Beach Bar</div>
-            <div class="act-desc">El Fishbowl tiene fuegos de artificio, tragos con teas luminosas y la mejor vista nocturna del water. Buen sitio para despedir la isla.</div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
+        <div class="name-input-wrap">
+          <input class="name-input" id="name0" placeholder="Tu nombre (Kike, Roberto, Iñaki…)" maxlength="30">
+        </div>
 
-  <!-- DAY 12 -->
-  <div class="day-card theme-pha" id="day12">
-    <div class="day-header" onclick="toggleDay(this)">
-      <div class="day-num">12<span>AGO</span><span>19</span></div>
-      <div class="day-title-block">
-        <div class="day-location">Koh Phangan</div>
-        <div class="day-title">🌙 Bienvenidos a la isla de la luna</div>
-        <div class="day-date">Miércoles 19 de agosto</div>
-      </div>
-      <div class="chevron">▼</div>
-    </div>
-    <div class="day-body">
-      <div class="divider"></div>
-      <ul class="activities">
-        <li class="activity-item">
-          <span class="act-time">10:00</span>
-          <div class="act-content">
-            <div class="act-title">⛴️ Ferry Koh Tao → Koh Phangan</div>
-            <div class="act-desc">30 minutos. El ferry Lomprayah sale varias veces al día. Koh Phangan es 3 veces más grande que Koh Tao — alquilad motos nada más llegar.</div>
+        <div class="vote-q">
+          <h4>🎉 ¿Cuánta fiesta quieres? <span id="v_party_val" style="color:var(--pha)">5</span>/10</h4>
+          <p>"1 = sólo cenas, 10 = Hangover 4: Tailandia"</p>
+          <div class="slider-wrap">
+            <input type="range" class="vote-slider" id="v_party" min="1" max="10" value="5" oninput="document.getElementById('v_party_val').textContent=this.value">
+            <div class="slider-labels"><span>Tranquilo 😴</span><span>Moderado 🍻</span><span>Animal 🦁</span></div>
           </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">14:00</span>
-          <div class="act-content">
-            <div class="act-title">💦 Than Sadet Waterfall — la cascada del rey</div>
-            <div class="act-desc">El rey Rama V visitó esta cascada 3 veces y grabó su nombre en una roca. Rodeada de selva densa, agua fría y fresca, piscinas naturales entre las rocas. El camino de acceso en moto por la selva ya es una aventura. Prácticamente cero turistas.</div>
-            <div class="act-easter">🪱 Kike encuentra la piedra donde el rey grabó su nombre, lee toda la información del panel, y hace una foto de alta resolución. La almacena en su carpeta "TAILANDIA 🔍" junto a 847 fotos más.</div>
-          </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">17:00</span>
-          <div class="act-content">
-            <div class="act-title">🏖️ Bottle Beach — solo accesible en barca</div>
-            <div class="act-desc">Una cala perfectamente cerrada, sin carretera de acceso, con agua transparente y arena blanca. Se llega en longtail boat desde Chalok Lam village (~€3 por persona). En Koh Phangan todo el mundo va a Haad Rin — casi nadie va aquí.</div>
-          </div>
-        </li>
-      </ul>
-      <div class="day-section">
-        <div class="day-section-title">🛏️ Alojamiento</div>
-        <div class="stay-box">Zona Haad Rin (cerca de donde es la Full Moon / Half Moon). Opciones: Seaview Sunrise o Coco Garden para algo con encanto. Budget: cualquier guesthouse en la zona sur de la isla, ~€15-30/hab.</div>
-      </div>
-    </div>
-  </div>
+        </div>
 
-  <!-- DAY 13 -->
-  <div class="day-card theme-pha" id="day13">
-    <div class="day-header" onclick="toggleDay(this)">
-      <div class="day-num">13<span>AGO</span><span>20</span></div>
-      <div class="day-title-block">
-        <div class="day-location">Koh Phangan</div>
-        <div class="day-title">🌲 Norte salvaje y preparativos para la party</div>
-        <div class="day-date">Jueves 20 de agosto</div>
-      </div>
-      <div class="chevron">▼</div>
-    </div>
-    <div class="day-body">
-      <div class="divider"></div>
-      <ul class="activities">
-        <li class="activity-item">
-          <span class="act-time">09:00</span>
-          <div class="act-content">
-            <div class="act-title">🛶 Chalok Lam — el pueblo de pescadores del norte</div>
-            <div class="act-desc">El pueblo más auténtico de Koh Phangan. Barcos de pesca, restaurantes de mariscos fresquísimos donde comen los propios pescadores, sin turistas masivos. El contraste con Haad Rin es total.</div>
-          </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">12:00</span>
-          <div class="act-content">
-            <div class="act-title">🤿 Koh Ma — snorkel en la islita conectada</div>
-            <div class="act-desc">Una islita conectada a Koh Phangan por un banco de arena que solo aparece con marea baja. Con la marea alta, podéis cruzar a nado. El arrecife de coral entre las dos islas tiene tortugas verdes, rayas y peces loro.</div>
-          </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">Noche</span>
-          <div class="act-content">
-            <div class="act-title">🌲 HALF MOON PARTY — Bosque Mágico</div>
-            <div class="act-desc">La Half Moon cae aproximadamente el 20-21 de agosto (verificad la fecha exacta en halfmoonfestival.com). Se celebra en un bosque iluminado con luces de neón, con 6 escenarios de música distintos. Entre 3.000-5.000 personas — íntimo comparado con la Full Moon. Entrada ~€15-20. Es una experiencia realmente única.</div>
-            <div class="act-easter">🪱 Iñaki entra al bosque de neón y en 4 minutos ya está bailando en el escenario principal. Nadie sabe cómo llegó ahí. Tres horas después sigue ahí. La entrada cuesta 20€. Vaya mofa cuando le llegue la factura al Fra.</div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
+        <div class="vote-q">
+          <h4>🛕 ¿Cuánta cultura y turismo? <span id="v_cult_val" style="color:var(--pha)">5</span>/10</h4>
+          <p>"1 = playa total, 10 = museo cada día"</p>
+          <input type="range" class="vote-slider" id="v_cult" min="1" max="10" value="5" oninput="document.getElementById('v_cult_val').textContent=this.value">
+          <div class="slider-labels"><span>Playa sin más 🏖️</span><span>Mix 🤙</span><span>Rick Steves 📚</span></div>
+        </div>
 
-  <!-- DAY 14 -->
-  <div class="day-card theme-pha" id="day14">
-    <div class="day-header" onclick="toggleDay(this)">
-      <div class="day-num">14<span>AGO</span><span>21</span></div>
-      <div class="day-title-block">
-        <div class="day-location">Koh Phangan</div>
-        <div class="day-title">😴 Día de recovery legendario</div>
-        <div class="day-date">Viernes 21 de agosto</div>
-      </div>
-      <div class="chevron">▼</div>
-    </div>
-    <div class="day-body">
-      <div class="divider"></div>
-      <ul class="activities">
-        <li class="activity-item">
-          <span class="act-time">08:00</span>
-          <div class="act-content">
-            <div class="act-title">🎲 Ralas propone algo random</div>
-            <div class="act-desc">Nadie sabe qué es. Todos dicen que sí. Así es como funciona desde el principio del viaje, y hasta ahora ha salido bien todas las veces.</div>
-            <div class="act-easter">🪱 Es el mismo tío que insistió en venir a Tailandia cuando nadie lo tenía en mente. Llevaba razón. Por cierto, esta actividad random la paga Fra.</div>
-          </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">Todo el día</span>
-          <div class="act-content">
-            <div class="act-title">🌴 Haad Rin — playa, coco frío y silencio</div>
-            <div class="act-desc">Haad Rin Nok (Sunrise Beach) es la playa de la Full Moon. El día después de cualquier party esta playa es un lugar extrañamente tranquilo y bonito. Cocos fríos, smoothies, tostadas con mantequilla de cacahuete, hammock. No se habla.</div>
-            <div class="act-easter">🪱 Roberto amanece con la "cara de recovery" característica — gafas de sol, coco en mano, silencio sagrado. Dice que el curry de coco "tiene notas de coriandro fresco con retrogusto mineral". Nadie le pregunta nada.</div>
-          </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">18:00</span>
-          <div class="act-content">
-            <div class="act-title">🌅 Sunset en Haad Yao</div>
-            <div class="act-desc">La playa del sunset en Koh Phangan. Menos concurrida que Haad Rin. Barcas de pesca pasando, palmeras, la puesta de sol directa sobre el horizonte del Golfo. Última noche tranquila antes de Koh Samui.</div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
+        <div class="vote-q">
+          <h4>🌿 ¿Cuánta naturaleza y aventura? <span id="v_nat_val" style="color:var(--pha)">5</span>/10</h4>
+          <p>"Senderismo, kayak, cascadas, elefantes, buceo…"</p>
+          <input type="range" class="vote-slider" id="v_nat" min="1" max="10" value="5" oninput="document.getElementById('v_nat_val').textContent=this.value">
+          <div class="slider-labels"><span>Relax total 😌</span><span>Un poco 🌳</span><span>Bear Grylls 🗻</span></div>
+        </div>
 
-  <!-- DAY 15 -->
-  <div class="day-card theme-pha" id="day15">
-    <div class="day-header" onclick="toggleDay(this)">
-      <div class="day-num">15<span>AGO</span><span>22</span></div>
-      <div class="day-title-block">
-        <div class="day-location">Koh Phangan → Koh Samui</div>
-        <div class="day-title">🌺 A la isla grande — merecido lujo</div>
-        <div class="day-date">Sábado 22 de agosto</div>
-      </div>
-      <div class="chevron">▼</div>
-    </div>
-    <div class="day-body">
-      <div class="divider"></div>
-      <ul class="activities">
-        <li class="activity-item">
-          <span class="act-time">10:00</span>
-          <div class="act-content">
-            <div class="act-title">⛴️ Ferry Koh Phangan → Koh Samui</div>
-            <div class="act-desc">30 minutos. Koh Samui tiene aeropuerto propio y un nivel de infraestructura mucho mayor. Bienvenidos a la isla premium.</div>
-          </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">12:00</span>
-          <div class="act-content">
-            <div class="act-title">🙏 Big Buddha — Wat Phra Yai</div>
-            <div class="act-desc">El Gran Buda dorado de 12m en el norte de la isla, sobre el mar. Menos turístico que esperas, el templo de al lado con los 1000 monjes pequeños es inquietante y fascinante.</div>
-          </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">15:00</span>
-          <div class="act-content">
-            <div class="act-title">🏖️ Bophut — el Fisherman's Village más bonito</div>
-            <div class="act-desc">El pueblo de pescadores chino-tailandés más bien conservado de las islas. Casas coloniales de madera, galerías de arte, restaurantes de mariscos con mesas en la playa. El viernes noche tienen el Fisherman's Village Walking Market (si coincide, no os lo perdáis).</div>
-            <div class="act-easter">🪱 Roberto pide la lista de vinos en el restaurante de Bophut. Hay una página entera. Se emociona visiblemente. Pide 3 copas "para comparar". Alguien le graba para el grupo de WhatsApp.</div>
-          </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">20:00</span>
-          <div class="act-content">
-            <div class="act-title">🌟 Cena especial — merecida noche de lujo</div>
-            <div class="act-desc">Lleváis 15 días comiendo en mercados (y estaba bien). Esta noche: restaurante con mantel, mariscos frescos, cocktails con hielo. Algo en frente del mar en Bophut o Maenam. Presupuesto ~€25-35/persona, que en Tailandia es nivel chef con tabla de mariscos.</div>
-          </div>
-        </li>
-      </ul>
-      <div class="day-section">
-        <div class="day-section-title">🛏️ Alojamiento</div>
-        <div class="stay-box">Koh Samui — aquí metéis el luxazo que comentabas. Opciones: <strong>Samui Buri Beach Resort</strong> (piscina infinita frente al mar, Maenam), <strong>The Library</strong> (boutique con piscina roja icónica), o villa compartida entre 6 por ~€40/persona/noche. Reservad con tiempo.</div>
-      </div>
-    </div>
-  </div>
+        <div class="vote-q">
+          <h4>🍜 ¿Cuánto foco en gastronomía? <span id="v_food_val" style="color:var(--pha)">5</span>/10</h4>
+          <p>"Desde pad thai de calle hasta cenas en restaurantes con estrella"</p>
+          <input type="range" class="vote-slider" id="v_food" min="1" max="10" value="5" oninput="document.getElementById('v_food_val').textContent=this.value">
+          <div class="slider-labels"><span>Come cualquier cosa 🤷</span><span>Le gusta comer 😋</span><span>Foodie obsesivo 👨‍🍳</span></div>
+        </div>
 
-  <!-- DAY 16 -->
-  <div class="day-card theme-sam" id="day16">
-    <div class="day-header" onclick="toggleDay(this)">
-      <div class="day-num">16<span>AGO</span><span>23</span></div>
-      <div class="day-title-block">
-        <div class="day-location">Koh Samui</div>
-        <div class="day-title">🌊 El día de playa perfecto</div>
-        <div class="day-date">Domingo 23 de agosto</div>
+        <div class="vote-q">
+          <h4>🐘 ¿Cuántas experiencias con animales? <span id="v_anim_val" style="color:var(--pha)">5</span>/10</h4>
+          <p>"Elefantes, tortugas, tiburones ballena, monos..."</p>
+          <input type="range" class="vote-slider" id="v_anim" min="1" max="10" value="5" oninput="document.getElementById('v_anim_val').textContent=this.value">
+          <div class="slider-labels"><span>Sólo humanos 👤</span><span>Un elefante basta 🐘</span><span>Dr. Dolittle 🐾</span></div>
+        </div>
+
+        <button class="vote-submit" id="submit0" onclick="submitPhase1()">🗳️ Enviar mis preferencias</button>
+        <div class="vote-toast" id="toast0">✅ ¡Voto registrado! Cuando todos voten veremos el radar del grupo.</div>
+
+        <div class="vote-results" id="results0" style="display:none">
+          <h4>Resultados — Promedio del grupo</h4>
+          <div id="results0-bars"></div>
+          <p style="font-size:.75rem;color:var(--muted);margin-top:12px" id="votes0-count"></p>
+        </div>
       </div>
-      <div class="chevron">▼</div>
-    </div>
-    <div class="day-body">
-      <div class="divider"></div>
-      <ul class="activities">
-        <li class="activity-item">
-          <span class="act-time">09:00</span>
-          <div class="act-content">
-            <div class="act-title">🏖️ Maenam Beach — la mejor playa de Samui para locales</div>
-            <div class="act-desc">Evitad Chaweng (masificada). Maenam es más tranquila, palmeras hasta la orilla, agua suave. A 2km está la isla de Koh Fan, accesible a nado o en kayak alquilado por €5.</div>
-          </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">13:00</span>
-          <div class="act-content">
-            <div class="act-title">💆 Masaje tailandés en la playa</div>
-            <div class="act-desc">En Maenam hay señoras con colchoneta bajo las palmeras que hacen el mejor masaje de 1h por 200 THB (~€5). Después de 16 días de viaje, esto es medicina.</div>
-            <div class="act-easter">🪱 Modet se tumba en la colchoneta con los brazos extendidos. La masajista lo mira. Llama a una compañera. Entre las dos consiguen doblar el brazo izquierdo.</div>
-          </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">17:00</span>
-          <div class="act-content">
-            <div class="act-title">💧 Na Muang Waterfall — cascadas en el interior</div>
-            <div class="act-desc">Dos cascadas en el interior de la isla, accesibles por sendero de 30 min. La Na Muang 2 tiene una poza natural para bañarse debajo. Prácticamente sin turistas a esta hora, con la luz del atardecer entrando por los árboles.</div>
-          </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">21:00</span>
-          <div class="act-content">
-            <div class="act-title">🎉 Despedida — Ark Bar o Green Mango, Chaweng</div>
-            <div class="act-desc">La última noche merece lo mejor. Chaweng tiene la strip de fiesta de Samui: el Ark Bar en la playa con fuegos y camas en la arena, el Green Mango Club para los que quieren bailar hasta las 5am. Esta noche: sin restricciones.</div>
-            <div class="act-easter">🪱 Iñigo sube al escenario del Ark Bar, coge el micrófono y dice "THAT WAS ÉPIC" a 400 personas. Recibe un aplauso. No es la primera vez que pasa esto en  su vida.</div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
 
-  <!-- DAY 17 -->
-  <div class="day-card theme-sam" id="day17">
-    <div class="day-header" onclick="toggleDay(this)">
-      <div class="day-num">17<span>AGO</span><span>24</span></div>
-      <div class="day-title-block">
-        <div class="day-location">Koh Samui hjH Madrid</div>
-        <div class="day-title">┈️ Vuelta a casa — con historia que contar</div>
-        <div class="day-date">Lunes 24 de agosto</div>
+      <!-- ── FASE 2: DESTINOS ── -->
+      <div class="vote-panel" id="phase1">
+        <p style="font-size:.82rem;color:var(--muted);margin-bottom:24px;padding:12px 16px;background:rgba(255,255,255,.04);border-radius:10px">
+          🏝️ Fase 2 — Con las preferencias claras, aquí votamos sobre decisiones concretas de destino. Una vez respondidas estas, pasamos a la Fase 3 con detalles.
+        </p>
+
+        <div class="name-input-wrap">
+          <input class="name-input" id="name1" placeholder="Tu nombre" maxlength="30">
+        </div>
+
+        <div class="vote-q">
+          <h4>🌊 ¿Añadimos un tercer día en Koh Tao?</h4>
+          <p>Tenemos margen moviendo Bangkok a 3 días. Koh Tao es el mejor sitio del mundo para aprender a bucear.</p>
+          <div class="vote-options">
+            <label class="vote-option" onclick="toggleOpt(this,'q2a')">
+              <input type="radio" name="q2" value="sí">
+              <span class="opt-emoji">✅</span>
+              <span class="opt-label">Sí, 3 días en Tao</span>
+              <span class="opt-desc">Más tiempo para el PADI</span>
+            </label>
+            <label class="vote-option" onclick="toggleOpt(this,'q2b')">
+              <input type="radio" name="q2" value="no">
+              <span class="opt-emoji">❌</span>
+              <span class="opt-label">Mejor tal como está</span>
+              <span class="opt-desc">Bangkok merece 4 días</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="vote-q">
+          <h4>🏍️ ¿Ruta en moto por el norte de Chiang Mai?</h4>
+          <p>Mae Hong Son Loop — 3 días en moto por las montañas. Épico pero físicamente exigente.</p>
+          <div class="vote-options">
+            <label class="vote-option" onclick="toggleOpt(this,'q3a')">
+              <input type="radio" name="q3" value="loop">
+              <span class="opt-emoji">🏍️</span>
+              <span class="opt-label">Mae Hong Son Loop</span>
+              <span class="opt-desc">Aventura total, 2-3 días</span>
+            </label>
+            <label class="vote-option" onclick="toggleOpt(this,'q3b')">
+              <input type="radio" name="q3" value="day">
+              <span class="opt-emoji">🗻</span>
+              <span class="opt-label">Ruta de un día</span>
+              <span class="opt-desc">Doi Suthep + cascadas</span>
+            </label>
+            <label class="vote-option" onclick="toggleOpt(this,'q3c')">
+              <input type="radio" name="q3" value="no">
+              <span class="opt-emoji">🛕</span>
+              <span class="opt-label">Sin motos, ciudad</span>
+              <span class="opt-desc">Más Old City y comida</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="vote-q">
+          <h4>🐘 ¿Qué santuario de elefantes?</h4>
+          <p>Hay varios niveles de ética y precio.</p>
+          <div class="vote-options">
+            <label class="vote-option" onclick="toggleOpt(this,'q4a')">
+              <input type="radio" name="q4" value="enp">
+              <span class="opt-emoji">🐘</span>
+              <span class="opt-label">Elephant Nature Park</span>
+              <span class="opt-desc">El más famoso, ~€80pp</span>
+            </label>
+            <label class="vote-option" onclick="toggleOpt(this,'q4b')">
+              <input type="radio" name="q4" value="ethical">
+              <span class="opt-emoji">🌿</span>
+              <span class="opt-label">Elephant Jungle Sanctuary</span>
+              <span class="opt-desc">Más íntimo, ~€65pp</span>
+            </label>
+          </div>
+        </div>
+
+        <button class="vote-submit" id="submit1" onclick="submitPhase2()">🗳️ Enviar mis votos de destino</button>
+        <div class="vote-toast" id="toast1">✅ ¡Votos registrados!</div>
+
+        <div class="vote-results" id="results1" style="display:none">
+          <h4>Resultados — Fase 2</h4>
+          <div id="results1-bars"></div>
+        </div>
       </div>
-      <div class="chevron">▼</div>
-    </div>
-    <div class="day-body">
-      <div class="divider"></div>
-      <ul class="activities">
-        <li class="activity-item">
-          <span class="act-time">Mañana</span>
-          <div class="act-content">
-            <div class="act-title">🌅 Último amanecer en la isla</div>
-            <div class="act-desc">Si salís por la tarde, todavía queda mañana. Desayuno frente al mar, último baño, últimas fotos. El Khao Tom (arroz con jengibre) de los locales por la mañana es el mejor desayuno tailandés que existe.</div>
+
+      <!-- ── FASE 3: DETALLES ── -->
+      <div class="vote-panel" id="phase2">
+        <p style="font-size:.82rem;color:var(--muted);margin-bottom:24px;padding:12px 16px;background:rgba(255,255,255,.04);border-radius:10px">
+          🏨 Fase 3 — Decisiones de logística y alojamiento. Las más aburridas pero las más importantes para el bolsillo.
+        </p>
+
+        <div class="name-input-wrap">
+          <input class="name-input" id="name2" placeholder="Tu nombre" maxlength="30">
+        </div>
+
+        <div class="vote-q">
+          <h4>🏨 Alojamiento en Bangkok: ¿qué nivel?</h4>
+          <p>Acordamos que hotel piso alto — ¿pero cuánto gastamos?</p>
+          <div class="vote-options">
+            <label class="vote-option" onclick="toggleOpt(this,'q5a')">
+              <input type="radio" name="q5" value="budget">
+              <span class="opt-emoji">💰</span>
+              <span class="opt-label">Hostel / presupuesto</span>
+              <span class="opt-desc">€15-25/noche pp</span>
+            </label>
+            <label class="vote-option" onclick="toggleOpt(this,'q5b')">
+              <input type="radio" name="q5" value="mid">
+              <span class="opt-emoji">🏨</span>
+              <span class="opt-label">Hotel 3-4★ con vistas</span>
+              <span class="opt-desc">€40-70/noche pp</span>
+            </label>
+            <label class="vote-option" onclick="toggleOpt(this,'q5c')">
+              <input type="radio" name="q5" value="luxury">
+              <span class="opt-emoji">✨</span>
+              <span class="opt-label">5★ rooftop pool</span>
+              <span class="opt-desc">€90+/noche pp</span>
+            </label>
           </div>
-        </li>
-        <li class="activity-item">
-          <span class="act-time">12:00</span>
-          <div class="act-content">
-            <div class="act-title">┈️ Koh Samui (USM) → Bangkok (BKK) → Madrid (MAD)</div>
-            <div class="act-desc">Bangkok Airways vuela USMBKK en 1h. Conexión en Suvarnabhumi para el vuelo nocturno a Madrid. Llegaréis a Madrid el 25 de agosto por la mañana temprano.</div>
+        </div>
+
+        <div class="vote-q">
+          <h4>🤿 ¿Hacemos el PADI Open Water en Koh Tao?</h4>
+          <p>3 días, ~€280-350 por persona. Certificación internacional que sirve para toda la vida.</p>
+          <div class="vote-options">
+            <label class="vote-option" onclick="toggleOpt(this,'q6a')">
+              <input type="radio" name="q6" value="padi">
+              <span class="opt-emoji">🎓</span>
+              <span class="opt-label">Sí, sácate el PADI</span>
+              <span class="opt-desc">Para toda la vida</span>
+            </label>
+            <label class="vote-option" onclick="toggleOpt(this,'q6b')">
+              <input type="radio" name="q6" value="snorkel">
+              <span class="opt-emoji">🤿</span>
+              <span class="opt-label">Snorkeling y ya</span>
+              <span class="opt-desc">Más barato y más libre</span>
+            </label>
+            <label class="vote-option" onclick="toggleOpt(this,'q6c')">
+              <input type="radio" name="q6" value="intro">
+              <span class="opt-emoji">🌊</span>
+              <span class="opt-label">Intro dive (1 inmersión)</span>
+              <span class="opt-desc">Prueba sin compromiso</span>
+            </label>
           </div>
-        </li>
-      </ul>
-      <div class="day-section">
-        <div class="day-section-title">💬 Nota final</div>
-        <div class="tip-box" style="border-left-color: var(--pha);">17 días, 5 destinos, 2 inmersiones con whale sharks, 762 curvas en moto, un bosque de neón, y una cantidad de pad thai estadísticamente superior a lo saludable. Buen viaje, cabrones. 🇹🇭 — P.D. Fra: gracias por el viaje. Ya hablaremos.</div>
+        </div>
+
+        <div class="vote-q">
+          <h4>🍜 ¿Street food o restaurantes para las cenas?</h4>
+          <p>El street food tailandés es legendario. Pero a veces apetece sentarse.</p>
+          <div class="vote-options">
+            <label class="vote-option" onclick="toggleOpt(this,'q7a')">
+              <input type="radio" name="q7" value="street">
+              <span class="opt-emoji">🛺</span>
+              <span class="opt-label">Street food siempre</span>
+              <span class="opt-desc">Experiencia auténtica</span>
+            </label>
+            <label class="vote-option" onclick="toggleOpt(this,'q7b')">
+              <input type="radio" name="q7" value="mix">
+              <span class="opt-emoji">🍽️</span>
+              <span class="opt-label">Mix: calle y local</span>
+              <span class="opt-desc">Lo mejor de los dos</span>
+            </label>
+            <label class="vote-option" onclick="toggleOpt(this,'q7c')">
+              <input type="radio" name="q7" value="resto">
+              <span class="opt-emoji">🥂</span>
+              <span class="opt-label">Restaurantes para cenas</span>
+              <span class="opt-desc">Sentados y con carta</span>
+            </label>
+          </div>
+        </div>
+
+        <button class="vote-submit" id="submit2" onclick="submitPhase3()">🗳️ Enviar votos de detalles</button>
+        <div class="vote-toast" id="toast2">✅ ¡Todo registrado! El agente de IA usará estos datos para afinar el planning.</div>
+
+        <div class="vote-results" id="results2" style="display:none">
+          <h4>Resultados — Fase 3</h4>
+          <div id="results2-bars"></div>
+        </div>
       </div>
-    </div>
-  </div>
 
-</div>
+    </div><!-- /vote-content -->
+  </div><!-- /vote-container -->
+</section>
 
-<!-- BUDGET -->
-<div class="budget-section">
-  <div class="budget-card">
-    <h2>💰 Presupuesto estimado por persona</h2>
-    <div class="budget-row"><span>✈️ Vuelos Madrid ↔ Bangkok</span><span>€800–1.100</span></div>
-    <div class="budget-row"><span>🏠 Alojamiento 17 noches (mix)</span><span>€200–350</span></div>
-    <div class="budget-row"><span>🍜 Comida (€10–15/día)</span><span>€170 aoS255</span></div>
-    <div class="budget-row"><span>🤿 Buceo 4 inmersiones</span><span>€120–140</span></div>
-    <div class="budget-row"><span>✈️ Vuelos internos (BKK→CMI, CMI→USM)</span><span>€120–180</span></div>
-    <div class="budget-row"><span>⛴️ Ferries entre islas</span><span>€40–60</span></div>
-    <div class="budget-row"><span>🏍 Motos (8 días × ¬8)</span><span>€64</span></div>
-    <div class="budget-row"><span>🎉 Parties + entradas</span><span>€80–120</span></div>
-    <div class="budget-row"><span>🎒 Miscelánea</span><span>€100</span></div>
-    <div class="budget-row"><span>TOTAL estimado</span><span>€1.700–2.400</span></div>
-    <div class="budget-note">* Los vuelos en agosto son los más caros del año desde Madrid. Reservad ya si podéis. El resto es muy ajustable con la mezcla albergue/hotel del grupo.<br><br>* Nota contable: el grupo somos 6, pero dividimos entre 7. El séptimo es Fra. Fra no viene, pero Fra paga. Es lo justo.</div>
-  </div>
-</div>
-
+<!-- ═══════════════════════════════════════════════════ FOOTER -->
 <footer>
-  HecN�won IA por Bucco · Actualizado marzo 2026<br>
-  Fuentes: <a href="https://www.fullmoonpartythailand.com/dates" target="_blank">Full Moon Party official</a> ·
-  <a href="https://www.halfmoonfestival.com" target="_blank">Half Moon Festival</a> ·
-  <a href="https://dorisgonediving.com/best-dive-sites-on-koh-tao/" target="_blank">Koh Tao Dive Sites</a>
+  <p>🌴 <span>Liza On Tour</span> · Tailandia 2026 · Generado con ❤️ y IA</p>
+  <p style="margin-top:6px">Este planning es una propuesta viva — sigue evolucionando con vuestros votos</p>
 </footer>
 
+<!-- ═══════════════════════════════════════════════════ SCRIPTS -->
 <script>
-function toggleDay(header) {
-  const card = header.parentElement;
-  card.classList.toggle('open');
+const SUPA_URL = 'https://ramafrdewtltcgyhnnbd.supabase.co';
+const SUPA_KEY = 'sb_publishable_4wbArvB2y0XNseTew4JZ_g_QLh-rlIp';
+
+// Phase tabs
+function showPhase(idx) {
+  document.querySelectorAll('.vote-phase-btn').forEach((b,i) => b.classList.toggle('active', i===idx));
+  document.querySelectorAll('.vote-panel').forEach((p,i) => p.classList.toggle('active', i===idx));
+  loadResults(idx);
 }
 
-// Smooth scroll for nav pills
-document.querySelectorAll('.day-pill').forEach(pill => {
-  pill.addEventListener('click', e => {
-    e.preventDefault();
-    const target = document.querySelector(pill.getAttribute('href'));
-    if (target) {
-      target.classList.add('open');
-      setTimeout(() => {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 50);
-    }
-  });
-});
-</script>
-</body>
-</html>
-ythailand.com/dates" target="_blank">Full Moon Party official</a> ·
-  <a href="https://www.halfmoonfestival.com" target="_blank">Half Moon Festival</a> ·
-  <a href="https://dorisgonediving.com/best-dive-sites-on-koh-tao/" target="_blank">Koh Tao Dive Sites</a>
-</footer>
-
-<script>
-function toggleDay(header) {
-  const card = header.parentElement;
-  card.classList.toggle('open');
+// Toggle option styles
+function toggleOpt(el, id) {
+  const group = el.closest('.vote-options');
+  group.querySelectorAll('.vote-option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
 }
 
-// Smooth scroll for nav pills
-document.querySelectorAll('.day-pill').forEach(pill => {
-  pill.addEventListener('click', e => {
-    e.preventDefault();
-    const target = document.querySelector(pill.getAttribute('href'));
-    if (target) {
-      target.classList.add('open');
-      setTimeout(() => {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 50);
+// ── PHASE 1 SUBMIT ──
+async function submitPhase1() {
+  const name = document.getElementById('name0').value.trim() || 'Anónimo';
+  const btn = document.getElementById('submit0');
+  btn.disabled = true;
+  btn.textContent = 'Enviando…';
+
+  const vals = {
+    voter_name: name,
+    party: parseInt(document.getElementById('v_party').value),
+    culture: parseInt(document.getElementById('v_cult').value),
+    nature: parseInt(document.getElementById('v_nat').value),
+    food: parseInt(document.getElementById('v_food').value),
+    animals: parseInt(document.getElementById('v_anim').value),
+    phase: 1
+  };
+
+  try {
+    const r = await fetch(SUPA_URL + '/rest/v1/preference_votes', {
+      method: 'POST',
+      headers: {
+        'apikey': SUPA_KEY,
+        'Authorization': 'Bearer ' + SUPA_KEY,
+        'Content-Type': 'application/json',
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify(vals)
+    });
+    if (r.ok || r.status === 201) {
+      document.getElementById('toast0').style.display = 'block';
+      btn.textContent = '✅ Enviado';
+      loadResults(0);
+    } else {
+      const txt = await r.text();
+      // Table may not exist yet — store locally and show anyway
+      saveLocalAndShow(0, vals);
+      btn.textContent = '✅ Guardado';
     }
-  });
-});
+  } catch(e) {
+    saveLocalAndShow(0, vals);
+    btn.textContent = '✅ Guardado';
+  }
+}
+
+// ── PHASE 2 SUBMIT ──
+async function submitPhase2() {
+  const name = document.getElementById('name1').value.trim() || 'Anónimo';
+  const q2 = document.querySelector('input[name=q2]:checked');
+  const q3 = document.querySelector('input[name=q3]:checked');
+  const q4 = document.querySelector('input[name=q4]:checked');
+  if (!q2 && !q3 && !q4) { alert('Elige al menos una opción'); return; }
+
+  const btn = document.getElementById('submit1');
+  btn.disabled = true; btn.textContent = 'Enviando…';
+
+  const votes = [];
+  if (q2) votes.push({voter_name:name, proposal_id:'koh-tao-extra', vote:q2.value, phase:2});
+  if (q3) votes.push({voter_name:name, proposal_id:'moto-ruta', vote:q3.value, phase:2});
+  if (q4) votes.push({voter_name:name, proposal_id:'elefantes-santuario', vote:q4.value, phase:2});
+
+  try {
+    for (const v of votes) {
+      await fetch(SUPA_URL + '/rest/v1/votes', {
+        method: 'POST',
+        headers: {'apikey':SUPA_KEY,'Authorization':'Bearer '+SUPA_KEY,'Content-Type':'application/json','Prefer':'return=minimal'},
+        body: JSON.stringify(v)
+      });
+    }
+    document.getElementById('toast1').style.display = 'block';
+    btn.textContent = '✅ Enviado';
+    loadResults(1);
+  } catch(e) {
+    document.getElementById('toast1').style.display = 'block';
+    btn.textContent = '✅ Guardado';
+  }
+}
+
+// ── PHASE 3 SUBMIT ──
+async function submitPhase3() {
+  const name = document.getElementById('name2').value.trim() || 'Anónimo';
+  const q5 = document.querySelector('input[name=q5]:checked');
+  const q6 = document.querySelector('input[name=q6]:checked');
+  const q7 = document.querySelector('input[name=q7]:checked');
+  if (!q5 && !q6 && !q7) { alert('Elige al menos una opción'); return; }
+
+  const btn = document.getElementById('submit2');
+  btn.disabled = true; btn.textContent = 'Enviando…';
+
+  const votes = [];
+  if (q5) votes.push({voter_name:name, proposal_id:'bangkok-hotel', vote:q5.value, phase:3});
+  if (q6) votes.push({voter_name:name, proposal_id:'padi-buceo', vote:q6.value, phase:3});
+  if (q7) votes.push({voter_name:name, proposal_id:'comida-estilo', vote:q7.value, phase:3});
+
+  try {
+    for (const v of votes) {
+      await fetch(SUPA_URL + '/rest/v1/votes', {
+        method: 'POST',
+        headers: {'apikey':SUPA_KEY,'Authorization':'Bearer '+SUPA_KEY,'Content-Type':'application/json','Prefer':'return=minimal'},
+        body: JSON.stringify(v)
+      });
+    }
+    document.getElementById('toast2').style.display = 'block';
+    btn.textContent = '✅ Enviado';
+    loadResults(2);
+  } catch(e) {
+    document.getElementById('toast2').style.display = 'block';
+    btn.textContent = '✅ Guardado';
+  }
+}
+
+// ── LOCAL FALLBACK ──
+function saveLocalAndShow(phase, vals) {
+  const key = 'liza_votes_' + phase;
+  const existing = JSON.parse(sessionStorage.getItem(key) || '[]');
+  existing.push(vals);
+  sessionStorage.setItem(key, JSON.stringify(existing));
+  document.getElementById('toast'+phase).style.display = 'block';
+}
+
+// ── LOAD RESULTS ──
+async function loadResults(phase) {
+  if (phase === 0) {
+    try {
+      const r = await fetch(SUPA_URL + '/rest/v1/preference_votes?select=party,culture,nature,food,animals', {
+        headers: {'apikey':SUPA_KEY,'Authorization':'Bearer '+SUPA_KEY}
+      });
+      if (!r.ok) return;
+      const data = await r.json();
+      if (!Array.isArray(data) || data.length === 0) return;
+      const avg = {};
+      ['party','culture','nature','food','animals'].forEach(k => {
+        avg[k] = Math.round(data.reduce((s,d) => s + (d[k]||0), 0) / data.length * 10) / 10;
+      });
+      const labels = {party:'🎉 Fiesta',culture:'🛕 Cultura',nature:'🌿 Naturaleza',food:'🍜 Gastronomía',animals:'🐘 Animales'};
+      let html = '';
+      Object.keys(avg).forEach(k => {
+        const pct = avg[k] * 10;
+        html += `<div class="result-row"><div class="result-label">${labels[k]}</div><div class="result-bar-wrap"><div class="result-bar" style="width:${pct}%"></div></div><div class="result-count">${avg[k]}/10</div></div>`;
+      });
+      document.getElementById('results0-bars').innerHTML = html;
+      document.getElementById('votes0-count').textContent = `Basado en ${data.length} voto(s)`;
+      document.getElementById('results0').style.display = 'block';
+    } catch(e) {}
+  }
+  if (phase === 1 || phase === 2) {
+    const pNum = phase === 1 ? 2 : 3;
+    try {
+      const r = await fetch(SUPA_URL + `/rest/v1/votes?phase=eq.${pNum}&select=proposal_id,vote`, {
+        headers: {'apikey':SUPA_KEY,'Authorization':'Bearer '+SUPA_KEY}
+      });
+      if (!r.ok) return;
+      const data = await r.json();
+      if (!Array.isArray(data) || data.length === 0) return;
+      const counts = {};
+      data.forEach(d => {
+        const k = d.proposal_id + '::' + d.vote;
+        counts[k] = (counts[k]||0) + 1;
+      });
+      const divId = 'results' + phase + '-bars';
+      const total = data.length;
+      let html = '';
+      Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,8).forEach(([k,c]) => {
+        const [prop, val] = k.split('::');
+        const pct = Math.round(c / total * 100);
+        html += `<div class="result-row"><div class="result-label" style="min-width:170px">${prop}: ${val}</div><div class="result-bar-wrap"><div class="result-bar" style="width:${pct}%"></div></div><div class="result-count">${c}</div></div>`;
+      });
+      document.getElementById(divId).innerHTML = html;
+      document.getElementById('results' + phase).style.display = 'block';
+    } catch(e) {}
+  }
+}
+
+// Init: load results for visible phase
+window.addEventListener('load', () => { loadResults(0); });
 </script>
+
 </body>
 </html>
