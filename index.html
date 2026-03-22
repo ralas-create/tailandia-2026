@@ -1671,21 +1671,29 @@ window.addEventListener('load', () => { loadResults(0); });
     attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
   }).addTo(map);
 
-  // ── Thailand border overlay (fetched from Nominatim) ──────────────────
+  // Mask: darken everything EXCEPT Thailand
   fetch('https://nominatim.openstreetmap.org/search?q=Thailand&polygon_geojson=1&format=json&limit=1')
     .then(r => r.json())
     .then(res => {
       if (!res[0] || !res[0].geojson) return;
-      const geo = { type: 'Feature', geometry: res[0].geojson };
-      // Outer glow
-      L.geoJSON(geo, { style: {
-        color: '#F5C842', weight: 6, opacity: 0.18, fill: false
-      }}).addTo(map);
-      // Sharp border + subtle fill
-      L.geoJSON(geo, { style: {
-        color: '#F5C842', weight: 2.2, opacity: 0.85,
-        fill: true, fillColor: '#F5C842', fillOpacity: 0.04
-      }}).addTo(map);
+      const thaiGeo = res[0].geojson;
+
+      const world = [[-90,-180],[-90,180],[90,180],[90,-180],[-90,-180]];
+
+      let holes = [];
+      if (thaiGeo.type === 'Polygon') {
+        holes = thaiGeo.coordinates.map(ring => ring.map(c => [c[1], c[0]]));
+      } else if (thaiGeo.type === 'MultiPolygon') {
+        thaiGeo.coordinates.forEach(poly => {
+          poly.forEach(ring => holes.push(ring.map(c => [c[1], c[0]])));
+        });
+      }
+
+      L.polygon([world, ...holes], {
+        color: 'rgba(255,255,255,0.25)', weight: 1.5,
+        fillColor: '#0A0F1A', fillOpacity: 0.82,
+        interactive: false
+      }).addTo(map);
     })
     .catch(() => {});
 
