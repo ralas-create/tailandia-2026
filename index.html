@@ -1678,7 +1678,7 @@ window.addEventListener('load', () => { loadResults(0); });
       if (!res[0] || !res[0].geojson) return;
       const thaiGeo = res[0].geojson;
 
-      const world = [[-90,-180],[-90,180],[90,180],[90,-180],[-90,-180]];
+      const world = [[-15,80],[-15,120],[30,120],[30,80],[-15,80]];
 
       let holes = [];
       if (thaiGeo.type === 'Polygon') {
