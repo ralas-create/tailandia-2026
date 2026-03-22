@@ -202,10 +202,6 @@ nav{position:sticky;top:0;z-index:100;background:rgba(10,15,26,0.92);backdrop-fi
 .vote-option .opt-desc{font-size:.7rem;color:var(--muted)}
 .vote-option input[type=radio]{position:absolute;opacity:0;width:0;height:0}
 /* Name input */
-.name-input-wrap{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}
-.name-input{flex:1;min-width:180px;background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:10px;padding:10px 16px;font-size:.85rem;color:var(--text);font-family:'Poppins',sans-serif;outline:none}
-.name-input:focus{border-color:rgba(168,85,247,.5);background:rgba(168,85,247,.06)}
-.name-input::placeholder{color:var(--muted)}
 /* Submit */
 .vote-submit{background:linear-gradient(135deg,var(--pha),#6366f1);color:#fff;border:none;border-radius:12px;padding:14px 32px;font-size:.9rem;font-weight:600;cursor:pointer;font-family:'Poppins',sans-serif;transition:all .2s;width:100%}
 .vote-submit:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(168,85,247,.4)}
@@ -341,100 +337,127 @@ function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'}
 
     <!-- SVG Map -->
     <div class="route-map-col">
-      <svg viewBox="0 0 250 445" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 355 515" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <radialGradient id="seaGrad" cx="58%" cy="67%" r="45%">
-            <stop offset="0%" stop-color="rgba(0,100,190,0.22)"/>
-            <stop offset="100%" stop-color="rgba(0,20,60,0.04)"/>
+          <radialGradient id="gulfWater" cx="75%" cy="68%" r="45%">
+            <stop offset="0%" stop-color="rgba(0,110,200,0.28)"/>
+            <stop offset="100%" stop-color="rgba(0,30,80,0.05)"/>
+          </radialGradient>
+          <radialGradient id="andamanWater" cx="20%" cy="65%" r="40%">
+            <stop offset="0%" stop-color="rgba(0,80,160,0.18)"/>
+            <stop offset="100%" stop-color="rgba(0,20,60,0.03)"/>
           </radialGradient>
         </defs>
 
         <!-- Ocean background -->
-        <rect width="250" height="445" fill="rgba(0,12,38,0.45)" rx="10"/>
-        <rect width="250" height="445" fill="url(#seaGrad)" rx="10"/>
+        <rect width="355" height="515" fill="rgba(0,12,38,0.5)" rx="10"/>
+        <rect width="355" height="515" fill="url(#gulfWater)" rx="10"/>
+        <rect width="355" height="515" fill="url(#andamanWater)" rx="10"/>
 
-        <!-- Thailand realistic outline (clockwise from NW) -->
-        <path d="M 48,29
-          Q 66,18 79,16
-          L 94,15 L 112,20 L 128,18 L 144,29
-          L 162,60 L 169,74 L 186,90 L 197,110
-          L 206,155 L 206,169
-          L 186,188 L 169,200 L 153,211 L 140,222 L 128,233
-          L 135,253 L 114,236 L 103,228 L 96,208 L 94,204
-          L 87,214 L 80,236 L 70,253 L 66,267 L 59,281 L 64,295
-          L 70,309 L 77,323 L 82,337 L 84,351 L 84,365
-          L 89,379 L 98,393 L 105,407 L 116,415 L 128,429
-          L 87,429
-          L 82,407 L 75,393 L 52,379
-          L 41,365 L 41,351 L 43,337 L 45,323 L 50,309 L 54,295
-          L 53,281 L 55,267 L 58,253 L 60,239
-          L 59,216 L 52,197 L 57,183 L 61,169 L 54,155 L 59,141
-          L 52,127 L 48,113 L 48,99 L 48,85 L 45,71
-          L 57,57 L 57,43 Z"
-          fill="rgba(18,32,60,0.97)" stroke="rgba(90,130,190,0.65)" stroke-width="1.2" stroke-linejoin="round"/>
+        <!-- ── Myanmar (simplified) ── -->
+        <path d="M 18,50 L 52,18 L 78,15 L 95,28 72,52
+          L 83,68 L 83,83 L 69,99 L 72,114 L 72,130
+          L 72,145 L 77,161 L 86,176 L 80,192 L 88,207
+          L 83,223 L 77,238 L 86,260 L 94,275 L 99,300
+          L 86,316 L 83,331 L 80,347
+          L 18,310 Z"
+          fill="rgba(30,50,80,0.45)" stroke="rgba(70,100,150,0.4)" stroke-width="0.8"/>
+        <text x="38" y="175" font-size="9" fill="rgba(150,175,220,0.55)" font-family="Poppins,sans-serif" font-weight="600" transform="rotate(-85,38,175)">Myanmar</text>
 
-        <!-- Animated route lines -->
-        <!-- BKK ↑ Chiang Mai (gold) -->
-        <path d="M 94,204 C 79,160 68,112 58,63"
+        <!-- ── Laos (simplified) ── -->
+        <path d="M 185,52 L 285,18 L 345,45 L 350,110 L 335,175 L 310,210
+          L 258,207 L 258,192 L 248,142 L 234,120 L 215,102 L 207,86 Z"
+          fill="rgba(30,55,85,0.45)" stroke="rgba(70,100,150,0.4)" stroke-width="0.8"/>
+        <text x="300" y="115" font-size="9" fill="rgba(150,175,220,0.55)" font-family="Poppins,sans-serif" font-weight="600">Laos</text>
+
+        <!-- ── Cambodia (simplified) ── -->
+        <path d="M 258,207 L 310,210 L 330,240 L 320,280 L 285,295 L 250,290 L 220,278
+          L 175,300 L 166,278 L 180,266 L 196,254 L 215,241 L 234,229 Z"
+          fill="rgba(35,55,85,0.45)" stroke="rgba(70,100,150,0.4)" stroke-width="0.8"/>
+        <text x="273" y="258" font-size="9" fill="rgba(150,175,220,0.55)" font-family="Poppins,sans-serif" font-weight="600">Cambodia</text>
+
+        <!-- ── Malaysia (simplified) ── -->
+        <path d="M 118,496 L 166,496 L 210,515 L 30,515 Z"
+          fill="rgba(30,50,80,0.45)" stroke="rgba(70,100,150,0.4)" stroke-width="0.8"/>
+        <text x="105" y="510" font-size="9" fill="rgba(150,175,220,0.55)" font-family="Poppins,sans-serif" font-weight="600">Malaysia</text>
+
+        <!-- ── Thailand main body ── -->
+        <path d="M 72,52 Q 94,38 109,39 L 126,37 L 148,43 L 166,40 L 185,52 L 207,86 L 215,102 L 234,120 L 248,142 L 258,192 L 258,207 L 234,229 L 215,241 L 196,254 L 180,266 L 166,278 L 175,300 L 150,282 L 137,272 L 129,251 L 127,246 L 118,257 L 110,282 L 99,300 L 94,316 L 86,331 L 91,347 L 99,362 L 107,378 L 112,393 L 115,409 L 115,424 L 121,440 L 131,455 L 140,471 L 153,480 L 166,496 L 118,496 L 112,480 L 104,464 L 102,455 L 77,440 L 64,424 L 64,409 L 67,393 L 69,378 L 75,362 L 80,347 L 83,331 L 86,316 L 99,300 L 94,275 L 86,260 L 77,238 L 83,223 L 88,207 L 80,192 L 86,176 L 77,161 L 72,145 L 72,130 L 72,114 L 69,99 L 83,83 L 83,68 Z"
+          fill="rgba(20,38,70,0.97)" stroke="rgba(100,145,210,0.7)" stroke-width="1.4" stroke-linejoin="round"/>
+
+        <!-- Gulf of Thailand label -->
+        <text x="220" y="330" font-size="8" fill="rgba(80,140,220,0.45)" font-family="Poppins,sans-serif" font-style="italic">Golfo de</text>
+        <text x="218" y="341" font-size="8" fill="rgba(80,140,220,0.45)" font-family="Poppins,sans-serif" font-style="italic">Tailandia</text>
+        <!-- Andaman Sea label -->
+        <text x="20" y="375" font-size="8" fill="rgba(80,140,220,0.4)" font-family="Poppins,sans-serif" font-style="italic">Mar de</text>
+        <text x="18" y="386" font-size="8" fill="rgba(80,140,220,0.4)" font-family="Poppins,sans-serif" font-style="italic">Andamán</text>
+
+        <!-- ── ROUTE LINES ── -->
+        <!-- BKK → Chiang Mai (gold) -->
+        <path d="M 127,246 C 107,186 100,145 85,90"
           stroke="rgba(245,166,35,0.85)" stroke-width="2.2" fill="none" stroke-dasharray="6,4" class="route-line"/>
-        <!-- Chiang Mai ↓ Koh Tao (green — curves via BKK area) -->
-        <path d="M 58,63 C 82,130 95,218 88,306"
+        <!-- CMJ → Koh Tao (green, curves back S through BKK area) -->
+        <path d="M 85,90 C 125,180 147,276 120,355"
           stroke="rgba(86,196,94,0.85)" stroke-width="2.2" fill="none" stroke-dasharray="6,4" class="route-line" style="animation-delay:.8s"/>
-        <!-- Koh Tao ↓ Koh Phangan (cyan) -->
-        <path d="M 88,306 C 89,311 90,314 90,317"
+        <!-- Koh Tao → Koh Phangan (cyan) -->
+        <path d="M 120,355 C 124,360 127,366 129,370"
           stroke="rgba(0,200,224,0.9)" stroke-width="2" fill="none" stroke-dasharray="5,3" class="route-line" style="animation-delay:1.8s"/>
-        <!-- Koh Phangan ↓ Koh Samui (purple) -->
-        <path d="M 90,317 C 90,320 90,322 90,324"
+        <!-- Koh Phangan → Koh Samui (purple) -->
+        <path d="M 129,370 C 131,374 132,377 133,380"
           stroke="rgba(168,85,247,0.9)" stroke-width="2" fill="none" stroke-dasharray="5,3" class="route-line" style="animation-delay:2.4s"/>
 
-        <!-- ── Chiang Mai ── -->
+        <!-- ── CHIANG MAI ── -->
         <g onclick="goTo('dia6')" style="cursor:pointer">
-          <circle cx="58" cy="63" r="14" fill="var(--cmj)" class="city-pulse" style="animation-delay:.5s"/>
-          <circle cx="58" cy="63" r="7" fill="var(--cmj)" opacity="0.95"/>
-          <circle cx="58" cy="63" r="3" fill="#fff" opacity="0.65"/>
-          <text x="70" y="58" class="map-city-label" font-weight="700" fill="#56C45E">Chiang Mai</text>
-          <text x="70" y="70" class="map-city-label" fill="#6B7FA0">Días 6–9</text>
+          <circle cx="85" cy="90" r="15" fill="var(--cmj)" class="city-pulse" style="animation-delay:.5s"/>
+          <circle cx="85" cy="90" r="7" fill="var(--cmj)" opacity="0.95"/>
+          <circle cx="85" cy="90" r="3" fill="#fff" opacity="0.7"/>
+          <text x="96" y="86" class="map-city-label" font-weight="700" fill="#56C45E" font-size="9.5">Chiang Mai</text>
+          <text x="96" y="99" class="map-city-label" fill="#6B7FA0" font-size="8">Días 6–9</text>
         </g>
 
-        <!-- ── Bangkok ── -->
+        <!-- ── BANGKOK ── -->
         <g onclick="goTo('dia1')" style="cursor:pointer">
-          <circle cx="94" cy="204" r="17" fill="var(--bkk)" class="city-pulse"/>
-          <circle cx="94" cy="204" r="8" fill="var(--bkk)" opacity="0.95"/>
-          <circle cx="94" cy="204" r="4" fill="#fff" opacity="0.65"/>
-          <text x="108" y="199" class="map-city-label" font-weight="700" fill="#F5A623">Bangkok</text>
-          <text x="108" y="211" class="map-city-label" fill="#6B7FA0">Días 1–5</text>
+          <circle cx="127" cy="246" r="18" fill="var(--bkk)" class="city-pulse"/>
+          <circle cx="127" cy="246" r="9" fill="var(--bkk)" opacity="0.95"/>
+          <circle cx="127" cy="246" r="4" fill="#fff" opacity="0.7"/>
+          <text x="140" y="242" class="map-city-label" font-weight="700" fill="#F5A623" font-size="9.5">Bangkok</text>
+          <text x="140" y="255" class="map-city-label" fill="#6B7FA0" font-size="8">Días 1–5</text>
         </g>
 
-        <!-- ── Koh Tao (offshore Gulf) ── -->
+        <!-- ── KOH TAO (Gulf, offshore) ── -->
+        <!-- leader line to label -->
+        <line x1="127" y1="355" x2="195" y2="348" stroke="rgba(0,200,224,0.4)" stroke-width="0.8" stroke-dasharray="3,2"/>
         <g onclick="goTo('dia10')" style="cursor:pointer">
-          <circle cx="88" cy="306" r="13" fill="var(--tao)" class="city-pulse" style="animation-delay:1s"/>
-          <circle cx="88" cy="306" r="6" fill="var(--tao)" opacity="0.95"/>
-          <circle cx="88" cy="306" r="2.5" fill="#fff" opacity="0.65"/>
-          <text x="100" y="301" class="map-city-label" font-weight="700" fill="#00C8E0">Koh Tao</text>
-          <text x="100" y="313" class="map-city-label" fill="#6B7FA0">Días 10–11</text>
+          <circle cx="120" cy="355" r="13" fill="var(--tao)" class="city-pulse" style="animation-delay:1s"/>
+          <circle cx="120" cy="355" r="6" fill="var(--tao)" opacity="0.95"/>
+          <circle cx="120" cy="355" r="2.5" fill="#fff" opacity="0.7"/>
         </g>
+        <text x="198" y="344" class="map-city-label" font-weight="700" fill="#00C8E0" font-size="9.5">Koh Tao</text>
+        <text x="198" y="356" class="map-city-label" fill="#6B7FA0" font-size="8">Días 10–11</text>
 
-        <!-- ── Koh Phangan (offshore Gulf) ── -->
+        <!-- ── KOH PHANGAN (Gulf, offshore) ── -->
+        <line x1="136" y1="370" x2="195" y2="374" stroke="rgba(168,85,247,0.35)" stroke-width="0.8" stroke-dasharray="3,2"/>
         <g onclick="goTo('dia12')" style="cursor:pointer">
-          <circle cx="90" cy="317" r="12" fill="var(--pha)" class="city-pulse" style="animation-delay:1.5s"/>
-          <circle cx="90" cy="317" r="6" fill="var(--pha)" opacity="0.95"/>
-          <circle cx="90" cy="317" r="2.5" fill="#fff" opacity="0.65"/>
-          <text x="102" y="312" class="map-city-label" font-weight="700" fill="#A855F7">Koh Phangan</text>
-          <text x="102" y="323" class="map-city-label" fill="#6B7FA0">Días 12–14</text>
+          <circle cx="129" cy="370" r="12" fill="var(--pha)" class="city-pulse" style="animation-delay:1.5s"/>
+          <circle cx="129" cy="370" r="6" fill="var(--pha)" opacity="0.95"/>
+          <circle cx="129" cy="370" r="2.5" fill="#fff" opacity="0.7"/>
         </g>
+        <text x="198" y="370" class="map-city-label" font-weight="700" fill="#A855F7" font-size="9.5">Koh Phangan</text>
+        <text x="198" y="382" class="map-city-label" fill="#6B7FA0" font-size="8">Días 12–14</text>
 
-        <!-- ── Koh Samui (offshore Gulf) ── -->
+        <!-- ── KOH SAMUI (Gulf, offshore) ── -->
+        <line x1="140" y1="380" x2="195" y2="400" stroke="rgba(240,84,84,0.35)" stroke-width="0.8" stroke-dasharray="3,2"/>
         <g onclick="goTo('dia15')" style="cursor:pointer">
-          <circle cx="90" cy="328" r="12" fill="var(--sam)" class="city-pulse" style="animation-delay:2s"/>
-          <circle cx="90" cy="328" r="6" fill="var(--sam)" opacity="0.95"/>
-          <circle cx="90" cy="328" r="2.5" fill="#fff" opacity="0.65"/>
-          <text x="102" y="323" class="map-city-label" font-weight="700" fill="#F05454">Koh Samui</text>
-          <text x="102" y="335" class="map-city-label" fill="#6B7FA0">Días 15–17</text>
+          <circle cx="133" cy="380" r="12" fill="var(--sam)" class="city-pulse" style="animation-delay:2s"/>
+          <circle cx="133" cy="380" r="6" fill="var(--sam)" opacity="0.95"/>
+          <circle cx="133" cy="380" r="2.5" fill="#fff" opacity="0.7"/>
         </g>
+        <text x="198" y="396" class="map-city-label" font-weight="700" fill="#F05454" font-size="9.5">Koh Samui</text>
+        <text x="198" y="408" class="map-city-label" fill="#6B7FA0" font-size="8">Días 15–17</text>
 
-        <!-- Compass + caption -->
-        <text x="12" y="22" font-size="8" fill="rgba(107,127,160,0.7)" font-family="Poppins,sans-serif" font-weight="600">N ↑</text>
-        <text x="7" y="440" font-size="6.5" fill="rgba(107,127,160,0.35)" font-family="Poppins,sans-serif">Tailandia · ruta aprox.</text>
+        <!-- Compass -->
+        <text x="14" y="24" font-size="9" fill="rgba(120,155,210,0.7)" font-family="Poppins,sans-serif" font-weight="700">N ↑</text>
+        <text x="8" y="508" font-size="6.5" fill="rgba(107,127,160,0.3)" font-family="Poppins,sans-serif">Tailandia · fronteras aprox.</text>
       </svg>
     </div>
 
@@ -1166,11 +1189,6 @@ function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'}
             <option value="Iñi">Iñi</option>
             <option value="Modet">Modet</option>
           </select>
-        </div>
-
-
-        <div class="name-input-wrap">
-          <input class="name-input" id="name0" placeholder="Tu nombre (Kike, Roberto, Iñaki…)" maxlength="30">
         </div>
 
         <div class="vote-q">
