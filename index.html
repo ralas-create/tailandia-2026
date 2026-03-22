@@ -1662,7 +1662,7 @@ window.addEventListener('load', () => { loadResults(0); });
   const map = L.map('travel-map', {
     zoomControl: true,
     attributionControl: true,
-    scrollWheelZoom: false   // don't hijack page scroll
+    scrollWheelZoom: false
   }).setView([13.5, 101.5], 6);
 
   // OpenStreetMap tiles
@@ -1671,7 +1671,51 @@ window.addEventListener('load', () => { loadResults(0); });
     attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
   }).addTo(map);
 
-  // Cities
+  // ── Thailand border overlay (fetched from Nominatim) ──────────────────
+  fetch('https://nominatim.openstreetmap.org/search?q=Thailand&polygon_geojson=1&format=json&limit=1')
+    .then(r => r.json())
+    .then(res => {
+      if (!res[0] || !res[0].geojson) return;
+      const geo = { type: 'Feature', geometry: res[0].geojson };
+      // Outer glow
+      L.geoJSON(geo, { style: {
+        color: '#F5C842', weight: 6, opacity: 0.18, fill: false
+      }}).addTo(map);
+      // Sharp border + subtle fill
+      L.geoJSON(geo, { style: {
+        color: '#F5C842', weight: 2.2, opacity: 0.85,
+        fill: true, fillColor: '#F5C842', fillOpacity: 0.04
+      }}).addTo(map);
+    })
+    .catch(() => {});
+
+  // ── Animated route segments (each in its own colour) ──────────────────
+  function animRoute(latlngs, color, delay, duration) {
+    const poly = L.polyline(latlngs, {
+      color, weight: 2.5, dashArray: '10 7', opacity: 0.88
+    }).addTo(map);
+    // Apply CSS animation to the underlying SVG path
+    const applyAnim = () => {
+      if (poly._path) {
+        poly._path.style.animation = `routeDash ${duration}s linear infinite`;
+        poly._path.style.animationDelay = delay;
+      }
+    };
+    if (poly._path) applyAnim();
+    else poly.on('add', applyAnim);
+    return poly;
+  }
+
+  // BKK → Chiang Mai
+  animRoute([[13.75,100.52],[18.79,98.97]], '#F5A623', '0s',   4);
+  // Chiang Mai → Koh Tao (south via Bangkok latitude)
+  animRoute([[18.79,98.97],[13.5,100.5],[10.09,99.84]], '#56C45E', '0.8s', 5);
+  // Koh Tao → Koh Phangan
+  animRoute([[10.09,99.84],[9.75,100.03]],              '#00C8E0', '1.8s', 3);
+  // Koh Phangan → Koh Samui
+  animRoute([[9.75,100.03],[9.56,100.07]],              '#A855F7', '2.4s', 3);
+
+  // ── City markers ──────────────────────────────────────────────────────
   const cities = [
     { lat:13.75, lon:100.52, color:'#F5A623', name:'Bangkok',     days:'Días 1–5',  id:'dia1',  delay:'0s'   },
     { lat:18.79, lon:98.97,  color:'#56C45E', name:'Chiang Mai',  days:'Días 6–9',  id:'dia6',  delay:'.5s'  },
@@ -1680,22 +1724,11 @@ window.addEventListener('load', () => { loadResults(0); });
     { lat:9.56,  lon:100.07, color:'#F05454', name:'Koh Samui',   days:'Días 15–17',id:'dia15', delay:'2s'   },
   ];
 
-  // Route polyline (dashed)
-  L.polyline(cities.map(c => [c.lat, c.lon]), {
-    color: 'rgba(255,255,255,0.45)',
-    weight: 2.5,
-    dashArray: '8 6'
-  }).addTo(map);
-
-  // City markers
   cities.forEach(c => {
     const icon = L.divIcon({
       html: `<div class="city-dot" style="background:${c.color};color:${c.color};animation-delay:${c.delay}"></div>`,
-      iconSize: [14,14],
-      iconAnchor: [7,7],
-      className: ''
+      iconSize: [14,14], iconAnchor: [7,7], className: ''
     });
-
     L.marker([c.lat, c.lon], { icon })
       .addTo(map)
       .bindTooltip(
