@@ -28,7 +28,7 @@ body{background:var(--dark);color:var(--text);font-family:'Poppins',sans-serif;l
 .hero{position:relative;min-height:92vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 20px 80px;overflow:hidden}
 .hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1528181304800-259b08848526?w=1400&q=70')center/cover no-repeat;filter:brightness(0.32) saturate(1.2)}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 60%,var(--dark) 100%)}
-.hero-content{position:relative;z-index:2;max-width:760px}
+.hero-content{position:relative;z-index:2;max-width:900px}
 .liza-brand{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,8vw,5.5rem);color:#fff;line-height:1;letter-spacing:-1px;text-shadow:0 4px 40px rgba(245,166,35,0.4)}
 .liza-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1rem,3vw,1.5rem);color:var(--gold);margin-top:4px;opacity:.9}
 .hero-flag{font-size:clamp(2rem,5vw,3rem);margin-bottom:12px}
@@ -40,13 +40,13 @@ body{background:var(--dark);color:var(--text);font-family:'Poppins',sans-serif;l
 
 /* ─── NAV ─── */
 nav{position:sticky;top:0;z-index:100;background:rgba(10,15,26,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 16px}
-.nav-inner{display:flex;align-items:center;gap:4px;max-width:900px;margin:0 auto;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.nav-inner{display:flex;align-items:center;gap:4px;max-width:1320px;margin:0 auto;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .nav-inner::-webkit-scrollbar{display:none}
 .nav-btn{flex:none;padding:14px 16px;font-size:.82rem;font-weight:500;color:var(--muted);background:none;border:none;cursor:pointer;white-space:nowrap;transition:color .2s;font-family:'Poppins',sans-serif}
 .nav-btn:hover,.nav-btn.active{color:var(--gold)}
 
 /* ─── SECTIONS ─── */
-.section{max-width:900px;margin:0 auto;padding:56px 20px}
+.section{max-width:1320px;margin:0 auto;padding:56px 32px}
 .section-title{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.4rem);color:#fff;margin-bottom:8px}
 .section-sub{color:var(--muted);font-size:.9rem;margin-bottom:36px}
 
@@ -66,7 +66,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(10,15,26,0.92);backdrop-fi
 .cal-dot{width:10px;height:10px;border-radius:50%}
 .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);border-top:1px solid var(--border)}
 .cal-weekday{padding:8px 4px;text-align:center;font-size:.7rem;font-weight:600;color:var(--muted);background:rgba(255,255,255,0.03);border-bottom:1px solid var(--border)}
-.cal-day{position:relative;min-height:90px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;border:1px solid var(--border);cursor:pointer;transition:all .2s;font-size:.8rem;padding:7px 3px 4px}
+.cal-day{position:relative;min-height:100px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;border:1px solid var(--border);cursor:pointer;transition:all .2s;font-size:.8rem;padding:7px 3px 4px}
 .cal-day.empty{display:none}
 .cal-day.pre-trip,.cal-day.post-trip{opacity:.28;cursor:default;justify-content:center}
 .cal-day:not(.empty):not(.pre-trip):not(.post-trip):hover{background:rgba(255,255,255,.09);transform:scale(1.05);z-index:2}
@@ -78,14 +78,15 @@ nav{position:sticky;top:0;z-index:100;background:rgba(10,15,26,0.92);backdrop-fi
 .cal-day.pha::before{background:var(--pha)}
 .cal-day.sam::before{background:var(--sam)}
 .cal-day .day-num{position:relative;z-index:1;font-size:.78rem;font-weight:700;line-height:1;margin-bottom:3px}
-.cal-day .day-emojis{position:relative;z-index:1;font-size:.82rem;line-height:1;letter-spacing:1px;margin-bottom:3px}
+.cal-day .day-emojis{position:relative;z-index:1;font-size:.88rem;line-height:1;letter-spacing:1px;margin-bottom:3px}
 .cal-day .day-kws{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:1px;width:100%}
 .cal-day .day-kw{font-size:.5rem;color:rgba(255,255,255,.78);line-height:1.3;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:98%}
 .cal-day.today-ring{box-shadow:inset 0 0 0 2px var(--gold)}
 
 /* ─── ROUTE MAP ─── */
-.route-layout{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
-@media(max-width:560px){.route-layout{grid-template-columns:1fr}}
+.route-layout{display:grid;grid-template-columns:2fr 3fr;gap:20px;align-items:start}
+@media(max-width:640px){.route-layout{grid-template-columns:1fr}}
+@media(min-width:1100px){.route-layout{grid-template-columns:5fr 6fr}}
 .route-map-col{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:16px 12px;text-align:center}
 .route-map-col svg{width:100%;height:auto;max-height:420px}
 .map-city-label{font-family:'Poppins',sans-serif;font-size:10px;fill:var(--text)}
@@ -131,7 +132,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(10,15,26,0.92);backdrop-fi
 .days-grid{display:flex;flex-direction:column;gap:16px}
 .day-card{background:var(--card);border:1px solid var(--border);border-radius:18px;overflow:hidden;transition:all .3s}
 .day-card:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,0.4)}
-.day-card-header{position:relative;height:160px;overflow:hidden;cursor:pointer}
+.day-card-header{position:relative;height:180px;overflow:hidden;cursor:pointer}
 .day-card-header img{width:100%;height:100%;object-fit:cover;transition:transform .4s;display:block}
 .day-card:hover .day-card-header img{transform:scale(1.05)}
 .day-card-header-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(10,15,26,.8) 0%,transparent 60%)}
@@ -153,7 +154,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(10,15,26,0.92);backdrop-fi
 .bg-sam{background:rgba(240,84,84,.15);border-color:rgba(240,84,84,.35);color:var(--sam)}
 
 /* ─── BUDGET ─── */
-.budget-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-bottom:24px}
+.budget-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-bottom:24px}
 .budget-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px}
 .budget-card h4{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:14px}
 .budget-item{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border);font-size:.85rem}
@@ -163,7 +164,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(10,15,26,0.92);backdrop-fi
 .budget-total-box strong{font-family:'Playfair Display',serif;font-size:2rem;color:var(--gold);display:block;margin:6px 0}
 
 /* ─── TIPS ─── */
-.tips-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.tips-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
 .tip-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px}
 .tip-icon{font-size:1.8rem;margin-bottom:10px}
 .tip-card h4{font-size:.85rem;font-weight:600;color:#fff;margin-bottom:6px}
@@ -178,7 +179,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(10,15,26,0.92);backdrop-fi
 .vote-phases::-webkit-scrollbar{display:none}
 .vote-phase-btn{flex:none;padding:12px 20px;font-size:.78rem;font-weight:500;color:var(--muted);background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;font-family:'Poppins',sans-serif;transition:all .2s;white-space:nowrap}
 .vote-phase-btn.active{color:var(--pha);border-bottom-color:var(--pha)}
-.vote-content{padding:24px}
+.vote-content{padding:28px 32px}
 .vote-panel{display:none}
 .vote-panel.active{display:block}
 .vote-q{margin-bottom:28px}
@@ -192,7 +193,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(10,15,26,0.92);backdrop-fi
 .slider-labels{display:flex;justify-content:space-between;font-size:.7rem;color:var(--muted);margin-top:4px}
 .slider-value{text-align:center;font-size:.9rem;font-weight:700;color:var(--pha);margin-top:6px}
 /* Option cards */
-.vote-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-top:10px}
+.vote-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:10px}
 .vote-option{background:rgba(255,255,255,.04);border:1.5px solid var(--border);border-radius:12px;padding:14px 12px;cursor:pointer;text-align:center;transition:all .2s;position:relative}
 .vote-option:hover{background:rgba(168,85,247,.08);border-color:rgba(168,85,247,.4)}
 .vote-option.selected{background:rgba(168,85,247,.15);border-color:var(--pha)}
@@ -224,12 +225,9 @@ footer{text-align:center;padding:40px 20px;color:var(--muted);font-size:.78rem;b
 footer span{color:var(--gold)}
 
 /* ─── RESPONSIVE ─── */
-@media(min-width:640px){
-  .days-grid{display:grid;grid-template-columns:1fr 1fr}
-}
-@media(min-width:900px){
-  .days-grid{grid-template-columns:1fr 1fr 1fr}
-}
+@media(min-width:640px){.days-grid{display:grid;grid-template-columns:1fr 1fr}}
+@media(min-width:1000px){.days-grid{grid-template-columns:1fr 1fr 1fr}}
+@media(min-width:1280px){.days-grid{grid-template-columns:repeat(4,1fr)}}
 </style>
 </head>
 <body>
@@ -545,7 +543,8 @@ function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'}
         <div class="day-meta">
           <div class="day-meta-row">💰 <strong>~€25-35 pp</strong> (entrada Grand Palace 500 THB + comida + barca)</div>
           <div class="day-meta-row">💡 <strong>Tip:</strong> La cola bajo el sol de agosto es infernal. Tour local ~€8pp con guía por toda la zona de templos si queréis contexto histórico.</div>
-        </div>
+        
+          <div class="day-meta-row">🗺️ <strong>Tour:</strong> Free tour de templos sale de <strong>Khao San Road cada mañana a las 9h</strong> (propina). Tour privado con guía ~€8pp — vale la pena para el Grand Palace, el contexto histórico lo cambia todo.</div></div>
         <div class="day-highlights">
           <span class="highlight-tag">🏯 Grand Palace</span>
           <span class="highlight-tag">🛕 Wat Arun</span>
@@ -577,7 +576,8 @@ function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'}
         <div class="day-meta">
           <div class="day-meta-row">💰 <strong>~€35-50 pp</strong> (tour + taxis + cóctel de rooftop)</div>
           <div class="day-meta-row">💡 <strong>Tip:</strong> El Sky Bar del Hangover 2 es muy turístico. Vertigo en Banyan Tree tiene mejores vistas, mismo precio y menos Instagram. Ambos requieren reserva y vestimenta smart-casual.</div>
-        </div>
+        
+          <div class="day-meta-row">🗺️ <strong>Tour:</strong> <strong>Free Tour Bangkok</strong> (varios operadores, buscar en GetYourGuide) — buena intro con guía local en las zonas menos turísticas. También hay tours nocturnos de street food ~€20pp que son una pasada.</div></div>
         <div class="day-highlights">
           <span class="highlight-tag">🛶 Amphawa (no Damnoen)</span>
           <span class="highlight-tag">🛍️ Shopping Bangkok</span>
@@ -640,7 +640,8 @@ function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'}
         <div class="day-meta">
           <div class="day-meta-row">💰 <strong>~€40-60 pp</strong> (vuelo + traslados + cena)</div>
           <div class="day-meta-row">💡 <strong>Tip:</strong> Khao Soi Islam cerca del Night Bazaar: el mejor khao soi de la ciudad según locales. Sin mesas de turistas. 70 THB el plato.</div>
-        </div>
+        
+          <div class="day-meta-row">🗺️ <strong>Tour:</strong> <strong>Free Walking Tour Chiang Mai</strong> — sale del Tha Phae Gate cada mañana. Perfecto para orientarse el primer día y que un local te cuente la historia del norte.</div></div>
         <div class="day-highlights">
           <span class="highlight-tag">✈️ Vuelo 1h</span>
           <span class="highlight-tag">🍜 Khao Soi debut</span>
@@ -702,7 +703,8 @@ function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'}
         <div class="day-meta">
           <div class="day-meta-row">💰 <strong>~€12-20 pp</strong> (entradas voluntarias + cena de calle)</div>
           <div class="day-meta-row">💡 <strong>Tip:</strong> Los monjes hacen la ronda de limosnas al amanecer (6-7am) — presenciarla en silencio es una de las experiencias más auténticas del norte.</div>
-        </div>
+        
+          <div class="day-meta-row">🗺️ <strong>Tour:</strong> <strong>Free Walking Tour por la Old City</strong> (Tha Phae Gate, 9am) — muy recomendable para los templos, los guías locales explican detalles que no encontraréis en ninguna guía. Propina al final (~€3-5pp).</div></div>
         <details class="insider-tip">
           <summary>🐣 Insider: Dónde dormir en Chiang Mai</summary>
           <p class="tip-body">Dentro del foso hay hostales excelentes por €8-15pp: <strong>De-Residence</strong> o <strong>Stamp House</strong> son joyas baratas en pleno centro histórico. Si queréis darse un capricho una noche: <strong>Rachamankha</strong> (~€80pp, jardín zen, la mejor relación lujo-autenticidad de la ciudad).</p>
@@ -737,7 +739,8 @@ function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'}
         <div class="day-meta">
           <div class="day-meta-row">💰 <strong>~€20-30 pp</strong> (moto + gasolina + comida de camino)</div>
           <div class="day-meta-row">💡 <strong>Tip:</strong> Salir antes de las 7am para aprovechar la niebla de montaña. Técnicamente se necesita licencia internacional — llevad el carnet de coche por si acaso.</div>
-        </div>
+        
+          <div class="day-meta-row">🗺️ <strong>Tour:</strong> Para quien no se fíe al volante: <strong>guided moto tour</strong> con guía local (~€40pp, almuerzo en aldea incluido). Opción más segura y con paradas en sitios que no encontraríais solos.</div></div>
         <div class="day-highlights">
           <span class="highlight-tag">🏍️ Ruta en moto</span>
           <span class="highlight-tag">💦 Cascadas</span>
@@ -762,17 +765,17 @@ function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'}
         <ul class="day-bullets">
           <li>✈️ Vuelo Chiang Mai → Bangkok o Surat Thani (mañana temprano) + ferry Lomprayah a Koh Tao</li>
           <li>⏱️ Día largo de viaje (~8-10h en total) — pero al final te espera el bungalow frente al mar</li>
-          <li>🌅 Primera tarde en la isla: caminar hasta Sairee Beach y ver cómo el Golfo de Tailandia te recibe</li>
-          <li>🐚 El agua está a 28°C y el color es irreal — Modet ya lleva el kit de buceo en la mochila desde Madrid</li>
+          <li>🌅 Primera tarde en la isla: caminar hasta Sairee Beach y ver cómo el Golfo te recibe</li>
+          <li>🤿 Llegáis con el Open Water ya en el bolsillo — mañana directamente a bucear como profesionales</li>
         </ul>
         <div class="day-meta">
           <div class="day-meta-row">💰 <strong>~€40-70 pp</strong> (vuelo + ferry Lomprayah + traslados)</div>
-          <div class="day-meta-row">💡 <strong>Tip:</strong> Reservar el combo vuelo+ferry con antelación en agosto — se llenan. Lomprayah tiene app propia. El trayecto Chumphon→Koh Tao dura ~2h.</div>
+          <div class="day-meta-row">💡 <strong>Tip:</strong> Reservar el combo vuelo+ferry con antelación en agosto. Lomprayah tiene app propia. Al llegar: registraros en la dive school que hayáis elegido para reservar las salidas del día siguiente.</div>
         </div>
         <div class="day-highlights">
           <span class="highlight-tag">⛵ Ferry a la isla</span>
           <span class="highlight-tag">🌅 Primer atardecer insular</span>
-          <span class="highlight-tag">🐚 Playa por la noche</span>
+          <span class="highlight-tag">🤿 Open Water en el bolsillo</span>
         </div>
       </div>
     </div>
@@ -789,25 +792,26 @@ function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'}
         </div>
       </div>
             <div class="day-card-body">
-        <div class="sat-badge sat-med">🟡 Los buenos puntos de buceo están dispersos — ir con guía</div>
+        <div class="sat-badge sat-low">✅ Con el Open Water hecho: acceso a los mejores puntos de la isla</div>
         <ul class="day-bullets">
-          <li>🤿 Tour de snorkeling o primer intro-dive (~2-4h en barco desde el puerto)</li>
-          <li>🐢 Tortugas en Hin Wong Bay, peces tropicales en Green Rock — los mejores arrecifes a 5min en barca</li>
-          <li>🌊 Visibilidad hasta 30m en agosto — es temporada ideal para el agua</li>
-          <li>🍱 Chiringuita de madera sobre el agua: comer aquí y no moverse hasta el atardecer</li>
+          <li>🤿 Fun dives con dive school local — 2 inmersiones en barco por la mañana (~2.5h en el agua)</li>
+          <li>🐋 Agosto es temporada de tiburón ballena en el Golfo — <strong>posibilidad real de avistamiento</strong> en Chumphon Pinnacle o Southwest Pinnacle</li>
+          <li>🐢 Tortugas verdes en Hin Wong Bay, manta rays en Sail Rock (ferry 1h) — los mejores sites del área</li>
+          <li>🌊 Visibilidad hasta 30m en agosto — conditions ideales para el buceo</li>
         </ul>
         <div class="day-meta">
-          <div class="day-meta-row">💰 <strong>~€35-55 pp</strong> (snorkel tour ~€20-30 / intro dive ~€55-70 + comida)</div>
-          <div class="day-meta-row">💡 <strong>Tip:</strong> Hin Wong Bay y Shark Island tienen el mejor coral. Evita las manchas cerca de Sairee Beach — más masificadas y el coral está más dañado. Alquiler de equipo ~€5.</div>
+          <div class="day-meta-row">💰 <strong>~€45-65 pp</strong> (2 fun dives en barco con equipo incluido + comida)</div>
+          <div class="day-meta-row">💡 <strong>Tip:</strong> Los mejores sites para buceadores certificados: Chumphon Pinnacle, Southwest Pinnacle y Shark Island. Evitar los sites de Sairee Beach — están masificados con estudiantes de PADI.</div>
+          <div class="day-meta-row">🗺️ <strong>Tour recomendado:</strong> Dive boat con guía dive master incluido — escoger escuela con <strong>New Heaven</strong> o <strong>Crystal Dive</strong> para mejores sites y barcos menos saturados.</div>
         </div>
         <details class="insider-tip">
           <summary>🐣 Insider: Dónde dormir en Koh Tao</summary>
-          <p class="tip-body">Bungalows de madera en la playa de Sairee: €12-20pp — básicos pero correctos. Tip de oro: si hacéis el PADI, muchas escuelas <strong>incluyen el alojamiento gratis</strong> en el precio del curso. Preguntad antes de reservar por separado.</p>
+          <p class="tip-body">Bungalows de madera en la playa de Sairee: €12-20pp. Muchas dive schools ofrecen descuentos en alojamiento si hacéis varias inmersiones con ellos — preguntad al registraros.</p>
         </details>
         <div class="day-highlights">
-          <span class="highlight-tag">🤿 Snorkeling / buceo</span>
-          <span class="highlight-tag">🐢 Tortugas marinas</span>
-          <span class="highlight-tag">🌊 Playas vírgenes</span>
+          <span class="highlight-tag">🤿 Fun dives certificados</span>
+          <span class="highlight-tag">🐋 Posible tiburón ballena</span>
+          <span class="highlight-tag">🐢 Tortugas y manta rays</span>
         </div>
       </div>
     </div>
@@ -824,20 +828,21 @@ function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'}
         </div>
       </div>
             <div class="day-card-body">
-        <div class="sat-badge sat-low">✅ Norte y este de la isla — casi sin turistas</div>
+        <div class="sat-badge sat-low">✅ Segundo día — los que quieran más profundidad, el Advanced espera</div>
         <ul class="day-bullets">
-          <li>🎓 Día 2 del PADI Open Water si empezaste ayer — clases en piscina + primera inmersión guiada</li>
-          <li>🏄 SUP o kayak de alquiler desde Sairee (~€10/h) para los que prefieren superficie</li>
+          <li>🤿 Más fun dives: Sail Rock (el mejor pinnacle del área), Japanese Garden, Twin Peaks</li>
+          <li>🎓 Opción: <strong>Advanced Open Water en 2 días</strong> (~€200pp) — deep dive (30m), navegación, night dive incluida</li>
+          <li>🏄 Para los que prefieran superficie: SUP o kayak desde Sairee (~€10/h) o snorkel libre</li>
           <li>🌅 Atardecer en Tanote Bay o en John-Suwan Rock — uno de los mejores del sur de Asia</li>
-          <li>🛶 Tarde de no hacer absolutamente nada en una hamaca con un coco — también completamente válido</li>
         </ul>
         <div class="day-meta">
-          <div class="day-meta-row">💰 <strong>~€280-350 pp si PADI</strong> · ~€15-25 pp si playa/snorkel libre</div>
-          <div class="day-meta-row">💡 <strong>Tip:</strong> Para el PADI: New Heaven Dive School y Crystal Dive tienen la mejor reputación de la isla. Vale la diferencia de ~€30 sobre los más baratos del puerto.</div>
+          <div class="day-meta-row">💰 <strong>~€45-65 pp</strong> fun dives · <strong>~€200 pp</strong> si Advanced OW</div>
+          <div class="day-meta-row">💡 <strong>Tip:</strong> Sail Rock está a 1h en ferry desde Koh Tao — muchas escuelas organizan day trips. Es uno de los mejores sites del Golfo de Tailandia y vale el desplazamiento extra.</div>
+          <div class="day-meta-row">🗺️ <strong>Tour recomendado:</strong> Day trip a <strong>Sail Rock</strong> con dive school (~€70pp, 3 inmersiones incluidas) — el pinnacle más espectacular del Golfo y con buenas posibilidades de ver tiburón ballena.</div>
         </div>
         <div class="day-highlights">
-          <span class="highlight-tag">🎓 PADI Open Water</span>
-          <span class="highlight-tag">🏄 SUP / Kayak</span>
+          <span class="highlight-tag">🤿 Sail Rock</span>
+          <span class="highlight-tag">🎓 Advanced OW opcional</span>
           <span class="highlight-tag">🌅 Tanote Bay sunset</span>
         </div>
       </div>
@@ -896,7 +901,8 @@ function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'}
         <div class="day-meta">
           <div class="day-meta-row">💰 <strong>~€20-35 pp</strong> (entrada ~500-600 THB + bebidas + taxi)</div>
           <div class="day-meta-row">💡 <strong>Tip:</strong> Llevar: cargador portátil, calzado que no importa ensuciar, agua abundante y pastillas antimareo si el día siguiente hay ferry. Pasa lista antes de salir.</div>
-        </div>
+        
+          <div class="day-meta-row">🗺️ <strong>Tour:</strong> No hace falta tour — la fiesta se explica sola. Pero si queréis info local sobre afterparties y playas secretas del día siguiente, preguntad en el hostal.</div></div>
         <div class="day-highlights">
           <span class="highlight-tag">🌙 Half Moon Party</span>
           <span class="highlight-tag">🎉 Vibe jungle</span>
@@ -927,7 +933,8 @@ function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'}
         <div class="day-meta">
           <div class="day-meta-row">💰 <strong>~€15-25 pp</strong> (bote a Bottle Beach + cócteles + cena)</div>
           <div class="day-meta-row">💡 <strong>Tip:</strong> Bottle Beach es una de las playas más bonitas del Golfo y apenas tiene turistas porque no hay carretera. Vale el extra del barco.</div>
-        </div>
+        
+          <div class="day-meta-row">🗺️ <strong>Tour:</strong> <strong>Boat tour de medio día</strong> por las playas del norte de Phangan (~€25pp) — te llevan a Bottle Beach, Than Sadet Waterfall y calas sin nombre. Mucho mejor que ir solo en scooter.</div></div>
         <div class="day-highlights">
           <span class="highlight-tag">🏖️ Bottle Beach virgen</span>
           <span class="highlight-tag">🍹 Cócteles al sol</span>
@@ -958,7 +965,8 @@ function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'}
         <div class="day-meta">
           <div class="day-meta-row">💰 <strong>~€25-35 pp</strong> (ferry + scooter + cena)</div>
           <div class="day-meta-row">💡 <strong>Tip:</strong> Maenam tiene playas tranquilas e igualmente bonitas que Chaweng, a un tercio del precio. Los hoteles más caros de la historia los encontráis justo ahora por el boom turístico.</div>
-        </div>
+        
+          <div class="day-meta-row">🗺️ <strong>Tour:</strong> <strong>Scooter tour local</strong> (~€15pp, 3h) con guía samuyano — conocen las playas y templos menos visitados. Buena forma de arrancar la isla sin perderse.</div></div>
         <details class="insider-tip">
           <summary>🐣 Insider: Dónde dormir en Koh Samui</summary>
           <p class="tip-body">Bungalow familiar en Maenam: ~€20-25pp. Si queréis darse un lujo la última noche del viaje: <strong>Anantara Bophut Resort</strong> (~€120pp) o <strong>Sala Samui Chaweng Beach</strong> (~€90pp). El "White Lotus effect" lo ha encarecido todo, pero los resorts del norte siguen teniendo mejor relación calidad-precio.</p>
@@ -993,7 +1001,8 @@ function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'}
         <div class="day-meta">
           <div class="day-meta-row">💰 <strong>~€25-40 pp</strong> (playa + excursión Koh Tan + cena)</div>
           <div class="day-meta-row">💡 <strong>Tip:</strong> Koh Tan tiene coral muy bien conservado y apenas visitantes. Vale el extra del barco. Ang Thong Marine Park es más famoso pero también más masificado.</div>
-        </div>
+        
+          <div class="day-meta-row">🗺️ <strong>Tour:</strong> <strong>Long-tail boat a Koh Tan</strong> (~€18-22pp, guía incluido) — excursión de día completo con snorkel, almuerzo en la isla y regreso al atardecer. Uno de los mejores días del viaje si el tiempo acompaña.</div></div>
         <div class="day-highlights">
           <span class="highlight-tag">🏖️ Playa</span>
           <span class="highlight-tag">🌅 Último atardecer</span>
@@ -1321,26 +1330,26 @@ function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'}
         </div>
 
         <div class="vote-q">
-          <h4>🤿 ¿Hacemos el PADI Open Water en Koh Tao?</h4>
-          <p>3 días, ~€280-350 por persona. Certificación internacional que sirve para toda la vida.</p>
+          <h4>🤿 En Koh Tao: ¿subimos al Advanced Open Water?</h4>
+          <p>Ya tenéis el Open Water hecho desde España 🎉 Koh Tao es perfecto para sacar el Advanced (2 días, ~€200pp) — o simplemente hacer fun dives y disfrutar.</p>
           <div class="vote-options">
             <label class="vote-option" onclick="toggleOpt(this,'q6a')">
-              <input type="radio" name="q6" value="padi">
+              <input type="radio" name="q6" value="advanced">
               <span class="opt-emoji">🎓</span>
-              <span class="opt-label">Sí, sácate el PADI</span>
-              <span class="opt-desc">Para toda la vida</span>
+              <span class="opt-label">Advanced Open Water</span>
+              <span class="opt-desc">+30m de profundidad, ~€200pp</span>
             </label>
             <label class="vote-option" onclick="toggleOpt(this,'q6b')">
-              <input type="radio" name="q6" value="snorkel">
+              <input type="radio" name="q6" value="fundives">
               <span class="opt-emoji">🤿</span>
-              <span class="opt-label">Snorkeling y ya</span>
-              <span class="opt-desc">Más barato y más libre</span>
+              <span class="opt-label">Fun dives y ya</span>
+              <span class="opt-desc">~€50-65pp/día, sin presión</span>
             </label>
             <label class="vote-option" onclick="toggleOpt(this,'q6c')">
-              <input type="radio" name="q6" value="intro">
+              <input type="radio" name="q6" value="mixto">
               <span class="opt-emoji">🌊</span>
-              <span class="opt-label">Intro dive (1 inmersión)</span>
-              <span class="opt-desc">Prueba sin compromiso</span>
+              <span class="opt-label">Un día fun dives + un día Advanced</span>
+              <span class="opt-desc">Lo mejor de los dos</span>
             </label>
           </div>
         </div>
