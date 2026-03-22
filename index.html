@@ -66,25 +66,41 @@ nav{position:sticky;top:0;z-index:100;background:rgba(10,15,26,0.92);backdrop-fi
 .cal-dot{width:10px;height:10px;border-radius:50%}
 .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);border-top:1px solid var(--border)}
 .cal-weekday{padding:8px 4px;text-align:center;font-size:.7rem;font-weight:600;color:var(--muted);background:rgba(255,255,255,0.03);border-bottom:1px solid var(--border)}
-.cal-day{position:relative;aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid var(--border);cursor:pointer;transition:all .2s;font-size:.8rem;padding:2px}
-.cal-day.empty{background:transparent;cursor:default}
-.cal-day:not(.empty):hover{background:rgba(255,255,255,0.08);transform:scale(1.06)}
+.cal-day{position:relative;min-height:90px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;border:1px solid var(--border);cursor:pointer;transition:all .2s;font-size:.8rem;padding:7px 3px 4px}
+.cal-day.empty{display:none}
+.cal-day.pre-trip,.cal-day.post-trip{opacity:.28;cursor:default;justify-content:center}
+.cal-day:not(.empty):not(.pre-trip):not(.post-trip):hover{background:rgba(255,255,255,.09);transform:scale(1.05);z-index:2}
 .cal-day.trip{font-weight:600;color:#fff}
-.cal-day.trip::before{content:'';position:absolute;inset:3px;border-radius:8px;opacity:.25}
+.cal-day.trip::before{content:'';position:absolute;inset:3px;border-radius:9px;opacity:.22}
 .cal-day.bkk::before{background:var(--bkk)}
 .cal-day.cmj::before{background:var(--cmj)}
 .cal-day.tao::before{background:var(--tao)}
 .cal-day.pha::before{background:var(--pha)}
 .cal-day.sam::before{background:var(--sam)}
-.cal-day .day-num{position:relative;z-index:1;font-size:.85rem;font-weight:700;line-height:1}
-.cal-day .day-emoji{position:relative;z-index:1;font-size:.65rem;margin-top:1px}
+.cal-day .day-num{position:relative;z-index:1;font-size:.78rem;font-weight:700;line-height:1;margin-bottom:3px}
+.cal-day .day-emojis{position:relative;z-index:1;font-size:.82rem;line-height:1;letter-spacing:1px;margin-bottom:3px}
+.cal-day .day-kws{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:1px;width:100%}
+.cal-day .day-kw{font-size:.5rem;color:rgba(255,255,255,.78);line-height:1.3;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:98%}
 .cal-day.today-ring{box-shadow:inset 0 0 0 2px var(--gold)}
 
 /* ─── ROUTE MAP ─── */
-.map-wrap{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:24px;margin-bottom:20px;text-align:center}
-.map-wrap svg{max-width:100%;height:auto}
-.map-city-label{font-family:'Poppins',sans-serif;font-size:11px;fill:var(--text)}
-.map-city-dot{filter:drop-shadow(0 0 6px currentColor)}
+.route-layout{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+@media(max-width:560px){.route-layout{grid-template-columns:1fr}}
+.route-map-col{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:16px 12px;text-align:center}
+.route-map-col svg{width:100%;height:auto;max-height:420px}
+.map-city-label{font-family:'Poppins',sans-serif;font-size:10px;fill:var(--text)}
+.route-cards-col{display:flex;flex-direction:column;gap:10px}
+.dest-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:13px 15px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:12px}
+.dest-card:hover{transform:translateX(4px);box-shadow:0 4px 20px rgba(0,0,0,.3)}
+.dest-dot-wrap{flex:none;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem}
+.dest-name{font-weight:700;font-size:.92rem;color:#fff;margin-bottom:2px}
+.dest-dates{font-size:.7rem;color:var(--muted);margin-bottom:5px}
+.dest-tags{display:flex;flex-wrap:wrap;gap:4px}
+.dest-tag{font-size:.6rem;padding:2px 7px;border-radius:100px;background:rgba(255,255,255,.07);color:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.1)}
+@keyframes routeDash{to{stroke-dashoffset:-200}}
+@keyframes cityPulse{0%,100%{transform:scale(1);opacity:.15}50%{transform:scale(1.5);opacity:.06}}
+.route-line{animation:routeDash 4s linear infinite}
+.city-pulse{transform-box:fill-box;transform-origin:center;animation:cityPulse 2.5s ease-in-out infinite}
 
 /* ─── DAY CARDS ─── */
 .days-grid{display:flex;flex-direction:column;gap:16px}
@@ -258,56 +274,38 @@ function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smoo
     <div class="cal-grid">
       <!-- Weekday headers (Mon–Sun) -->
       <div class="cal-weekday">Lun</div><div class="cal-weekday">Mar</div><div class="cal-weekday">Mié</div><div class="cal-weekday">Jue</div><div class="cal-weekday">Vie</div><div class="cal-weekday">Sáb</div><div class="cal-weekday">Dom</div>
-      <!-- Week 1: Aug 1 = Saturday (5 empty Mon–Fri) -->
-      <div class="cal-day empty"></div>
-      <div class="cal-day empty"></div>
-      <div class="cal-day empty"></div>
-      <div class="cal-day empty"></div>
-      <div class="cal-day empty"></div>
-      <div class="cal-day"><div class="day-num">1</div></div>
-      <div class="cal-day"><div class="day-num">2</div></div>
-      <!-- Week 2 -->
-      <div class="cal-day"><div class="day-num">3</div></div>
-      <div class="cal-day"><div class="day-num">4</div></div>
-      <div class="cal-day"><div class="day-num">5</div></div>
-      <div class="cal-day"><div class="day-num">6</div></div>
-      <div class="cal-day"><div class="day-num">7</div></div>
-      <!-- Aug 8: trip day 1 – Bangkok -->
-      <div class="cal-day trip bkk" onclick="scrollTo('dia1')"><div class="day-num">8</div><div class="day-emoji">✈️</div></div>
-      <!-- Aug 9 -->
-      <div class="cal-day trip bkk" onclick="scrollTo('dia2')"><div class="day-num">9</div><div class="day-emoji">🏯</div></div>
-      <!-- Week 3 -->
-      <div class="cal-day trip bkk" onclick="scrollTo('dia3')"><div class="day-num">10</div><div class="day-emoji">🛺</div></div>
-      <div class="cal-day trip bkk" onclick="scrollTo('dia4')"><div class="day-num">11</div><div class="day-emoji">🌃</div></div>
-      <div class="cal-day trip bkk" onclick="scrollTo('dia5')"><div class="day-num">12</div><div class="day-emoji">✈️</div></div>
-      <div class="cal-day trip cmj" onclick="scrollTo('dia6')"><div class="day-num">13</div><div class="day-emoji">🐘</div></div>
-      <div class="cal-day trip cmj" onclick="scrollTo('dia7')"><div class="day-num">14</div><div class="day-emoji">🛕</div></div>
-      <div class="cal-day trip cmj" onclick="scrollTo('dia8')"><div class="day-num">15</div><div class="day-emoji">🏍️</div></div>
-      <div class="cal-day trip cmj" onclick="scrollTo('dia9')"><div class="day-num">16</div><div class="day-emoji">✈️</div></div>
-      <!-- Week 4 -->
-      <div class="cal-day trip tao" onclick="scrollTo('dia10')"><div class="day-num">17</div><div class="day-emoji">🤿</div></div>
-      <div class="cal-day trip tao" onclick="scrollTo('dia11')"><div class="day-num">18</div><div class="day-emoji">🐠</div></div>
-      <div class="cal-day trip pha" onclick="scrollTo('dia12')"><div class="day-num">19</div><div class="day-emoji">⛵</div></div>
-      <div class="cal-day trip pha" onclick="scrollTo('dia13')"><div class="day-num">20</div><div class="day-emoji">🌙</div></div>
-      <div class="cal-day trip pha" onclick="scrollTo('dia14')"><div class="day-num">21</div><div class="day-emoji">🎉</div></div>
-      <div class="cal-day trip sam" onclick="scrollTo('dia15')"><div class="day-num">22</div><div class="day-emoji">⛵</div></div>
-      <div class="cal-day trip sam" onclick="scrollTo('dia16')"><div class="day-num">23</div><div class="day-emoji">🏖️</div></div>
-      <!-- Week 5 -->
-      <div class="cal-day trip sam" onclick="scrollTo('dia17')"><div class="day-num">24</div><div class="day-emoji">✈️</div></div>
-      <div class="cal-day"><div class="day-num">25</div></div>
-      <div class="cal-day"><div class="day-num">26</div></div>
-      <div class="cal-day"><div class="day-num">27</div></div>
-      <div class="cal-day"><div class="day-num">28</div></div>
-      <div class="cal-day"><div class="day-num">29</div></div>
-      <div class="cal-day"><div class="day-num">30</div></div>
-      <!-- Week 6 -->
-      <div class="cal-day"><div class="day-num">31</div></div>
-      <div class="cal-day empty"></div>
-      <div class="cal-day empty"></div>
-      <div class="cal-day empty"></div>
-      <div class="cal-day empty"></div>
-      <div class="cal-day empty"></div>
-      <div class="cal-day empty"></div>
+      <!-- Week 2: Mon Aug 3 – Sun Aug 9 (pre-trip 3–7, trip 8–9) -->
+      <div class="cal-day pre-trip"><div class="day-num">3</div></div>
+      <div class="cal-day pre-trip"><div class="day-num">4</div></div>
+      <div class="cal-day pre-trip"><div class="day-num">5</div></div>
+      <div class="cal-day pre-trip"><div class="day-num">6</div></div>
+      <div class="cal-day pre-trip"><div class="day-num">7</div></div>
+      <div class="cal-day trip bkk" onclick="scrollTo('dia1')"><div class="day-num">8</div><div class="day-emojis">✈️🏙️🏨</div><div class="day-kws"><div class="day-kw">Vuelo</div><div class="day-kw">Bangkok</div><div class="day-kw">Check-in</div></div></div>
+      <div class="cal-day trip bkk" onclick="scrollTo('dia2')"><div class="day-num">9</div><div class="day-emojis">🏯🛕🍺</div><div class="day-kws"><div class="day-kw">Palacios</div><div class="day-kw">Templos</div><div class="day-kw">Khao San</div></div></div>
+      <!-- Week 3: Mon Aug 10 – Sun Aug 16 (all trip) -->
+      <div class="cal-day trip bkk" onclick="scrollTo('dia3')"><div class="day-num">10</div><div class="day-emojis">🛶🛍️🌆</div><div class="day-kws"><div class="day-kw">Mercado</div><div class="day-kw">Shopping</div><div class="day-kw">Rooftop</div></div></div>
+      <div class="cal-day trip bkk" onclick="scrollTo('dia4')"><div class="day-num">11</div><div class="day-emojis">💆🏛️🌙</div><div class="day-kws"><div class="day-kw">Masaje</div><div class="day-kw">Cultura</div><div class="day-kw">Nightlife</div></div></div>
+      <div class="cal-day trip bkk" onclick="scrollTo('dia5')"><div class="day-num">12</div><div class="day-emojis">✈️🍜🛍️</div><div class="day-kws"><div class="day-kw">Vuelo</div><div class="day-kw">Khao Soi</div><div class="day-kw">Bazaar</div></div></div>
+      <div class="cal-day trip cmj" onclick="scrollTo('dia6')"><div class="day-num">13</div><div class="day-emojis">🐘🛁📸</div><div class="day-kws"><div class="day-kw">Elefantes</div><div class="day-kw">Baño</div><div class="day-kw">Fotos</div></div></div>
+      <div class="cal-day trip cmj" onclick="scrollTo('dia7')"><div class="day-num">14</div><div class="day-emojis">🛕🚶🍢</div><div class="day-kws"><div class="day-kw">Templos</div><div class="day-kw">Old City</div><div class="day-kw">Mercado</div></div></div>
+      <div class="cal-day trip cmj" onclick="scrollTo('dia8')"><div class="day-num">15</div><div class="day-emojis">🏍️💦🗻</div><div class="day-kws"><div class="day-kw">Motos</div><div class="day-kw">Cascadas</div><div class="day-kw">Montaña</div></div></div>
+      <div class="cal-day trip cmj" onclick="scrollTo('dia9')"><div class="day-num">16</div><div class="day-emojis">✈️⛵🐚</div><div class="day-kws"><div class="day-kw">Viaje</div><div class="day-kw">Ferry</div><div class="day-kw">Isla</div></div></div>
+      <!-- Week 4: Mon Aug 17 – Sun Aug 23 (all trip) -->
+      <div class="cal-day trip tao" onclick="scrollTo('dia10')"><div class="day-num">17</div><div class="day-emojis">🤿🐢🌊</div><div class="day-kws"><div class="day-kw">Buceo</div><div class="day-kw">Tortugas</div><div class="day-kw">Coral</div></div></div>
+      <div class="cal-day trip tao" onclick="scrollTo('dia11')"><div class="day-num">18</div><div class="day-emojis">🎓🏄🌅</div><div class="day-kws"><div class="day-kw">PADI</div><div class="day-kw">SUP</div><div class="day-kw">Sunset</div></div></div>
+      <div class="cal-day trip pha" onclick="scrollTo('dia12')"><div class="day-num">19</div><div class="day-emojis">⛵🛵🌴</div><div class="day-kws"><div class="day-kw">Ferry</div><div class="day-kw">Scooter</div><div class="day-kw">Phangan</div></div></div>
+      <div class="cal-day trip pha" onclick="scrollTo('dia13')"><div class="day-num">20</div><div class="day-emojis">🌙🎉🎶</div><div class="day-kws"><div class="day-kw">Half Moon</div><div class="day-kw">Party</div><div class="day-kw">Música</div></div></div>
+      <div class="cal-day trip pha" onclick="scrollTo('dia14')"><div class="day-num">21</div><div class="day-emojis">🏖️🍹🌴</div><div class="day-kws"><div class="day-kw">Playa</div><div class="day-kw">Cócteles</div><div class="day-kw">Relax</div></div></div>
+      <div class="cal-day trip sam" onclick="scrollTo('dia15')"><div class="day-num">22</div><div class="day-emojis">⛵🏝️🏨</div><div class="day-kws"><div class="day-kw">Ferry</div><div class="day-kw">Samui</div><div class="day-kw">Hotel</div></div></div>
+      <div class="cal-day trip sam" onclick="scrollTo('dia16')"><div class="day-num">23</div><div class="day-emojis">🏖️🌅🍹</div><div class="day-kws"><div class="day-kw">Playa</div><div class="day-kw">Atardecer</div><div class="day-kw">Fiesta</div></div></div>
+      <!-- Week 5: Mon Aug 24 – Sun Aug 30 (trip day 17, then post-trip) -->
+      <div class="cal-day trip sam" onclick="scrollTo('dia17')"><div class="day-num">24</div><div class="day-emojis">✈️😢🏠</div><div class="day-kws"><div class="day-kw">Vuelta</div><div class="day-kw">Adiós</div><div class="day-kw">Madrid</div></div></div>
+      <div class="cal-day post-trip"><div class="day-num">25</div></div>
+      <div class="cal-day post-trip"><div class="day-num">26</div></div>
+      <div class="cal-day post-trip"><div class="day-num">27</div></div>
+      <div class="cal-day post-trip"><div class="day-num">28</div></div>
+      <div class="cal-day post-trip"><div class="day-num">29</div></div>
+      <div class="cal-day post-trip"><div class="day-num">30</div></div>
     </div>
   </div>
 </section>
@@ -315,67 +313,147 @@ function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smoo
 <!-- ═══════════════════════════════════════════════════ MAPA -->
 <section class="section" id="mapa">
   <h2 class="section-title">🗺️ La Ruta</h2>
-  <p class="section-sub">De norte a sur — del caos urbano al paraíso tropical</p>
-  <div class="map-wrap">
-    <svg viewBox="0 0 340 520" xmlns="http://www.w3.org/2000/svg" style="max-height:480px">
-      <!-- Thailand shape (simplified) -->
-      <path d="M120,20 L160,22 L185,35 L195,55 L200,80 L205,105 L210,130 L215,155 L218,180 L215,200 L220,220 L225,245 L228,265 L230,285 L228,305 L225,325 L220,345 L215,360 L210,375 L205,390 L205,405 L208,420 L210,435 L208,450 L205,460 L200,468 L195,472 L190,470 L185,462 L182,450 L183,440 L185,428 L182,415 L178,402 L172,390 L168,378 L165,365 L163,350 L162,335 L160,320 L155,305 L150,295 L142,285 L135,280 L128,275 L120,268 L115,258 L112,245 L113,230 L116,215 L118,200 L116,183 L112,165 L108,148 L106,130 L107,112 L108,95 L110,78 L112,58 L115,40 Z"
-        fill="rgba(30,45,69,0.8)" stroke="rgba(100,130,170,0.4)" stroke-width="1.5"/>
+  <p class="section-sub">5 destinos · 17 días · del caos urbano al paraíso tropical</p>
+  <div class="route-layout">
 
-      <!-- Route line Bangkok→ChiangMai -->
-      <path d="M168,245 C155,220 148,190 148,160" stroke="rgba(245,166,35,0.5)" stroke-width="2" fill="none" stroke-dasharray="6,4"/>
-      <!-- Arrow BKK→CMJ -->
-      <polygon points="148,155 143,167 153,167" fill="var(--cmj)" opacity="0.8"/>
+    <!-- SVG Map -->
+    <div class="route-map-col">
+      <svg viewBox="0 0 260 430" xmlns="http://www.w3.org/2000/svg">
+        <!-- Thailand shape (simplified) -->
+        <path d="M88,16 L118,18 L140,28 L150,46 L155,68 L160,90 L165,112 L170,134 L173,156 L171,174 L176,192 L181,213 L184,232 L186,250 L184,268 L181,286 L176,303 L171,318 L166,332 L161,346 L161,359 L164,370 L166,380 L164,390 L161,398 L156,404 L151,406 L146,404 L141,397 L138,388 L139,378 L141,367 L138,355 L134,343 L128,333 L124,322 L121,310 L120,296 L118,282 L113,268 L108,258 L100,250 L93,245 L86,239 L80,232 L76,222 L77,209 L80,195 L82,181 L80,166 L76,151 L72,136 L70,120 L71,104 L72,88 L74,72 L76,56 L80,40 Z"
+          fill="rgba(18,30,55,0.95)" stroke="rgba(80,115,170,0.55)" stroke-width="1.5"/>
 
-      <!-- Route line ChiangMai→KohTao -->
-      <path d="M148,138 C158,175 168,210 190,340" stroke="rgba(86,196,94,0.5)" stroke-width="2" fill="none" stroke-dasharray="6,4"/>
-      <!-- Arrow CMJ→Tao -->
-      <polygon points="190,345 185,334 195,334" fill="var(--tao)" opacity="0.8"/>
+        <!-- Gulf coast subtle fill -->
+        <path d="M161,346 L161,359 L164,370 L166,380 L164,390 L161,398 L156,404 L151,406 L146,404 L141,397 L138,388 L139,378 L141,367 L138,355 L134,343" fill="none" stroke="rgba(0,200,224,0.2)" stroke-width="3"/>
 
-      <!-- Route line KohTao→KohPhangan -->
-      <path d="M192,360 C193,368 194,373 195,378" stroke="rgba(0,200,224,0.5)" stroke-width="2" fill="none" stroke-dasharray="4,3"/>
-      <polygon points="195,381 190,371 200,371" fill="var(--pha)" opacity="0.8"/>
+        <!-- Animated route lines -->
+        <!-- BKK ↑ CMJ -->
+        <path d="M126,200 C113,172 106,144 104,116" stroke="rgba(245,166,35,0.75)" stroke-width="2.5" fill="none" stroke-dasharray="7,5" class="route-line"/>
+        <!-- CMJ ↓ Koh Tao -->
+        <path d="M104,100 C114,140 126,175 148,300" stroke="rgba(86,196,94,0.75)" stroke-width="2.5" fill="none" stroke-dasharray="7,5" class="route-line" style="animation-delay:.8s"/>
+        <!-- Koh Tao ↓ Koh Phangan -->
+        <path d="M150,315 C151,322 152,327 153,333" stroke="rgba(0,200,224,0.8)" stroke-width="2" fill="none" stroke-dasharray="5,4" class="route-line" style="animation-delay:1.6s"/>
+        <!-- Koh Phangan ↓ Koh Samui -->
+        <path d="M151,347 C150,354 149,359 148,365" stroke="rgba(168,85,247,0.8)" stroke-width="2" fill="none" stroke-dasharray="5,4" class="route-line" style="animation-delay:2.2s"/>
 
-      <!-- Route line KohPhangan→KohSamui -->
-      <path d="M193,395 C192,402 190,408 188,414" stroke="rgba(168,85,247,0.5)" stroke-width="2" fill="none" stroke-dasharray="4,3"/>
-      <polygon points="188,418 183,407 193,407" fill="var(--sam)" opacity="0.8"/>
+        <!-- ── Bangkok ── -->
+        <g onclick="scrollTo('dia1')" style="cursor:pointer">
+          <circle cx="126" cy="202" r="16" fill="var(--bkk)" class="city-pulse"/>
+          <circle cx="126" cy="202" r="8" fill="var(--bkk)" opacity="0.95"/>
+          <circle cx="126" cy="202" r="4" fill="#fff" opacity="0.6"/>
+          <text x="138" y="198" class="map-city-label" font-weight="700" fill="#F5A623">Bangkok</text>
+          <text x="138" y="209" class="map-city-label" fill="#6B7FA0">Días 1–5</text>
+        </g>
 
-      <!-- Bangkok dot -->
-      <circle cx="168" cy="248" r="9" fill="var(--bkk)" opacity="0.9" class="map-city-dot" style="color:var(--bkk)"/>
-      <circle cx="168" cy="248" r="16" fill="var(--bkk)" opacity="0.15"/>
-      <text x="180" y="244" class="map-city-label" font-weight="700" fill="#F5A623">Bangkok</text>
-      <text x="180" y="257" class="map-city-label" fill="#6B7FA0">Días 1–5</text>
+        <!-- ── Chiang Mai ── -->
+        <g onclick="scrollTo('dia6')" style="cursor:pointer">
+          <circle cx="104" cy="100" r="13" fill="var(--cmj)" class="city-pulse" style="animation-delay:.5s"/>
+          <circle cx="104" cy="100" r="7" fill="var(--cmj)" opacity="0.95"/>
+          <circle cx="104" cy="100" r="3" fill="#fff" opacity="0.6"/>
+          <text x="116" y="96" class="map-city-label" font-weight="700" fill="#56C45E">Chiang Mai</text>
+          <text x="116" y="107" class="map-city-label" fill="#6B7FA0">Días 6–9</text>
+        </g>
 
-      <!-- Chiang Mai dot -->
-      <circle cx="148" cy="138" r="9" fill="var(--cmj)" opacity="0.9" class="map-city-dot" style="color:var(--cmj)"/>
-      <circle cx="148" cy="138" r="16" fill="var(--cmj)" opacity="0.15"/>
-      <text x="162" y="134" class="map-city-label" font-weight="700" fill="#56C45E">Chiang Mai</text>
-      <text x="162" y="147" class="map-city-label" fill="#6B7FA0">Días 6–9</text>
+        <!-- ── Koh Tao ── -->
+        <g onclick="scrollTo('dia10')" style="cursor:pointer">
+          <circle cx="150" cy="313" r="12" fill="var(--tao)" class="city-pulse" style="animation-delay:1s"/>
+          <circle cx="150" cy="313" r="6" fill="var(--tao)" opacity="0.95"/>
+          <circle cx="150" cy="313" r="2.5" fill="#fff" opacity="0.6"/>
+          <text x="161" y="309" class="map-city-label" font-weight="700" fill="#00C8E0">Koh Tao</text>
+          <text x="161" y="320" class="map-city-label" fill="#6B7FA0">Días 10–11</text>
+        </g>
 
-      <!-- Koh Tao dot -->
-      <circle cx="192" cy="358" r="8" fill="var(--tao)" opacity="0.9" class="map-city-dot"/>
-      <circle cx="192" cy="358" r="14" fill="var(--tao)" opacity="0.15"/>
-      <text x="205" y="354" class="map-city-label" font-weight="700" fill="#00C8E0">Koh Tao</text>
-      <text x="205" y="366" class="map-city-label" fill="#6B7FA0">Días 10–11</text>
+        <!-- ── Koh Phangan ── -->
+        <g onclick="scrollTo('dia12')" style="cursor:pointer">
+          <circle cx="151" cy="340" r="11" fill="var(--pha)" class="city-pulse" style="animation-delay:1.5s"/>
+          <circle cx="151" cy="340" r="6" fill="var(--pha)" opacity="0.95"/>
+          <circle cx="151" cy="340" r="2.5" fill="#fff" opacity="0.6"/>
+          <text x="162" y="336" class="map-city-label" font-weight="700" fill="#A855F7">Koh Phangan</text>
+          <text x="162" y="347" class="map-city-label" fill="#6B7FA0">Días 12–14</text>
+        </g>
 
-      <!-- Koh Phangan dot -->
-      <circle cx="193" cy="385" r="7" fill="var(--pha)" opacity="0.9"/>
-      <circle cx="193" cy="385" r="13" fill="var(--pha)" opacity="0.15"/>
-      <text x="205" y="381" class="map-city-label" font-weight="700" fill="#A855F7">Koh Phangan</text>
-      <text x="205" y="393" class="map-city-label" fill="#6B7FA0">Días 12–14</text>
+        <!-- ── Koh Samui ── -->
+        <g onclick="scrollTo('dia15')" style="cursor:pointer">
+          <circle cx="149" cy="367" r="11" fill="var(--sam)" class="city-pulse" style="animation-delay:2s"/>
+          <circle cx="149" cy="367" r="6" fill="var(--sam)" opacity="0.95"/>
+          <circle cx="149" cy="367" r="2.5" fill="#fff" opacity="0.6"/>
+          <text x="160" y="363" class="map-city-label" font-weight="700" fill="#F05454">Koh Samui</text>
+          <text x="160" y="374" class="map-city-label" fill="#6B7FA0">Días 15–17</text>
+        </g>
 
-      <!-- Koh Samui dot -->
-      <circle cx="190" cy="415" r="7" fill="var(--sam)" opacity="0.9"/>
-      <circle cx="190" cy="415" r="13" fill="var(--sam)" opacity="0.15"/>
-      <text x="202" y="411" class="map-city-label" font-weight="700" fill="#F05454">Koh Samui</text>
-      <text x="202" y="423" class="map-city-label" fill="#6B7FA0">Días 15–17</text>
+        <!-- Compass rose -->
+        <text x="14" y="24" font-size="9" fill="rgba(107,127,160,0.65)" font-family="Poppins,sans-serif" font-weight="600">N ↑</text>
+        <text x="10" y="420" font-size="8" fill="rgba(107,127,160,0.4)" font-family="Poppins,sans-serif">Ruta aproximada</text>
+      </svg>
+    </div>
 
-      <!-- Compass -->
-      <text x="30" y="35" font-size="10" fill="rgba(107,127,160,0.6)" font-family="Poppins,sans-serif">N ↑</text>
+    <!-- Destination cards (right column) -->
+    <div class="route-cards-col">
+      <div class="dest-card" onclick="scrollTo('dia1')" style="border-color:rgba(245,166,35,.35)">
+        <div class="dest-dot-wrap" style="background:rgba(245,166,35,.15)">🏙️</div>
+        <div>
+          <div class="dest-name" style="color:var(--bkk)">Bangkok</div>
+          <div class="dest-dates">Días 1–5 &nbsp;·&nbsp; 8–12 Ago</div>
+          <div class="dest-tags">
+            <span class="dest-tag">Grand Palace</span>
+            <span class="dest-tag">Rooftop bars</span>
+            <span class="dest-tag">Street food</span>
+          </div>
+        </div>
+      </div>
 
-      <!-- Distance legend -->
-      <text x="20" y="490" font-size="9" fill="rgba(107,127,160,0.5)" font-family="Poppins,sans-serif">Tailandia — Ruta aproximada</text>
-    </svg>
+      <div class="dest-card" onclick="scrollTo('dia6')" style="border-color:rgba(86,196,94,.35)">
+        <div class="dest-dot-wrap" style="background:rgba(86,196,94,.15)">🐘</div>
+        <div>
+          <div class="dest-name" style="color:var(--cmj)">Chiang Mai</div>
+          <div class="dest-dates">Días 6–9 &nbsp;·&nbsp; 13–16 Ago</div>
+          <div class="dest-tags">
+            <span class="dest-tag">Elefantes</span>
+            <span class="dest-tag">Templos</span>
+            <span class="dest-tag">Motos</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dest-card" onclick="scrollTo('dia10')" style="border-color:rgba(0,200,224,.35)">
+        <div class="dest-dot-wrap" style="background:rgba(0,200,224,.15)">🤿</div>
+        <div>
+          <div class="dest-name" style="color:var(--tao)">Koh Tao</div>
+          <div class="dest-dates">Días 10–11 &nbsp;·&nbsp; 17–18 Ago</div>
+          <div class="dest-tags">
+            <span class="dest-tag">Buceo</span>
+            <span class="dest-tag">Tortugas</span>
+            <span class="dest-tag">PADI</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dest-card" onclick="scrollTo('dia12')" style="border-color:rgba(168,85,247,.35)">
+        <div class="dest-dot-wrap" style="background:rgba(168,85,247,.15)">🌙</div>
+        <div>
+          <div class="dest-name" style="color:var(--pha)">Koh Phangan</div>
+          <div class="dest-dates">Días 12–14 &nbsp;·&nbsp; 19–21 Ago</div>
+          <div class="dest-tags">
+            <span class="dest-tag">Half Moon Party</span>
+            <span class="dest-tag">Playas</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dest-card" onclick="scrollTo('dia15')" style="border-color:rgba(240,84,84,.35)">
+        <div class="dest-dot-wrap" style="background:rgba(240,84,84,.15)">🏖️</div>
+        <div>
+          <div class="dest-name" style="color:var(--sam)">Koh Samui</div>
+          <div class="dest-dates">Días 15–17 &nbsp;·&nbsp; 22–24 Ago</div>
+          <div class="dest-tags">
+            <span class="dest-tag">Playa</span>
+            <span class="dest-tag">Atardecer</span>
+            <span class="dest-tag">Vuelta a casa</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
