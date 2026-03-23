@@ -226,12 +226,14 @@ footer span{color:var(--gold)}
 @media(min-width:1000px){.days-grid{grid-template-columns:1fr 1fr 1fr}}
 @media(min-width:1280px){.days-grid{grid-template-columns:repeat(4,1fr)}}
 
-.tour-meter{display:flex;align-items:center;gap:6px;margin-top:4px}
-.tour-meter .tm-labels{display:flex;justify-content:space-between;width:60px;font-size:.45rem;color:var(--muted);line-height:1}
+.tour-meter{display:flex;align-items:center;gap:4px;margin-top:5px}
+.tour-meter .tm-lbl{font-size:.42rem;color:var(--muted);white-space:nowrap;line-height:1}
 .tour-meter .tm-lbl-l{color:#22c55e}
 .tour-meter .tm-lbl-r{color:#ef4444}
-.tour-meter .tm-track{width:60px;height:5px;border-radius:3px;background:rgba(255,255,255,.08);position:relative;overflow:hidden}
+.tour-meter .tm-bar-wrap{position:relative;width:50px;height:5px}
+.tour-meter .tm-track{width:100%;height:100%;border-radius:3px;background:rgba(255,255,255,.08)}
 .tour-meter .tm-fill{height:100%;border-radius:3px;position:absolute;left:0;top:0}
+.tour-meter .tm-num{position:absolute;top:-10px;font-size:.5rem;font-weight:700;transform:translateX(-50%);line-height:1}
 /* ─── LEAFLET MAP ─── */
 #travel-map{height:480px;border-radius:16px;overflow:hidden;z-index:0}
 .city-dot{width:14px;height:14px;border-radius:50%;border:2.5px solid #fff;
@@ -586,8 +588,8 @@ function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'}
           <p class="tip-body">En Bangkok merece la pena pagar un poco más por un hotel en planta alta en zona Silom/Riverside — el ruido y el olor en zonas de mochilero hacen inviable dormir. Un buen punto medio: <strong>Lub.d Bangkok Silom</strong> (hostal boutique con piscina en azotea, ~€14pp). Mucho mejor que cualquier cosa en Khao San.</p>
         </details>
         <div class="day-highlights">
-          <span class="highlight-tag">🍺 Primera cerveza tailandesa</span><span class="tour-meter"><span class="tm-track"><span class="tm-fill" style="width:20%;background:rgb(114,190,30)"></span></span><span class="tm-labels"><span class="tm-lbl-l">Local</span><span class="tm-lbl-r">Guiri</span></span></span>
-          <span class="highlight-tag">🛺 Tuk-tuk al hotel</span><span class="tour-meter"><span class="tm-track"><span class="tm-fill" style="width:50%;background:rgb(234,179,30)"></span></span><span class="tm-labels"><span class="tm-lbl-l">Local</span><span class="tm-lbl-r">Guiri</span></span></span>
+          <span class="highlight-tag">🍺 Primera cerveza tailandesa</span><span class="tour-meter"><span class="tm-lbl tm-lbl-l">Local</span><span class="tm-bar-wrap"><span class="tm-num" style="left:20%;color:rgb(114,190,30)">2</span><span class="tm-track"><span class="tm-fill" style="width:20%;background:rgb(114,190,30)"></span></span></span><span class="tm-lbl tm-lbl-r">Guiri</span></span>
+          <span class="highlight-tag">🛺 Tuk-tuk al hotel</span><span class="tour-meter"><span class="tm-lbl tm-lbl-l">Local</span><span class="tm-bar-wrap"><span class="tm-num" style="left:50%;color:rgb(234,179,30)">5</span><span class="tm-track"><span class="tm-fill" style="width:50%;background:rgb(234,179,30)"></span></span></span><span class="tm-lbl tm-lbl-r">Guiri</span></span>
           <span class="highlight-tag">🏨 Check-in nocturno</span>
         </div>
       </div>
@@ -618,10 +620,10 @@ function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'}
         
           <div class="day-meta-row">🗺️ <strong>Tour:</strong> Free tour de templos sale de <strong>Khao San Road cada mañana a las 9h</strong> (propina). Tour privado con guía ~€8pp — vale la pena para el Grand Palace, el contexto histórico lo cambia todo.</div></div>
         <div class="day-highlights">
-          <span class="highlight-tag">🏯 Grand Palace</span><span class="tour-meter"><span class="tm-track"><span class="tm-fill" style="width:90%;background:rgb(238,36,30)"></span></span><span class="tm-labels"><span class="tm-lbl-l">Local</span><span class="tm-lbl-r">Guiri</span></span></span>
-          <span class="highlight-tag">🛕 Wat Arun</span><span class="tour-meter"><span class="tm-track"><span class="tm-fill" style="width:70%;background:rgb(236,107,30)"></span></span><span class="tm-labels"><span class="tm-lbl-l">Local</span><span class="tm-lbl-r">Guiri</span></span></span>
-          <span class="highlight-tag">🍜 Pad Thai nocturno</span><span class="tour-meter"><span class="tm-track"><span class="tm-fill" style="width:50%;background:rgb(234,179,30)"></span></span><span class="tm-labels"><span class="tm-lbl-l">Local</span><span class="tm-lbl-r">Guiri</span></span></span>
-          <span class="highlight-tag">🍺 Khao San Road</span><span class="tour-meter"><span class="tm-track"><span class="tm-fill" style="width:100%;background:rgb(239,0,30)"></span></span><span class="tm-labels"><span class="tm-lbl-l">Local</span><span class="tm-lbl-r">Guiri</span></span></span>
+          <span class="highlight-tag">🏯 Grand Palace</span><span class="tour-meter"><span class="tm-lbl tm-lbl-l">Local</span><span class="tm-bar-wrap"><span class="tm-num" style="left:90%;color:rgb(238,36,30)">9</span><span class="tm-track"><span class="tm-fill" style="width:90%;background:rgb(238,36,30)"></span></span></span><span class="tm-lbl tm-lbl-r">Guiri</span></span>
+          <span class="highlight-tag">🛕 Wat Arun</span><span class="tour-meter"><span class="tm-lbl tm-lbl-l">Local</span><span class="tm-bar-wrap"><span class="tm-num" style="left:70%;color:rgb(236,107,30)">7</span><span class="tm-track"><span class="tm-fill" style="width:70%;background:rgb(236,107,30)"></span></span></span><span class="tm-lbl tm-lbl-r">Guiri</span></span>
+          <span class="highlight-tag">🍜 Pad Thai nocturno</span><span class="tour-meter"><span class="tm-lbl tm-lbl-l">Local</span><span class="tm-bar-wrap"><span class="tm-num" style="left:50%;color:rgb(234,179,30)">5</span><span class="tm-track"><span class="tm-fill" style="width:50%;background:rgb(234,179,30)"></span></span></span><span class="tm-lbl tm-lbl-r">Guiri</span></span>
+          <span class="highlight-tag">🍺 Khao San Road</span><span class="tour-meter"><span class="tm-lbl tm-lbl-l">Local</span><span class="tm-bar-wrap"><span class="tm-num" style="left:100%;color:rgb(239,0,30)">10</span><span class="tm-track"><span class="tm-fill" style="width:100%;background:rgb(239,0,30)"></span></span></span><span class="tm-lbl tm-lbl-r">Guiri</span></span>
         </div>
       </div>
     </div>
@@ -651,10 +653,10 @@ function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'}
         
           <div class="day-meta-row">🗺️ <strong>Tour:</strong> <strong>Free Tour Bangkok</strong> (varios operadores, buscar en GetYourGuide) — buena intro con guía local en las zonas menos turísticas. También hay tours nocturnos de street food ~€20pp que son una pasada.</div></div>
         <div class="day-highlights">
-          <span class="highlight-tag">🛶 Amphawa (no Damnoen)</span><span class="tour-meter"><span class="tm-track"><span class="tm-fill" style="width:20%;background:rgb(114,190,30)"></span></span><span class="tm-labels"><span class="tm-lbl-l">Local</span><span class="tm-lbl-r">Guiri</span></span></span>
-          <span class="highlight-tag">🛍️ Shopping Bangkok</span><span class="tour-meter"><span class="tm-track"><span class="tm-fill" style="width:70%;background:rgb(236,107,30)"></span></span><span class="tm-labels"><span class="tm-lbl-l">Local</span><span class="tm-lbl-r">Guiri</span></span></span>
-          <span class="highlight-tag">🌆 Rooftop bar</span><span class="tour-meter"><span class="tm-track"><span class="tm-fill" style="width:60%;background:rgb(235,143,30)"></span></span><span class="tm-labels"><span class="tm-lbl-l">Local</span><span class="tm-lbl-r">Guiri</span></span></span>
-          <span class="highlight-tag">🍹 Cócteles con vistas</span><span class="tour-meter"><span class="tm-track"><span class="tm-fill" style="width:50%;background:rgb(234,179,30)"></span></span><span class="tm-labels"><span class="tm-lbl-l">Local</span><span class="tm-lbl-r">Guiri</span></span></span>
+          <span class="highlight-tag">🛶 Amphawa (no Damnoen)</span><span class="tour-meter"><span class="tm-lbl tm-lbl-l">Local</span><span class="tm-bar-wrap"><span class="tm-num" style="left:20%;color:rgb(114,190,30)">2</span><span class="tm-track"><span class="tm-fill" style="width:20%;background:rgb(114,190,30)"></span></span></span><span class="tm-lbl tm-lbl-r">Guiri</span></span>
+          <span class="highlight-tag">🛍️ Shopping Bangkok</span><span class="tour-meter"><span class="tm-lbl tm-lbl-l">Local</span><span class="tm-bar-wrap"><span class="tm-num" style="left:70%;color:rgb(236,107,30)">7</span><span class="tm-track"><span class="tm-fill" style="width:70%;background:rgb(236,107,30)"></span></span></span><span class="tm-lbl tm-lbl-r">Guiri</span></span>
+          <span class="highlight-tag">🌆 Rooftop bar</span><span class="tour-meter"><span class="tm-lbl tm-lbl-l">Local</span><span class="tm-bar-wrap"><span class="tm-num" style="left:60%;color:rgb(235,143,30)">6</span><span class="tm-track"><span class="tm-fill" style="width:60%;background:rgb(235,143,30)"></span></span></span><span class="tm-lbl tm-lbl-r">Guiri</span></span>
+          <span class="highlight-tag">🍹 Cócteles con vistas</span><span class="tour-meter"><span class="tm-lbl tm-lbl-l">Local</span><span class="tm-bar-wrap"><span class="tm-num" style="left:50%;color:rgb(234,179,30)">5</span><span class="tm-track"><span class="tm-fill" style="width:50%;background:rgb(234,179,30)"></span></span></span><span class="tm-lbl tm-lbl-r">Guiri</span></span>
         </div>
       </div>
     </div>
@@ -683,9 +685,9 @@ function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'}
           <div class="day-meta-row">💡 <strong>Tip:</strong> Wat Pho Thai Traditional Medical School es la fuente oficial — 1h por 260 THB (~€7). Evita los puestos de calle sin cualificación.</div>
         </div>
         <div class="day-highlights">
-          <span class="highlight-tag">💆 Masaje tailandés</span><span class="tour-meter"><span class="tm-track"><span class="tm-fill" style="width:50%;background:rgb(234,179,30)"></span></span><span class="tm-labels"><span class="tm-lbl-l">Local</span><span class="tm-lbl-r">Guiri</span></span></span>
-          <span class="highlight-tag">🏛️ Jim Thompson House</span><span class="tour-meter"><span class="tm-track"><span class="tm-fill" style="width:50%;background:rgb(234,179,30)"></span></span><span class="tm-labels"><span class="tm-lbl-l">Local</span><span class="tm-lbl-r">Guiri</span></span></span>
-          <span class="highlight-tag">🌙 Sukhumvit nightlife</span><span class="tour-meter"><span class="tm-track"><span class="tm-fill" style="width:50%;background:rgb(234,179,30)"></span></span><span class="tm-labels"><span class="tm-lbl-l">Local</span><span class="tm-lbl-r">Guiri</span></span></span>
+          <span class="highlight-tag">💆 Masaje tailandés</span><span class="tour-meter"><span class="tm-lbl tm-lbl-l">Local</span><span class="tm-bar-wrap"><span class="tm-num" style="left:50%;color:rgb(234,179,30)">5</span><span class="tm-track"><span class="tm-fill" style="width:50%;background:rgb(234,179,30)"></span></span></span><span class="tm-lbl tm-lbl-r">Guiri</span></span>
+          <span class="highlight-tag">🏛️ Jim Thompson House</span><span class="tour-meter"><span class="tm-lbl tm-lbl-l">Local</span><span class="tm-bar-wrap"><span class="tm-num" style="left:50%;color:rgb(234,179,30)">5</span><span class="tm-track"><span class="tm-fill" style="width:50%;background:rgb(234,179,30)"></span></span></span><span class="tm-lbl tm-lbl-r">Guiri</span></span>
+          <span class="highlight-tag">🌙 Sukhumvit nightlife</span><span class="tour-meter"><span class="tm-lbl tm-lbl-l">Local</span><span class="tm-bar-wrap"><span class="tm-num" style="left:50%;color:rgb(234,179,30)">5</span><span class="tm-track"><span class="tm-fill" style="width:50%;background:rgb(234,179,30)"></span></span></span><span class="tm-lbl tm-lbl-r">Guiri</span></span>
         </div>
       </div>
     </div>
@@ -716,8 +718,8 @@ function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'}
           <div class="day-meta-row">🗺️ <strong>Tour:</strong> <strong>Free Walking Tour Chiang Mai</strong> — sale del Tha Phae Gate cada mañana. Perfecto para orientarse el primer día y que un local te cuente la historia del norte.</div></div>
         <div class="day-highlights">
           <span class="highlight-tag">✈️ Vuelo 1h</span>
-          <span class="highlight-tag">🍜 Khao Soi debut</span><span class="tour-meter"><span class="tm-track"><span class="tm-fill" style="width:10%;background:rgb(74,193,30)"></span></span><span class="tm-labels"><span class="tm-lbl-l">Local</span><span class="tm-lbl-r">Guiri</span></span></span>
-          <span class="highlight-tag">🛍️ Night Bazaar</span><span class="tour-meter"><span class="tm-track"><span class="tm-fill" style="width:70%;background:rgb(236,107,30)"></span></span><span class="tm-labels"><span class="tm-lbl-l">Local</span><span class="tm-lbl-r">Guiri</span></span></span>
+          <span class="highlight-tag">🍜 Khao Soi debut</span><span class="tour-meter"><span class="tm-lbl tm-lbl-l">Local</span><span class="tm-bar-wrap"><span class="tm-num" style="left:10%;color:rgb(74,193,30)">1</span><span class="tm-track"><span class="tm-fill" style="width:10%;background:rgb(74,193,30)"></span></span></span><span class="tm-lbl tm-lbl-r">Guiri</span></span>
+          <span class="highlight-tag">🛍️ Night Bazaar</span><span class="tour-meter"><span class="tm-lbl tm-lbl-l">Local</span><span class="tm-bar-wrap"><span class="tm-num" style="left:70%;color:rgb(236,107,30)">7</span><span class="tm-track"><span class="tm-fill" style="width:70%;background:rgb(236,107,30)"></span></span></span><span class="tm-lbl tm-lbl-r">Guiri</span></span>
         </div>
       </div>
     </div>
@@ -746,9 +748,9 @@ function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'}
           <div class="day-meta-row">💡 <strong>Tip:</strong> Alternativas éticas verificadas: <strong>Changchill Elephant Sanctuary</strong> o <strong>Living Green Elephant Sanctuary</strong>. Ambos modelo de solo observación, sin contacto forzado, ~€65pp.</div>
         </div>
         <div class="day-highlights">
-          <span class="highlight-tag">🐘 Elefantes éticos</span><span class="tour-meter"><span class="tm-track"><span class="tm-fill" style="width:30%;background:rgb(154,186,30)"></span></span><span class="tm-labels"><span class="tm-lbl-l">Local</span><span class="tm-lbl-r">Guiri</span></span></span>
+          <span class="highlight-tag">🐘 Elefantes éticos</span><span class="tour-meter"><span class="tm-lbl tm-lbl-l">Local</span><span class="tm-bar-wrap"><span class="tm-num" style="left:30%;color:rgb(154,186,30)">3</span><span class="tm-track"><span class="tm-fill" style="width:30%;background:rgb(154,186,30)"></span></span></span><span class="tm-lbl tm-lbl-r">Guiri</span></span>
           <span class="highlight-tag">🛁 Baño en el río</span>
-          <span class="highlight-tag">📸 Fotos de vida</span><span class="tour-meter"><span class="tm-track"><span class="tm-fill" style="width:10%;background:rgb(74,193,30)"></span></span><span class="tm-labels"><span class="tm-lbl-l">Local</span><span class="tm-lbl-r">Guiri</span></span></span>
+          <span class="highlight-tag">📸 Fotos de vida</span><span class="tour-meter"><span class="tm-lbl tm-lbl-l">Local</span><span class="tm-bar-wrap"><span class="tm-num" style="left:10%;color:rgb(74,193,30)">1</span><span class="tm-track"><span class="tm-fill" style="width:10%;background:rgb(74,193,30)"></span></span></span><span class="tm-lbl tm-lbl-r">Guiri</span></span>
         </div>
       </div>
     </div>
@@ -782,9 +784,9 @@ function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'}
           <p class="tip-body">Dentro del foso hay hostales excelentes por €8-15pp: <strong>De-Residence</strong> o <strong>Stamp House</strong> son joyas baratas en pleno centro histórico. Si queréis darse un capricho una noche: <strong>Rachamankha</strong> (~€80pp, jardín zen, la mejor relación lujo-autenticidad de la ciudad).</p>
         </details>
         <div class="day-highlights">
-          <span class="highlight-tag">🛕 Wat Chedi Luang</span><span class="tour-meter"><span class="tm-track"><span class="tm-fill" style="width:50%;background:rgb(234,179,30)"></span></span><span class="tm-labels"><span class="tm-lbl-l">Local</span><span class="tm-lbl-r">Guiri</span></span></span>
-          <span class="highlight-tag">🚶 Old City a pie</span><span class="tour-meter"><span class="tm-track"><span class="tm-fill" style="width:30%;background:rgb(154,186,30)"></span></span><span class="tm-labels"><span class="tm-lbl-l">Local</span><span class="tm-lbl-r">Guiri</span></span></span>
-          <span class="highlight-tag">🍢 Night Market</span><span class="tour-meter"><span class="tm-track"><span class="tm-fill" style="width:50%;background:rgb(234,179,30)"></span></span><span class="tm-labels"><span class="tm-lbl-l">Local</span><span class="tm-lbl-r">Guiri</span></span></span>
+          <span class="highlight-tag">🛕 Wat Chedi Luang</span><span class="tour-meter"><span class="tm-lbl tm-lbl-l">Local</span><span class="tm-bar-wrap"><span class="tm-num" style="left:50%;color:rgb(234,179,30)">5</span><span class="tm-track"><span class="tm-fill" style="width:50%;background:rgb(234,179,30)"></span></span></span><span class="tm-lbl tm-lbl-r">Guiri</span></span>
+          <span class="highlight-tag">🚶 Old City a pie</span><span class="tour-meter"><span class="tm-lbl tm-lbl-l">Local</span><span class="tm-bar-wrap"><span class="tm-num" style="left:30%;color:rgb(154,186,30)">3</span><span class="tm-track"><span class="tm-fill" style="width:30%;background:rgb(154,186,30)"></span></span></span><span class="tm-lbl tm-lbl-r">Guiri</span></span>
+          <span class="highlight-tag">🍢 Night Market</span><span class="tour-meter"><span class="tm-lbl tm-lbl-l">Local</span><span class="tm-bar-wrap"><span class="tm-num" style="left:50%;color:rgb(234,179,30)">5</span><span class="tm-track"><span class="tm-fill" style="width:50%;background:rgb(234,179,30)"></span></span></span><span class="tm-lbl tm-lbl-r">Guiri</span></span>
         </div>
       </div>
     </div>
@@ -814,9 +816,9 @@ function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'}
         
           <div class="day-meta-row">🗺️ <strong>Tour:</strong> Para quien no se fíe al volante: <strong>guided moto tour</strong> con guía local (~€40pp, almuerzo en aldea incluido). Opción más segura y con paradas en sitios que no encontraríais solos.</div></div>
         <div class="day-highlights">
-          <span class="highlight-tag">🏍️ Ruta en moto</span><span class="tour-meter"><span class="tm-track"><span class="tm-fill" style="width:10%;background:rgb(74,193,30)"></span></span><span class="tm-labels"><span class="tm-lbl-l">Local</span><span class="tm-lbl-r">Guiri</span></span></span>
-          <span class="highlight-tag">💦 Cascadas</span><span class="tour-meter"><span class="tm-track"><span class="tm-fill" style="width:20%;background:rgb(114,190,30)"></span></span><span class="tm-labels"><span class="tm-lbl-l">Local</span><span class="tm-lbl-r">Guiri</span></span></span>
-          <span class="highlight-tag">🗻 Vistas de montaña</span><span class="tour-meter"><span class="tm-track"><span class="tm-fill" style="width:20%;background:rgb(114,190,30)"></span></span><span class="tm-labels"><span class="tm-lbl-l">Local</span><span class="tm-lbl-r">Guiri</span></span></span>
+          <span class="highlight-tag">🏍️ Ruta en moto</span><span class="tour-meter"><span class="tm-lbl tm-lbl-l">Local</span><span class="tm-bar-wrap"><span class="tm-num" style="left:10%;color:rgb(74,193,30)">1</span><span class="tm-track"><span class="tm-fill" style="width:10%;background:rgb(74,193,30)"></span></span></span><span class="tm-lbl tm-lbl-r">Guiri</span></span>
+          <span class="highlight-tag">💦 Cascadas</span><span class="tour-meter"><span class="tm-lbl tm-lbl-l">Local</span><span class="tm-bar-wrap"><span class="tm-num" style="left:20%;color:rgb(114,190,30)">2</span><span class="tm-track"><span class="tm-fill" style="width:20%;background:rgb(114,190,30)"></span></span></span><span class="tm-lbl tm-lbl-r">Guiri</span></span>
+          <span class="highlight-tag">🗻 Vistas de montaña</span><span class="tour-meter"><span class="tm-lbl tm-lbl-l">Local</span><span class="tm-bar-wrap"><span class="tm-num" style="left:20%;color:rgb(114,190,30)">2</span><span class="tm-track"><span class="tm-fill" style="width:20%;background:rgb(114,190,30)"></span></span></span><span class="tm-lbl tm-lbl-r">Guiri</span></span>
         </div>
       </div>
     </div>
@@ -847,7 +849,7 @@ function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'}
         <div class="day-highlights">
           <span class="highlight-tag">⛵ Ferry a la isla</span>
           <span class="highlight-tag">🌅 Primer atardecer insular</span>
-          <span class="highlight-tag">🤿 Open Water en el bolsillo</span><span class="tour-meter"><span class="tm-track"><span class="tm-fill" style="width:50%;background:rgb(234,179,30)"></span></span><span class="tm-labels"><span class="tm-lbl-l">Local</span><span class="tm-lbl-r">Guiri</span></span></span>
+          <span class="highlight-tag">🤿 Open Water en el bolsillo</span><span class="tour-meter"><span class="tm-lbl tm-lbl-l">Local</span><span class="tm-bar-wrap"><span class="tm-num" style="left:50%;color:rgb(234,179,30)">5</span><span class="tm-track"><span class="tm-fill" style="width:50%;background:rgb(234,179,30)"></span></span></span><span class="tm-lbl tm-lbl-r">Guiri</span></span>
         </div>
       </div>
     </div>
@@ -881,9 +883,9 @@ function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'}
           <p class="tip-body">Bungalows de madera en la playa de Sairee: €12-20pp. Muchas dive schools ofrecen descuentos en alojamiento si hacéis varias inmersiones con ellos — preguntad al registraros.</p>
         </details>
         <div class="day-highlights">
-          <span class="highlight-tag">🤿 Fun dives certificados</span><span class="tour-meter"><span class="tm-track"><span class="tm-fill" style="width:30%;background:rgb(154,186,30)"></span></span><span class="tm-labels"><span class="tm-lbl-l">Local</span><span class="tm-lbl-r">Guiri</span></span></span>
+          <span class="highlight-tag">🤿 Fun dives certificados</span><span class="tour-meter"><span class="tm-lbl tm-lbl-l">Local</span><span class="tm-bar-wrap"><span class="tm-num" style="left:30%;color:rgb(154,186,30)">3</span><span class="tm-track"><span class="tm-fill" style="width:30%;background:rgb(154,186,30)"></span></span></span><span class="tm-lbl tm-lbl-r">Guiri</span></span>
           <span class="highlight-tag">🐋 Posible tiburón ballena</span>
-          <span class="highlight-tag">🐢 Tortugas y manta rays</span><span class="tour-meter"><span class="tm-track"><span class="tm-fill" style="width:30%;background:rgb(154,186,30)"></span></span><span class="tm-labels"><span class="tm-lbl-l">Local</span><span class="tm-lbl-r">Guiri</span></span></span>
+          <span class="highlight-tag">🐢 Tortugas y manta rays</span><span class="tour-meter"><span class="tm-lbl tm-lbl-l">Local</span><span class="tm-bar-wrap"><span class="tm-num" style="left:30%;color:rgb(154,186,30)">3</span><span class="tm-track"><span class="tm-fill" style="width:30%;background:rgb(154,186,30)"></span></span></span><span class="tm-lbl tm-lbl-r">Guiri</span></span>
         </div>
       </div>
     </div>
@@ -913,9 +915,9 @@ function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'}
           <div class="day-meta-row">🗺️ <strong>Tour recomendado:</strong> Day trip a <strong>Sail Rock</strong> con dive school (~€70pp, 3 inmersiones incluidas) — el pinnacle más espectacular del Golfo y con buenas posibilidades de ver tiburón ballena.</div>
         </div>
         <div class="day-highlights">
-          <span class="highlight-tag">🤿 Sail Rock</span><span class="tour-meter"><span class="tm-track"><span class="tm-fill" style="width:10%;background:rgb(74,193,30)"></span></span><span class="tm-labels"><span class="tm-lbl-l">Local</span><span class="tm-lbl-r">Guiri</span></span></span>
-          <span class="highlight-tag">🎓 Advanced OW opcional</span><span class="tour-meter"><span class="tm-track"><span class="tm-fill" style="width:30%;background:rgb(154,186,30)"></span></span><span class="tm-labels"><span class="tm-lbl-l">Local</span><span class="tm-lbl-r">Guiri</span></span></span>
-          <span class="highlight-tag">🌅 Tanote Bay sunset</span><span class="tour-meter"><span class="tm-track"><span class="tm-fill" style="width:0%;background:rgb(34,197,30)"></span></span><span class="tm-labels"><span class="tm-lbl-l">Local</span><span class="tm-lbl-r">Guiri</span></span></span>
+          <span class="highlight-tag">🤿 Sail Rock</span><span class="tour-meter"><span class="tm-lbl tm-lbl-l">Local</span><span class="tm-bar-wrap"><span class="tm-num" style="left:10%;color:rgb(74,193,30)">1</span><span class="tm-track"><span class="tm-fill" style="width:10%;background:rgb(74,193,30)"></span></span></span><span class="tm-lbl tm-lbl-r">Guiri</span></span>
+          <span class="highlight-tag">🎓 Advanced OW opcional</span><span class="tour-meter"><span class="tm-lbl tm-lbl-l">Local</span><span class="tm-bar-wrap"><span class="tm-num" style="left:30%;color:rgb(154,186,30)">3</span><span class="tm-track"><span class="tm-fill" style="width:30%;background:rgb(154,186,30)"></span></span></span><span class="tm-lbl tm-lbl-r">Guiri</span></span>
+          <span class="highlight-tag">🌅 Tanote Bay sunset</span><span class="tour-meter"><span class="tm-lbl tm-lbl-l">Local</span><span class="tm-bar-wrap"><span class="tm-num" style="left:0%;color:rgb(34,197,30)">0</span><span class="tm-track"><span class="tm-fill" style="width:0%;background:rgb(34,197,30)"></span></span></span><span class="tm-lbl tm-lbl-r">Guiri</span></span>
         </div>
       </div>
     </div>
@@ -945,8 +947,8 @@ function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'}
         </div>
         <div class="day-highlights">
           <span class="highlight-tag">⛵ Ferry entre islas</span>
-          <span class="highlight-tag">🛵 Scooter por la isla</span><span class="tour-meter"><span class="tm-track"><span class="tm-fill" style="width:30%;background:rgb(154,186,30)"></span></span><span class="tm-labels"><span class="tm-lbl-l">Local</span><span class="tm-lbl-r">Guiri</span></span></span>
-          <span class="highlight-tag">🌴 Haad Rin Beach</span><span class="tour-meter"><span class="tm-track"><span class="tm-fill" style="width:70%;background:rgb(236,107,30)"></span></span><span class="tm-labels"><span class="tm-lbl-l">Local</span><span class="tm-lbl-r">Guiri</span></span></span>
+          <span class="highlight-tag">🛵 Scooter por la isla</span><span class="tour-meter"><span class="tm-lbl tm-lbl-l">Local</span><span class="tm-bar-wrap"><span class="tm-num" style="left:30%;color:rgb(154,186,30)">3</span><span class="tm-track"><span class="tm-fill" style="width:30%;background:rgb(154,186,30)"></span></span></span><span class="tm-lbl tm-lbl-r">Guiri</span></span>
+          <span class="highlight-tag">🌴 Haad Rin Beach</span><span class="tour-meter"><span class="tm-lbl tm-lbl-l">Local</span><span class="tm-bar-wrap"><span class="tm-num" style="left:70%;color:rgb(236,107,30)">7</span><span class="tm-track"><span class="tm-fill" style="width:70%;background:rgb(236,107,30)"></span></span></span><span class="tm-lbl tm-lbl-r">Guiri</span></span>
         </div>
       </div>
     </div>
@@ -976,8 +978,8 @@ function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'}
         
           <div class="day-meta-row">🗺️ <strong>Tour:</strong> No hace falta tour — la fiesta se explica sola. Pero si queréis info local sobre afterparties y playas secretas del día siguiente, preguntad en el hostal.</div></div>
         <div class="day-highlights">
-          <span class="highlight-tag">🌙 Half Moon Party</span><span class="tour-meter"><span class="tm-track"><span class="tm-fill" style="width:40%;background:rgb(194,183,30)"></span></span><span class="tm-labels"><span class="tm-lbl-l">Local</span><span class="tm-lbl-r">Guiri</span></span></span>
-          <span class="highlight-tag">🎉 Vibe jungle</span><span class="tour-meter"><span class="tm-track"><span class="tm-fill" style="width:30%;background:rgb(154,186,30)"></span></span><span class="tm-labels"><span class="tm-lbl-l">Local</span><span class="tm-lbl-r">Guiri</span></span></span>
+          <span class="highlight-tag">🌙 Half Moon Party</span><span class="tour-meter"><span class="tm-lbl tm-lbl-l">Local</span><span class="tm-bar-wrap"><span class="tm-num" style="left:40%;color:rgb(194,183,30)">4</span><span class="tm-track"><span class="tm-fill" style="width:40%;background:rgb(194,183,30)"></span></span></span><span class="tm-lbl tm-lbl-r">Guiri</span></span>
+          <span class="highlight-tag">🎉 Vibe jungle</span><span class="tour-meter"><span class="tm-lbl tm-lbl-l">Local</span><span class="tm-bar-wrap"><span class="tm-num" style="left:30%;color:rgb(154,186,30)">3</span><span class="tm-track"><span class="tm-fill" style="width:30%;background:rgb(154,186,30)"></span></span></span><span class="tm-lbl tm-lbl-r">Guiri</span></span>
           <span class="highlight-tag">🎶 Múltiples escenarios</span>
         </div>
       </div>
